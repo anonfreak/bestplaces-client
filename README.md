@@ -1,2 +1,2 @@
-# bestplaces
+# BestPlaces
 Track your favorite places and disover more of them.
