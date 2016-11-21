@@ -1,3 +1,4 @@
+#noinspection CucumberUndefinedStep
 Feature: Searching
 
   As a user
@@ -8,7 +9,7 @@ Feature: Searching
     And The current location is "Karlsruhe"
     When I enter "Pizza" in search bar
     And I press "Search"
-    Then I should see "Search results" for "Pizza" in "Karlsruhe"
+    Then I should see "Search "results" for "Pizza" in "Karlsruhe"
   Scenario: specifiy location
     Given I pressed the "Search Bar"
     When I press on the "Navigator symbol"

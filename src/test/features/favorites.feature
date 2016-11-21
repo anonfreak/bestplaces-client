@@ -1,9 +1,10 @@
+#noinspection CucumberUndefinedStep
 Feature: Manage Favorites
 
   As a user
   I want to manage my favorite places
   so that I can list and edit the most important places for me at one sight
-  
+
   Scenario: List favorites
     Given I am in the "Timeline"
     When I press the Button "Favorites"
