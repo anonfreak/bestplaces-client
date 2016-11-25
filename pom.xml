@@ -119,9 +119,17 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${jetty.plugin.version}</version>
+				<version>9.4.0.RC2</version>
 				<configuration>
 					<scanIntervalSeconds>2</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/</contextPath>
+					</webApp>
+					<scanTargets>
+						<scanTarget>
+							target/classes
+						</scanTarget>
+					</scanTargets>
 				</configuration>
 			</plugin>
 

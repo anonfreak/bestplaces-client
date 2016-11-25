@@ -4,13 +4,14 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
+import de.bestplaces.view.EditUserData;
+import de.bestplaces.view.Search;
+import de.bestplaces.view.Timeline;
+import de.bestplaces.view.Welcome;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -22,24 +23,24 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class MyUI extends UI {
 
+    public static Navigator navigator;
+
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        final VerticalLayout layout = new VerticalLayout();
-        
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        getPage().setTitle("BestPlaces");
 
-        Button button = new Button("Click Me");
-        button.addClickListener( e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
-        
-        layout.addComponents(name, button);
-        layout.setMargin(true);
-        layout.setSpacing(true);
-        
-        setContent(layout);
+        // Create a navigator to control the views
+        navigator = new Navigator(this, this);
+
+        // Create and register the views
+        navigator.addView(Welcome.WELCOME, Welcome.class);
+        //TODO: Anstelle der Timeline wird hier das Dashboard eingefügt
+        navigator.addView(Timeline.TIMELINE, Timeline.class);
+        navigator.addView(Search.SEARCH, Search.class);
+        navigator.addView(EditUserData.EDITUSERDATA, EditUserData.class);
+
+        navigator.navigateTo(Welcome.WELCOME);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
