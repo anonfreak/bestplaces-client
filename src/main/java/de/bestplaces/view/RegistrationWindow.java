@@ -40,7 +40,6 @@ public class RegistrationWindow extends Window {
         lastNameField.setRequired(true);
 
         TextField hometownField = new TextField("Hometown");
-        hometownField.setRequired(true);
 
         TextField userNameField = new TextField("Username");
         userNameField.setRequired(true);
