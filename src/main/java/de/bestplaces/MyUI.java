@@ -7,11 +7,16 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.*;
-import de.bestplaces.view.EditUserData;
-import de.bestplaces.view.Search;
-import de.bestplaces.view.Timeline;
-import de.bestplaces.view.Welcome;
+import de.bestplaces.model.User;
+import de.bestplaces.view.dashboard.components.EditUserData;
+import de.bestplaces.view.dashboard.components.Search;
+import de.bestplaces.view.dashboard.components.Timeline;
+import de.bestplaces.view.dashboard.view.DashboardView;
+import de.bestplaces.view.dashboard.view.MainView;
+import de.bestplaces.view.others.Login;
+import de.bestplaces.view.others.Welcome;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -36,9 +41,17 @@ public class MyUI extends UI {
         // Create and register the views
         navigator.addView(Welcome.WELCOME, Welcome.class);
         //TODO: Anstelle der Timeline wird hier das Dashboard eingefügt
+        navigator.addView(DashboardView.DASHBOARDVIEW, DashboardView.class);
         navigator.addView(Timeline.TIMELINE, Timeline.class);
         navigator.addView(Search.SEARCH, Search.class);
         navigator.addView(EditUserData.EDITUSERDATA, EditUserData.class);
+
+
+
+//        setContent(new MainView());
+//        removeStyleName("loginview");
+//        getNavigator().navigateTo(getNavigator().getState());
+
 
         navigator.navigateTo(Welcome.WELCOME);
     }

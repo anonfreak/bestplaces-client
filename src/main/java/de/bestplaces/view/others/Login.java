@@ -1,7 +1,11 @@
-package de.bestplaces.view;
+package de.bestplaces.view.others;
 
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;
+import de.bestplaces.view.dashboard.DashboardUI;
+import de.bestplaces.view.dashboard.components.Timeline;
+import de.bestplaces.view.dashboard.view.DashboardView;
+import de.bestplaces.view.dashboard.view.MainView;
 
 /**
  * Created by franz on 24.11.2016.
@@ -48,6 +52,7 @@ public class Login extends Window {
            //hier die Daten aus der Datenbank abfragen und auf Gleichheit prüfen
            //wenn richtig
            close();
-           MyUI.navigator.navigateTo(Timeline.TIMELINE);
+
+           MyUI.getCurrent().setContent(new MainView());
        }
 }

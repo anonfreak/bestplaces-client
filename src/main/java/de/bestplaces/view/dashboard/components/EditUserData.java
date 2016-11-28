@@ -1,9 +1,8 @@
-package de.bestplaces.view;
+package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
-import de.bestplaces.controller.UserDataController;
 
 import static de.bestplaces.MyUI.navigator;
 

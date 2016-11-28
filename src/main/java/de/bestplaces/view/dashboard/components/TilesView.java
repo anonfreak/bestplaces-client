@@ -1,7 +1,6 @@
-package de.bestplaces.view;
+package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 
 /**

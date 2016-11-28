@@ -1,4 +1,4 @@
-package de.bestplaces.view;
+package de.bestplaces.view.others;
 
 
 import com.vaadin.ui.*;

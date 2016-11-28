@@ -1,4 +1,4 @@
-package de.bestplaces.view;
+package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
