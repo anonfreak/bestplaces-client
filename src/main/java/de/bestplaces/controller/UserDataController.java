@@ -5,12 +5,17 @@ package de.bestplaces.controller;
  */
 public class UserDataController {
 
-    public void saveChanges()
+    public void saveDataChanges()
     {
 
     }
 
-    public void saveData()
+    public void createUser()
+    {
+
+    }
+
+    public void removeUser()
     {
 
     }

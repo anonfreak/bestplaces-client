@@ -12,7 +12,7 @@ import de.bestplaces.view.dashboard.components.Timeline;
 
 public enum DashboardViewType {
 
-    DASHBOARD("timeline", Timeline.class, FontAwesome.HOME, true), SEARCH("search", Search.class, FontAwesome.SEARCH, true);
+    DASHBOARD("timeline", Timeline.class, FontAwesome.HOME, false), SEARCH("search", Search.class, FontAwesome.SEARCH, false);
 //    DASHBOARD("dashboard", DashboardView.class, FontAwesome.HOME, true), SALES(
 //            "sales", SalesView.class, FontAwesome.BAR_CHART_O, false), TRANSACTIONS(
 //            "transactions", TransactionsView.class, FontAwesome.TABLE, false), REPORTS(
