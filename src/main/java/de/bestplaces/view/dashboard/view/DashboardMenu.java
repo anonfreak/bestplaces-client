@@ -4,9 +4,11 @@ package de.bestplaces.view.dashboard.view;
  * Created by franz on 28.11.2016.
  */
 
+import de.bestplaces.MyUI;
 import de.bestplaces.model.User;
 
 
+import de.bestplaces.view.dashboard.components.EditUserData;
 import de.bestplaces.view.dashboard.event.DashboardEvent.UserLoggedOutEvent;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.ThemeResource;
@@ -28,6 +30,8 @@ import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
+
+import static de.bestplaces.view.dashboard.components.EditUserData.EDITUSERDATA;
 
 /**
  * A responsive menu component providing user information and the controls for
@@ -99,6 +103,8 @@ public final class DashboardMenu extends CustomComponent {
             @Override
             public void menuSelected(final MenuItem selectedItem) {
 //                ProfilePreferencesWindow.open(user, false);
+                UI.getCurrent().getNavigator()
+                        .navigateTo(EditUserData.EDITUSERDATA);
             }
         });
         settingsItem.addSeparator();

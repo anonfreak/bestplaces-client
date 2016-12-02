@@ -7,12 +7,14 @@ package de.bestplaces.view.dashboard.view;
 import com.vaadin.navigator.View;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Resource;
+import de.bestplaces.view.dashboard.components.EditUserData;
 import de.bestplaces.view.dashboard.components.Search;
 import de.bestplaces.view.dashboard.components.Timeline;
 
 public enum DashboardViewType {
 
-    DASHBOARD("timeline", Timeline.class, FontAwesome.HOME, false), SEARCH("search", Search.class, FontAwesome.SEARCH, false);
+    DASHBOARD("timeline", Timeline.class, FontAwesome.HOME, false), SEARCH("search", Search.class, FontAwesome.SEARCH, false),
+    EDITUSERDATA("Edit User Data", EditUserData.class, FontAwesome.EDIT, false);
 //    DASHBOARD("dashboard", DashboardView.class, FontAwesome.HOME, true), SALES(
 //            "sales", SalesView.class, FontAwesome.BAR_CHART_O, false), TRANSACTIONS(
 //            "transactions", TransactionsView.class, FontAwesome.TABLE, false), REPORTS(

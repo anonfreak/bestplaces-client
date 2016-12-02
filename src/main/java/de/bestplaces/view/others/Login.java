@@ -2,9 +2,6 @@ package de.bestplaces.view.others;
 
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;
-import de.bestplaces.view.dashboard.DashboardUI;
-import de.bestplaces.view.dashboard.components.Timeline;
-import de.bestplaces.view.dashboard.view.DashboardView;
 import de.bestplaces.view.dashboard.view.MainView;
 
 /**
