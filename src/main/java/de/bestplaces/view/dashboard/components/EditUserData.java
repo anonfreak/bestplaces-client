@@ -23,6 +23,7 @@ public class EditUserData extends FormLayout implements View {
 
         //TODO: Controller echte Daten holen
         Label labelEditUserData = new Label("Edit User Data");
+        labelEditUserData.setStyleName("huge");
 
         TextField firstNameField = new TextField("First name");
         firstNameField.setRequired(true);

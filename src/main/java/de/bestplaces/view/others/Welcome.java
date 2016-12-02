@@ -19,7 +19,8 @@ public class Welcome extends VerticalLayout implements View {
     {
         VerticalLayout layout = new VerticalLayout();
         Label welcomeLabel = new Label("Welcome to BestPlaces");
-        welcomeLabel.setWidth("170px");
+        welcomeLabel.setWidth("280px");
+        welcomeLabel.setStyleName("huge");
         layout.addComponent(welcomeLabel);
 
         HorizontalLayout panelLayout = new HorizontalLayout();

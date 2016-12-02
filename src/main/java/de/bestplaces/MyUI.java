@@ -35,17 +35,9 @@ public class MyUI extends UI {
 
         // Create and register the views
         navigator.addView(Welcome.WELCOME, Welcome.class);
-        //TODO: Anstelle der Timeline wird hier das Dashboard eingefügt
         navigator.addView(Timeline.TIMELINE, Timeline.class);
         navigator.addView(Search.SEARCH, Search.class);
         navigator.addView(EditUserData.EDITUSERDATA, EditUserData.class);
-
-
-
-//        setContent(new MainView());
-//        removeStyleName("loginview");
-//        getNavigator().navigateTo(getNavigator().getState());
-
 
         navigator.navigateTo(Welcome.WELCOME);
     }
