@@ -1,30 +1,35 @@
 package de.bestplaces.model;
 
-import com.vaadin.ui.Calendar;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Calendar;
 
 /**
  * Created by franz on 25.11.2016.
  */
 public class User {
-
+    @JsonProperty(value = "username")
     private String username;
+    @JsonProperty(value = "first_name")
     private String firstName;
+    @JsonProperty(value = "last_name")
     private String lastName;
+    @JsonProperty(value = "email")
     private String email;
+    @JsonProperty(value = "password")
     private String password;
+    @JsonProperty(value = "hometown")
     private String hometown;
-    private Calendar createTime;
 
-    public User(String username, String firstName, String lastName, String email, String password, String hometown, Calendar createTime) {
+    public User(String username, String firstName, String lastName, String email, String password, String hometown) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.hometown = hometown;
-        this.createTime = createTime;
+
     }
 
     public String getUsername() {
@@ -73,13 +78,5 @@ public class User {
 
     public void setHometown(String hometown) {
         this.hometown = hometown;
-    }
-
-    public Calendar getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Calendar createTime) {
-        this.createTime = createTime;
     }
 }
