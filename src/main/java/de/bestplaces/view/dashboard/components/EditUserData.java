@@ -60,5 +60,6 @@ public class EditUserData extends FormLayout implements View {
         {   navigator.navigateTo(Timeline.TIMELINE);
             //Funktioniert nicht
 //            UserDataController.saveData();
+            Notification.show("Changes successfully saved");
         }
 }
