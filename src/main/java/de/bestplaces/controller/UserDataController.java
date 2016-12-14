@@ -26,6 +26,7 @@ public class UserDataController {
     private EditUserData editUserData;
 
     private static String token;
+    private static String username;
 
     public UserDataController(RegistrationWindow registrationWindow)
     {
@@ -76,7 +77,7 @@ public class UserDataController {
     }
 
     public void login() throws UnirestException {
-        String username = login.getUserNameField().getValue();
+        username = login.getUserNameField().getValue();
         String password = login.getPasswordField().getValue();
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/api-token-auth/").
@@ -95,16 +96,41 @@ public class UserDataController {
     }
 
     public void getUserData() throws UnirestException {
-        HttpResponse<User> response = Unirest.get("http://mathtap.de:1194/user/kolbma")
+        HttpResponse<User> response = Unirest.get("http://mathtap.de:1194/user/" + username)
                 .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
                 .asObject(User.class);
+
+        User aktuellerUser = response.getBody();
+
+        editUserData.getFirstNameField().setInputPrompt(aktuellerUser.getFirstName());
+        editUserData.getLastNameField().setInputPrompt(aktuellerUser.getLastName());
+        editUserData.getHometownField().setInputPrompt(aktuellerUser.getHometown());
+        editUserData.getEmailField().setInputPrompt(aktuellerUser.getEmail());
     }
 
-    public void editUserData()
-    {
+    public void editUserData() throws UnirestException {
+        String firstName = editUserData.getFirstNameField().getValue();
+        String lastName = editUserData.getLastNameField().getValue();
+        String hometown = editUserData.getHometownField().getValue();
+        String email = editUserData.getEmailField().getValue();
+        String password = editUserData.getPasswordField().getValue();
 
+        User user = new User(username, firstName, lastName, email, password, hometown);
+
+        HttpResponse<JsonNode> response = Unirest.put("http://mathtap.de:1194/user/" + username + "/")
+                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(user)
+                .asJson();
+
+        if(response.getStatus() == 200){
+            Notification.show("Changes successfully saved");
+        } else {
+            Notification.show("Error");
+        }
     }
 
     public void removeUser()

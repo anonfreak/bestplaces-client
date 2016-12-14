@@ -34,35 +34,22 @@ public class EditUserData extends FormLayout implements View {
 
     public void init() throws UnirestException {
 
+            labelEditUserData = new Label("Edit User Data");
+            labelEditUserData.setStyleName("huge");
 
-        userDataController = new UserDataController(this);
-        userDataController.getUserData();
+            addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(), getPasswordField(), getSaveChances());
 
-        labelEditUserData = new Label("Edit User Data");
-        labelEditUserData.setStyleName("huge");
+            userDataController = new UserDataController(this);
+            userDataController.getUserData();
 
-
-        //TODO:hier über den Controller auf die Nutzerdaten zugreifen duch die methode getUserData
-        firstNameField.setInputPrompt("Franziska");
-
-        lastNameField.setInputPrompt("Neumann");
-
-        hometownField.setInputPrompt("Karlsruhe");
-
-        emailField.setInputPrompt("email@gmail.de");
-
-        passwordField.setInputPrompt("1234");
-
-
-        addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(), getPasswordField(), getSaveChances());
-        setSizeFull();
-        setMargin(true);
+            setSizeFull();
+            setMargin(true);
 
         }
 
-        public void navigatToTimeline()
-        {   navigator.navigateTo(Timeline.TIMELINE);
-            Notification.show("Changes successfully saved");
+        public void navigateToTimeline()
+        {
+            navigator.navigateTo(Timeline.TIMELINE);
         }
 
     public TextField getFirstNameField() {
@@ -116,7 +103,11 @@ public class EditUserData extends FormLayout implements View {
             saveChances.addClickListener(new Button.ClickListener() {
                 public void buttonClick(Button.ClickEvent event) {
 
-                  userDataController.editUserData();
+                    try {
+                        userDataController.editUserData();
+                    } catch (UnirestException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }

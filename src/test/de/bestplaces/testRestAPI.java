@@ -61,12 +61,12 @@ public class testRestAPI {
     public void authenticate() throws UnirestException {
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/api-token-auth/").
                 header("Accept", "application/json").
-                field("username","kolbma").
+                field("username","iskaNeumann").
                 field("password","1234").asJson();
         assertEquals(200, response.getStatus());
 
     }
-
+    @Ignore
     @Test
     public void getUserData() throws UnirestException {
         HttpResponse<User> response = Unirest.get("http://mathtap.de:1194/user/kolbma")
@@ -76,7 +76,7 @@ public class testRestAPI {
                 .asObject(User.class);
         assertEquals(200, response.getStatus());
     }
-
+    @Ignore
     @Test
     public void editUserTest() throws UnirestException {
         User testUser = new User("iskaNeumann", "Franziska", "Neumann", "shaundasschaf.neumann@gmail.com", "1234", "Karlsruhe");
