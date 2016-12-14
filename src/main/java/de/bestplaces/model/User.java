@@ -1,7 +1,10 @@
 package de.bestplaces.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.util.Calendar;
 
@@ -9,6 +12,9 @@ import java.util.Calendar;
  * Created by franz on 25.11.2016.
  */
 public class User {
+    @JsonIgnore
+    @JsonProperty(value="url")
+    private String url;
     @JsonProperty(value = "username")
     private String username;
     @JsonProperty(value = "first_name")
@@ -21,6 +27,10 @@ public class User {
     private String password;
     @JsonProperty(value = "hometown")
     private String hometown;
+
+    public User(){
+
+    }
 
     public User(String username, String firstName, String lastName, String email, String password, String hometown) {
         this.username = username;

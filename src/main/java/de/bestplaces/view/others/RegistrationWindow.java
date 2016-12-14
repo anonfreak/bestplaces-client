@@ -1,10 +1,15 @@
 package de.bestplaces.view.others;
 
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.Validator;
-import com.vaadin.data.validator.StringLengthValidator;
+import com.vaadin.data.validator.AbstractStringValidator;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.UserDataController;
+import de.bestplaces.model.User;
 
 import java.util.*;
 
@@ -21,9 +26,10 @@ public class RegistrationWindow extends Window {
     private TextField userNameField;
     private PasswordField passwordField;
     private PasswordField confirmPasswordField;
+    private UserDataController userDataController;
     private Button registerButton;
 
-    private UserDataController userDataController;
+
 
     public RegistrationWindow()
     {
@@ -57,7 +63,6 @@ public class RegistrationWindow extends Window {
 
     public void closeWindow()
     {
-        getUI().addWindow(new Success());
         close();
     }
 
@@ -112,6 +117,28 @@ public class RegistrationWindow extends Window {
         {
             userNameField = new TextField("Username");
             userNameField.setRequired(true);
+            userNameField.addValidator(new AbstractStringValidator("") {
+                @Override
+                protected boolean isValidValue(String s) {
+                    boolean isValid = true;
+                    try {
+
+                        HttpResponse<JsonNode> response = Unirest.get("http://mathtap.de:1194/user/"+s+"/")
+                                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                                .header("Accept", "application/json")
+                                .header("Content-Type", "application/json")
+                                .asJson();
+                        if(response.getStatus() == 200){
+                            isValid=false;
+                        }
+                    } catch (UnirestException e) {
+                        e.printStackTrace();
+                    }
+                    Notification.show(isValid + "");
+                    return isValid;
+                }
+            });
+            userNameField.setImmediate(true);
         }
         return userNameField;
     }
@@ -153,9 +180,12 @@ public class RegistrationWindow extends Window {
             registerButton = new Button("Register");
             registerButton.addClickListener(new Button.ClickListener() {
                 public void buttonClick(Button.ClickEvent event) {
-                    //TODO: wie hole ich daten aus textfeldern?
 
-                    userDataController.createUser();
+                    try {
+                        userDataController.createUser();
+                    } catch (UnirestException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }

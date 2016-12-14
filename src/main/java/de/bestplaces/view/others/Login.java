@@ -1,18 +1,25 @@
 package de.bestplaces.view.others;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;
+import de.bestplaces.controller.UserDataController;
 import de.bestplaces.view.dashboard.view.MainView;
 
 /**
  * Created by franz on 24.11.2016.
  */
 public class Login extends Window {
+    private TextField userNameField;
+    private PasswordField passwordField;
+    private UserDataController userDataController;
 
-       public Login()
+
+    public Login()
        {
            super("Login to BestPlaces");
            center();
+           userDataController = new UserDataController(this);
            init();
        }
 
@@ -23,16 +30,20 @@ public class Login extends Window {
 
            FormLayout form = new FormLayout();
 
-           TextField userNameField = new TextField("Username");
+           userNameField = new TextField("Username");
            userNameField.setRequired(true);
 
-           PasswordField passwordField = new PasswordField("Password");
+           passwordField = new PasswordField("Password");
            passwordField.setRequired(true);
 
            Button login = new Button("Login");
            login.addClickListener(new Button.ClickListener() {
                public void buttonClick(Button.ClickEvent event) {
-                   checkUserData();
+                   try {
+                       userDataController.login();
+                   } catch (UnirestException e) {
+                       e.printStackTrace();
+                   }
                }
            });
 
@@ -43,13 +54,28 @@ public class Login extends Window {
            setContent(form);
        }
 
-       //TODO: in Controller auslagern
-       private void checkUserData()
+
+       public void closeWindow()
        {
-           //hier die Daten aus der Datenbank abfragen und auf Gleichheit prüfen
-           //wenn richtig
            close();
 
            MyUI.getCurrent().setContent(new MainView());
        }
+
+
+    public TextField getUserNameField() {
+        return userNameField;
+    }
+
+    public void setUserNameField(TextField userNameField) {
+        this.userNameField = userNameField;
+    }
+
+    public PasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public void setPasswordField(PasswordField passwordField) {
+        this.passwordField = passwordField;
+    }
 }

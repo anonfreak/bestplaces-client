@@ -1,10 +1,20 @@
 package de.bestplaces.controller;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.ui.Notification;
 import de.bestplaces.model.User;
+import de.bestplaces.view.dashboard.components.EditUserData;
+import de.bestplaces.view.others.Login;
 import de.bestplaces.view.others.RegistrationWindow;
 import de.bestplaces.view.others.Success;
+import elemental.json.Json;
 
 import java.util.Calendar;
+
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by franz on 25.11.2016.
@@ -12,6 +22,10 @@ import java.util.Calendar;
 public class UserDataController {
 
     private RegistrationWindow registrationWindow;
+    private Login login;
+    private EditUserData editUserData;
+
+    private static String token;
 
     public UserDataController(RegistrationWindow registrationWindow)
     {
@@ -19,24 +33,76 @@ public class UserDataController {
 
     }
 
-    public void createUser()
+    public UserDataController(Login login)
     {
-        String username =  (String) registrationWindow.getUserNameField().getData();
+        this.login = login;
 
-        String firstName = (String) registrationWindow.getFirstNameField().getData();
-        String lastName = (String) registrationWindow.getLastNameField().getData();
+    }
+
+    public UserDataController(EditUserData editUserData)
+    {
+        this.editUserData = editUserData;
+
+    }
+
+    public void createUser() throws UnirestException {
+        String username =  registrationWindow.getUserNameField().getValue();
+
+        String firstName = registrationWindow.getFirstNameField().getValue();
+        String lastName = registrationWindow.getLastNameField().getValue();
         String email = "email";
-        String password = (String) registrationWindow.getPasswordField().getData();
-        String hometown = (String) registrationWindow.getHometownField().getData();
+        String password = registrationWindow.getPasswordField().getValue();
+        String hometown = registrationWindow.getHometownField().getValue();
 
         User user = new User(username, firstName, lastName, email, password, hometown);
 
-        registrationWindow.closeWindow();
+        HttpResponse<JsonNode> response;
 
-        //TODO: verbindung zur Datenbank
+            response = Unirest.post("http://mathtap.de:1194/user/")
+                    .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .body(user)
+                    .asJson();
+        if(response.getStatus() == 201){
+            registrationWindow.getUI().addWindow(new Success());
+            registrationWindow.closeWindow();
+        } else {
+            Notification.show("Registration failed. Please try again.");
+        }
+
+
+
     }
 
-    public void saveDataChanges()
+    public void login() throws UnirestException {
+        String username = login.getUserNameField().getValue();
+        String password = login.getPasswordField().getValue();
+
+        HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/api-token-auth/").
+                header("Accept", "application/json").
+                field("username",username).
+                field("password",password).asJson();
+        if(response.getStatus() == 200){
+            token = (String) response.getBody().getObject().get("token");
+            //da steht das token drin. Drauf aufpassen
+            login.closeWindow();
+        } else {
+            login.getPasswordField().setRequiredError("wrong password or username");
+
+        }
+
+    }
+
+    public void getUserData() throws UnirestException {
+        HttpResponse<User> response = Unirest.get("http://mathtap.de:1194/user/kolbma")
+                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(User.class);
+    }
+
+    public void editUserData()
     {
 
     }

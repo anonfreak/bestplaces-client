@@ -1,8 +1,10 @@
 package de.bestplaces.view.dashboard.components;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
+import de.bestplaces.controller.UserDataController;
 
 import static de.bestplaces.MyUI.navigator;
 
@@ -12,54 +14,112 @@ import static de.bestplaces.MyUI.navigator;
 public class EditUserData extends FormLayout implements View {
 
     public static final String EDITUSERDATA = "Edit User Data";
-
+    private UserDataController userDataController;
+    private Label labelEditUserData;
+    private TextField firstNameField;
+    private TextField lastNameField;
+    private TextField hometownField;
+    private TextField emailField;
+    private PasswordField passwordField;
+    private Button saveChances;
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
-        init();
+        try {
+            init();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void init(){
+    public void init() throws UnirestException {
 
-        //TODO: Controller echte Daten holen
-        Label labelEditUserData = new Label("Edit User Data");
+
+        userDataController = new UserDataController(this);
+        userDataController.getUserData();
+
+        labelEditUserData = new Label("Edit User Data");
         labelEditUserData.setStyleName("huge");
 
-        TextField firstNameField = new TextField("First name");
-        firstNameField.setRequired(true);
-        //hier über den Controller auf die Nutzerdaten zugreifen
+
+        //TODO:hier über den Controller auf die Nutzerdaten zugreifen duch die methode getUserData
         firstNameField.setInputPrompt("Franziska");
 
-
-        TextField lastNameField = new TextField("Last name");
-        lastNameField.setRequired(true);
         lastNameField.setInputPrompt("Neumann");
 
-        TextField hometownField = new TextField("Hometown");
-        hometownField.setRequired(true);
         hometownField.setInputPrompt("Karlsruhe");
 
-        TextField userNameField = new TextField("Username");
-        userNameField.setRequired(true);
-        userNameField.setInputPrompt("IskaNeumann");
+        emailField.setInputPrompt("email@gmail.de");
 
-        PasswordField passwordField = new PasswordField("Password");
-        passwordField.setRequired(true);
         passwordField.setInputPrompt("1234");
 
-        Button saveChances = new Button("Save Changes");
-        saveChances.addClickListener(clickEvent -> save());
 
-        addComponents(labelEditUserData, firstNameField, lastNameField, hometownField, userNameField, passwordField, saveChances);
+        addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(), getPasswordField(), getSaveChances());
         setSizeFull();
         setMargin(true);
 
         }
 
-        public void save()
+        public void navigatToTimeline()
         {   navigator.navigateTo(Timeline.TIMELINE);
-            //Funktioniert nicht
-//            UserDataController.saveData();
             Notification.show("Changes successfully saved");
         }
+
+    public TextField getFirstNameField() {
+        if (firstNameField == null)
+        {
+            firstNameField = new TextField("First name");
+            firstNameField.setRequired(true);
+        }
+        return firstNameField;
+    }
+
+    public TextField getLastNameField() {
+        if (lastNameField == null)
+        {
+            lastNameField = new TextField("Last name");
+            lastNameField.setRequired(true);
+        }
+        return lastNameField;
+    }
+
+    public TextField getHometownField() {
+        if (hometownField == null)
+        {
+            hometownField = new TextField("Hometown");
+        }
+        return hometownField;
+    }
+
+    public TextField getEmailField() {
+        if (emailField == null)
+        {
+            emailField = new TextField("Email");
+        }
+        return emailField;
+    }
+
+    public PasswordField getPasswordField() {
+        if(passwordField == null)
+        {
+            passwordField = new PasswordField("Password");
+            passwordField.setRequired(true);
+        }
+        return passwordField;
+    }
+
+    public Button getSaveChances() {
+        if (saveChances == null)
+        {
+
+            saveChances = new Button("Save Changes");
+            saveChances.addClickListener(new Button.ClickListener() {
+                public void buttonClick(Button.ClickEvent event) {
+
+                  userDataController.editUserData();
+                }
+            });
+        }
+        return saveChances;
+    }
 }
