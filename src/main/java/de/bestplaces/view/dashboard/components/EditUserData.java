@@ -21,6 +21,9 @@ public class EditUserData extends FormLayout implements View {
     private TextField hometownField;
     private TextField emailField;
     private PasswordField passwordField;
+    private PasswordField newPasswordField;
+    private PasswordField newPasswordConfirmField;
+
     private Button saveChances;
 
     @Override
@@ -37,7 +40,8 @@ public class EditUserData extends FormLayout implements View {
             labelEditUserData = new Label("Edit User Data");
             labelEditUserData.setStyleName("huge");
 
-            addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(), getPasswordField(), getSaveChances());
+            addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
+                    getPasswordField(), getNewPasswordField(), getNewPasswordConfirmField(), getSaveChances());
 
             userDataController = new UserDataController(this);
             userDataController.getUserData();
@@ -82,6 +86,7 @@ public class EditUserData extends FormLayout implements View {
         if (emailField == null)
         {
             emailField = new TextField("Email");
+//            emailField.setWidth("300px");
         }
         return emailField;
     }
@@ -89,10 +94,26 @@ public class EditUserData extends FormLayout implements View {
     public PasswordField getPasswordField() {
         if(passwordField == null)
         {
-            passwordField = new PasswordField("Password");
+            passwordField = new PasswordField("old Password");
             passwordField.setRequired(true);
         }
         return passwordField;
+    }
+
+    public PasswordField getNewPasswordField() {
+        if(newPasswordField == null)
+        {
+            newPasswordField = new PasswordField("new Password");
+        }
+        return newPasswordField;
+    }
+
+    public PasswordField getNewPasswordConfirmField() {
+        if(newPasswordConfirmField == null)
+        {
+            newPasswordConfirmField = new PasswordField("Cornfirm new Password");
+        }
+        return newPasswordConfirmField;
     }
 
     public Button getSaveChances() {

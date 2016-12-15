@@ -51,7 +51,7 @@ public class UserDataController {
 
         String firstName = registrationWindow.getFirstNameField().getValue();
         String lastName = registrationWindow.getLastNameField().getValue();
-        String email = "email";
+        String email = registrationWindow.getEmailField().getValue();
         String password = registrationWindow.getPasswordField().getValue();
         String hometown = registrationWindow.getHometownField().getValue();
 
@@ -104,10 +104,10 @@ public class UserDataController {
 
         User aktuellerUser = response.getBody();
 
-        editUserData.getFirstNameField().setInputPrompt(aktuellerUser.getFirstName());
-        editUserData.getLastNameField().setInputPrompt(aktuellerUser.getLastName());
-        editUserData.getHometownField().setInputPrompt(aktuellerUser.getHometown());
-        editUserData.getEmailField().setInputPrompt(aktuellerUser.getEmail());
+        editUserData.getFirstNameField().setValue(aktuellerUser.getFirstName());
+        editUserData.getLastNameField().setValue(aktuellerUser.getLastName());
+        editUserData.getHometownField().setValue(aktuellerUser.getHometown());
+        editUserData.getEmailField().setValue(aktuellerUser.getEmail());
     }
 
     public void editUserData() throws UnirestException {
@@ -115,7 +115,15 @@ public class UserDataController {
         String lastName = editUserData.getLastNameField().getValue();
         String hometown = editUserData.getHometownField().getValue();
         String email = editUserData.getEmailField().getValue();
-        String password = editUserData.getPasswordField().getValue();
+        String password;
+        if(editUserData.getNewPasswordConfirmField().getValue() == null)
+        {
+            password = editUserData.getPasswordField().getValue();
+        }
+        else
+        {
+            password = editUserData.getNewPasswordConfirmField().getValue();
+        }
 
         User user = new User(username, firstName, lastName, email, password, hometown);
 

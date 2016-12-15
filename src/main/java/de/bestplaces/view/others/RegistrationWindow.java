@@ -24,6 +24,7 @@ public class RegistrationWindow extends Window {
     private TextField lastNameField;
     private TextField hometownField;
     private TextField userNameField;
+    private TextField emailField;
     private PasswordField passwordField;
     private PasswordField confirmPasswordField;
     private UserDataController userDataController;
@@ -42,7 +43,7 @@ public class RegistrationWindow extends Window {
     public void init()
     {
         setWidth("25%");
-        setHeight("55%");
+        setHeight("65%");
 
         form = new FormLayout();
 
@@ -53,7 +54,8 @@ public class RegistrationWindow extends Window {
         getConfirmPasswordField().addValidator(new MyValidator());
         getConfirmPasswordField().setImmediate(true);
 
-        form.addComponents(getFirstNameField(), getLastNameField(), getHometownField(), getUserNameField(), getPasswordField(), getConfirmPasswordField(), getRegisterButton());
+        form.addComponents(getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
+                getUserNameField(), getPasswordField(), getConfirmPasswordField(), getRegisterButton());
         form.setSizeFull();
         form.setMargin(true);
 
@@ -190,6 +192,14 @@ public class RegistrationWindow extends Window {
             });
         }
         return registerButton;
+    }
+
+    public TextField getEmailField() {
+        if (emailField == null)
+        {
+            emailField = new TextField("Email");
+        }
+        return emailField;
     }
 
     public void setRegisterButton(Button registerButton) {
