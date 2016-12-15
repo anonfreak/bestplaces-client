@@ -136,7 +136,13 @@ public class RegistrationWindow extends Window {
                     } catch (UnirestException e) {
                         e.printStackTrace();
                     }
-                    Notification.show(isValid + "");
+                    if (isValid)
+                    {
+                        Notification.show("Benutzername ist okay");
+                    } else
+                    {
+                        Notification.show("Benutzername ist schon vergeben");
+                    }
                     return isValid;
                 }
             });
