@@ -1,5 +1,6 @@
 package de.bestplaces.view.others;
 
+import com.vaadin.event.MouseEvents;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
@@ -9,6 +10,8 @@ import com.vaadin.ui.*;
  */
 public class Welcome extends VerticalLayout implements View {
         public static final String WELCOME = "Welcome";
+        private RegistrationWindow regWindow;
+        private Login loginWindow;
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
@@ -48,15 +51,39 @@ public class Welcome extends VerticalLayout implements View {
 
         addComponent(layout);
 
+        regWindow = new RegistrationWindow();
+        loginWindow = new Login();
+
     }
 
     public void callRegistrationWindow()
     {
-        getUI().addWindow(new RegistrationWindow());
+        loginWindow.close();
+        regWindow.setResizable(false);
+
+        this.getUI().addClickListener(new MouseEvents.ClickListener() {
+
+            @Override
+            public void click(MouseEvents.ClickEvent event) {
+                regWindow.close();
+            }
+        });
+
+        getUI().addWindow(regWindow);
 
     }
     public void callLoginWindow()
     {
-        getUI().addWindow(new Login());
+        regWindow.close();
+        loginWindow.setResizable(false);
+
+        this.getUI().addClickListener(new MouseEvents.ClickListener() {
+            @Override
+            public void click(MouseEvents.ClickEvent clickEvent) {
+                loginWindow.close();
+            }
+        });
+
+        getUI().addWindow(loginWindow);
     }
 }

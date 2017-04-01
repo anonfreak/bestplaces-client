@@ -1,6 +1,7 @@
 package de.bestplaces.view.others;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;
 import de.bestplaces.controller.UserDataController;
@@ -25,18 +26,18 @@ public class Login extends Window {
 
        public void init()
        {
-           setWidth("25%");
-           setHeight("30%");
-
+           Panel panel = new Panel();
            FormLayout form = new FormLayout();
 
            userNameField = new TextField("Username");
            userNameField.setRequired(true);
+           userNameField.focus();
 
            passwordField = new PasswordField("Password");
            passwordField.setRequired(true);
 
            Button login = new Button("Login");
+           login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
            login.addClickListener(new Button.ClickListener() {
                public void buttonClick(Button.ClickEvent event) {
                    try {
@@ -51,7 +52,10 @@ public class Login extends Window {
            form.setSizeFull();
            form.setMargin(true);
 
-           setContent(form);
+           panel.setContent(form);
+           panel.getContent().setSizeUndefined();
+
+           setContent(panel);
        }
 
 
@@ -68,6 +72,7 @@ public class Login extends Window {
     }
 
     public void setUserNameField(TextField userNameField) {
+
         this.userNameField = userNameField;
     }
 

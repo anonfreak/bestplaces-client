@@ -17,22 +17,27 @@ public class Success extends Window {
 
     private void init()
     {
-        setWidth("20%");
-        setHeight("20%");
-
+        Panel panel = new Panel();
         VerticalLayout layout = new VerticalLayout();
 
         Label succesLabel = new Label("You are successfully registered.");
         Button loginButton = new Button("Login now");
         loginButton.addClickListener(new Button.ClickListener() {
             public void buttonClick(Button.ClickEvent event) {
-                getUI().addWindow(new Login());
+
+                Login loginWindow = new Login();
+                loginWindow.setResizable(false);
+                getUI().addWindow(loginWindow);
                 close();
             }});
 
         layout.addComponents(succesLabel, loginButton);
         layout.setMargin(true);
-        setContent(layout);
+
+        panel.setContent(layout);
+        panel.getContent().setSizeUndefined();
+
+        setContent(panel);
 
     }
 }

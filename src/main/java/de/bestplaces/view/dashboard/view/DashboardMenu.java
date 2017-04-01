@@ -78,7 +78,7 @@ public final class DashboardMenu extends CustomComponent {
     }
 
     private Component buildTitle() {
-        Label logo = new Label("QuickTickets <strong>Dashboard</strong>",
+        Label logo = new Label("<strong>Dashboard</strong>",
                 ContentMode.HTML);
         logo.setSizeUndefined();
         HorizontalLayout logoWrapper = new HorizontalLayout(logo);
@@ -170,7 +170,7 @@ public final class DashboardMenu extends CustomComponent {
 //                menuItemComponent = reports;
 //            }
 
-            if (view == DashboardViewType.DASHBOARD) {
+            if (view == DashboardViewType.TIMELINE) {
                 notificationsBadge = new Label();
                 notificationsBadge.setId(NOTIFICATIONS_BADGE_ID);
                 menuItemComponent = buildBadgeWrapper(menuItemComponent,

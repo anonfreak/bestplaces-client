@@ -66,7 +66,9 @@ public class UserDataController {
                     .body(user)
                     .asJson();
         if(response.getStatus() == 201){
-            registrationWindow.getUI().addWindow(new Success());
+            Success succesWindow = new Success();
+            succesWindow.setResizable(false);
+            registrationWindow.getUI().addWindow(succesWindow);
             registrationWindow.closeWindow();
         } else {
             Notification.show("Registration failed. Please try again.");

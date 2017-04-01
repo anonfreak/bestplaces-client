@@ -7,9 +7,12 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.Validator;
 import com.vaadin.data.validator.AbstractStringValidator;
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.Runo;
 import de.bestplaces.controller.UserDataController;
 import de.bestplaces.model.User;
+import javafx.scene.layout.Pane;
 
 import java.util.*;
 
@@ -36,15 +39,14 @@ public class RegistrationWindow extends Window {
     {
         super("Registration on BestPlaces"); // Set window caption
         center();
+        setSizeUndefined();
         userDataController = new UserDataController(this);
         init();
     }
 
     public void init()
     {
-        setWidth("25%");
-        setHeight("65%");
-
+        Panel panel = new Panel();
         form = new FormLayout();
 
         //TODO: Funktion: ueberpruefung, ob alle Felder wirklich gefuellt sind und die daten übereinstimmen mit dem validator
@@ -59,8 +61,10 @@ public class RegistrationWindow extends Window {
         form.setSizeFull();
         form.setMargin(true);
 
+        panel.setContent(form);
+        panel.getContent().setSizeUndefined();
 
-        setContent(form);
+        setContent(panel);
     }
 
     public void closeWindow()
@@ -81,6 +85,7 @@ public class RegistrationWindow extends Window {
         {
         firstNameField = new TextField("First name");
         firstNameField.setRequired(true);
+        firstNameField.focus();
         }
         return firstNameField;
     }
@@ -180,6 +185,7 @@ public class RegistrationWindow extends Window {
         if (registerButton == null)
         {
             registerButton = new Button("Register");
+            registerButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
             registerButton.addClickListener(new Button.ClickListener() {
                 public void buttonClick(Button.ClickEvent event) {
 

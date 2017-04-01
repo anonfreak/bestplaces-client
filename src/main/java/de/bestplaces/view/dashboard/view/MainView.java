@@ -3,7 +3,6 @@ package de.bestplaces.view.dashboard.view;
 /**
  * Created by franz on 28.11.2016.
  */
-import de.bestplaces.view.dashboard.DashboardNavigator;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;

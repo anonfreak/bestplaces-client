@@ -13,13 +13,9 @@ import de.bestplaces.view.dashboard.components.Timeline;
 
 public enum DashboardViewType {
 
-    DASHBOARD("timeline", Timeline.class, FontAwesome.HOME, false), SEARCH("search", Search.class, FontAwesome.SEARCH, false),
+    TIMELINE("timeline", Timeline.class, FontAwesome.HOME, false),
+    SEARCH("search", Search.class, FontAwesome.SEARCH, false),
     EDITUSERDATA("Edit User Data", EditUserData.class, FontAwesome.EDIT, false);
-//    DASHBOARD("dashboard", DashboardView.class, FontAwesome.HOME, true), SALES(
-//            "sales", SalesView.class, FontAwesome.BAR_CHART_O, false), TRANSACTIONS(
-//            "transactions", TransactionsView.class, FontAwesome.TABLE, false), REPORTS(
-//            "reports", ReportsView.class, FontAwesome.FILE_TEXT_O, true), SCHEDULE(
-//            "schedule", ScheduleView.class, FontAwesome.CALENDAR_O, false);
 
     private final String viewName;
     private final Class<? extends View> viewClass;
