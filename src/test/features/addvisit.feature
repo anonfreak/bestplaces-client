@@ -12,5 +12,6 @@ Feature: Add Visit in Place View
     And I press the "Calendar"-Button
     And I type "10/04/2017" in the "Date"-field
     And I type "10:00" in the "Time"-field
+    And I click on the "Add"-Button
     And I press the "Timeline"-Button in the Dashboard
     Then I should see "Pizza Max" in the TImeline
