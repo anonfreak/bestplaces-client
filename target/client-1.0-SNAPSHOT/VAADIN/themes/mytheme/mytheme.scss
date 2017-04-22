@@ -35,4 +35,20 @@
   @include valo;
 
   // Insert your own theme rules here
+
+  .backgroundimage {
+    background: url("img/city-1209105-1024x576.jpg") !important;
+    width: 20px;
+  }
+
+  .v-label-stylename {
+    font-size: 95px;
+    color: white;
+    line-height: normal;
+  }
+
+  .background {
+    background: transparent;
+  }
+
 }

@@ -12967,3 +12967,18 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.mytheme .backgroundimage {
+	background: url("img/city-1209105-1024x576.jpg") !important;
+	width: 20px;
+}
+
+.mytheme .v-label-stylename {
+	font-size: 95px;
+	color: white;
+	line-height: normal;
+}
+
+.mytheme .background {
+	background: transparent;
+}
