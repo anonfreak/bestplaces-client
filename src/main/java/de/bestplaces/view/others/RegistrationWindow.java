@@ -11,6 +11,7 @@ import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.Runo;
 import de.bestplaces.controller.UserDataController;
+import de.bestplaces.controller.UserNameValidator;
 import de.bestplaces.model.User;
 import javafx.scene.layout.Pane;
 
@@ -124,28 +125,11 @@ public class RegistrationWindow extends Window {
         {
             userNameField = new TextField("Username");
             userNameField.setRequired(true);
-            userNameField.addValidator(new AbstractStringValidator("") {
-                @Override
-                protected boolean isValidValue(String s) {
-                    boolean isValid = true;
-                    try {
 
-                        HttpResponse<JsonNode> response = Unirest.get("http://mathtap.de:1194/user/"+s+"/")
-                                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
-                                .header("Accept", "application/json")
-                                .header("Content-Type", "application/json")
-                                .asJson();
-                        if(response.getStatus() == 200){
-                            isValid=false;
-                        }
-                    } catch (UnirestException e) {
-                        e.printStackTrace();
-                    }
-                    Notification.show(isValid + "");
-                    return isValid;
-                }
-            });
+            UserNameValidator validator = new UserNameValidator();
+            userNameField.addValidator(validator);
             userNameField.setImmediate(true);
+            validator.validate(userNameField.getValue());
         }
         return userNameField;
     }
