@@ -3,6 +3,7 @@ package de.bestplaces.view.others;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.Sizeable;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
 
@@ -29,45 +30,47 @@ public class Welcome extends VerticalLayout implements View {
         //Grundlayout
         VerticalLayout layout = new VerticalLayout();
 
+        Panel gross = new Panel();
+        //gross.setSizeFull();
+        gross.setHeight("576px");
+
+        //Image above, Welcome Text and Buttons
+        VerticalSplitPanel upPanel = new VerticalSplitPanel();
+        gross.setContent(upPanel);
+        upPanel.setStyleName("backgroundimage");
+
         //WelcomeUeberschrift
         Label welcomeLabel = new Label("Welcome to BestPlaces");
         welcomeLabel.setStyleName("v-label-stylename");
 
-        //Buttons
-        HorizontalLayout panelLayout = new HorizontalLayout();
-        Panel welcomePanel = new Panel();
+        HorizontalSplitPanel buttonPanel = new HorizontalSplitPanel();
+        buttonPanel.setLocked(true);
 
         Button registerButton = new Button("Register Now");
         registerButton.addClickListener(clickEvent -> callRegistrationWindow());
+        //VerticalLayout layoutFuerButton = new VerticalLayout();
+        //Panel fuerButton = new Panel(layoutFuerButton);
+        //layoutFuerButton.addComponent(registerButton);
+        //layoutFuerButton.setComponentAlignment(registerButton, Alignment.MIDDLE_RIGHT);
+        //layoutFuerButton.setStyleName("background");
+
         Button loginButton = new Button("Log In");
         loginButton.addClickListener(clickEvent -> callLoginWindow());
 
-        panelLayout.addComponent(registerButton);
-        panelLayout.addComponent(loginButton);
-        panelLayout.setSpacing(true);
-        panelLayout.setSizeUndefined();
-        panelLayout.setStyleName("background");
+        buttonPanel.setSplitPosition(12, Sizeable.UNITS_PERCENTAGE);
+        buttonPanel.setFirstComponent(registerButton);
+        buttonPanel.setSecondComponent(loginButton);
+        buttonPanel.setSizeFull();
 
-        welcomePanel.setContent(panelLayout);
-        welcomePanel.setSizeUndefined();
 
-        //Panel, welches alles zusammenfasst
-        VerticalLayout backroundLayout = new VerticalLayout();
-        Panel backround = new Panel(backroundLayout);
-        backroundLayout.addComponent(welcomeLabel);
-        backroundLayout.addComponent(welcomePanel);
-        backroundLayout.setStyleName("backgroundimage");
-        backroundLayout.setSizeFull();
-        backroundLayout.setComponentAlignment(welcomeLabel, Alignment.TOP_CENTER);
-        backroundLayout.setComponentAlignment(welcomePanel, Alignment.MIDDLE_CENTER);
-        backround.setHeight("576px");
-        backround.setWidth("1024px");
+        upPanel.setSplitPosition(90, Sizeable.UNITS_PERCENTAGE);
+        upPanel.setLocked(true);
+        upPanel.addComponent(welcomeLabel);
+        upPanel.addComponent(buttonPanel);
+
 
         //Inhalt unter dem Bild
-        GridLayout contentLayout = new GridLayout(2,1);
-        Panel contentPanel = new Panel(contentLayout);
-        contentLayout.setColumnExpandRatio(0,1);
-        contentLayout.setColumnExpandRatio(1,1);
+        HorizontalSplitPanel bottomPanel = new HorizontalSplitPanel();
 
         TextArea descriptionText = new TextArea("BestPlaces");
         descriptionText.setValue("Track your Favourite Places and discover more!\n" +
@@ -77,24 +80,22 @@ public class Welcome extends VerticalLayout implements View {
 
         ThemeResource resource = new ThemeResource("img/Timeline.JPG");
         Image timelineImage = new Image("Timeline", resource);
-        timelineImage.setHeight("200px");
-        timelineImage.setWidth("300px");
+        timelineImage.setSizeFull();
 
-        contentLayout.addComponent(descriptionText,0,0);
-        contentLayout.addComponent(timelineImage,1,0);
-
-        contentLayout.setComponentAlignment(descriptionText, Alignment.BOTTOM_LEFT);
-        contentLayout.setComponentAlignment(timelineImage, Alignment.BOTTOM_RIGHT);
+        bottomPanel.setSplitPosition(50, Sizeable.UNITS_PERCENTAGE);
+        buttonPanel.setLocked(true);
+        bottomPanel.setFirstComponent(descriptionText);
+        bottomPanel.setSecondComponent(timelineImage);
 
         //Hinzufuegen zum zugrundeliegenden Layout
-        layout.addComponent(backround);
-        layout.addComponent(contentPanel);
+        layout.addComponent(gross);
+        layout.addComponent(bottomPanel);
+
 
         layout.setMargin(true);
         layout.setSpacing(true);
 
         addComponent(layout);
-
 
         regWindow = new RegistrationWindow();
         loginWindow = new Login();
