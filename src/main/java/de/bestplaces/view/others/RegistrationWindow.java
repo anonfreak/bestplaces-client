@@ -6,8 +6,11 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.Validator;
+import com.vaadin.data.util.filter.Not;
 import com.vaadin.data.validator.AbstractStringValidator;
+import com.vaadin.event.FieldEvents;
 import com.vaadin.event.ShortcutAction;
+import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.Runo;
 import de.bestplaces.controller.UserDataController;
@@ -125,12 +128,38 @@ public class RegistrationWindow extends Window {
         {
             userNameField = new TextField("Username");
             userNameField.setRequired(true);
-
-            UserNameValidator validator = new UserNameValidator();
-            userNameField.addValidator(validator);
-            userNameField.setImmediate(true);
-            validator.validate(userNameField.getValue());
         }
+
+        UserNameValidator validator = new UserNameValidator();
+        userNameField.addValidator(validator);
+        userNameField.setImmediate(true);
+        userNameField.addBlurListener(new FieldEvents.BlurListener() {
+            private static final long serialVersionUID = 7055180877355044203L;
+
+            public void blur(FieldEvents.BlurEvent event) {
+                boolean usernameFree;
+                if((userNameField.getValue()).length() == 0 || userNameField.getValue() == null)
+                {
+                    return;
+                }
+                else
+                {
+                    validator.validate(userNameField.getValue());
+                    usernameFree = validator.isValid();
+                    Notification.show(usernameFree + "");
+                }
+
+                if(!usernameFree)
+                {
+                    userNameField.setComponentError(new UserError("Username is already in use"));
+                }
+                else
+                {
+                    userNameField.setComponentError(null);
+                }
+            }
+        });
+
         return userNameField;
     }
 
