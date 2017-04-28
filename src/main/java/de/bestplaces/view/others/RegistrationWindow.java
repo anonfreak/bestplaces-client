@@ -130,9 +130,6 @@ public class RegistrationWindow extends Window {
             userNameField.setRequired(true);
         }
 
-        UserNameValidator validator = new UserNameValidator();
-        userNameField.addValidator(validator);
-        userNameField.setImmediate(true);
         userNameField.addBlurListener(new FieldEvents.BlurListener() {
             private static final long serialVersionUID = 7055180877355044203L;
 
@@ -144,9 +141,12 @@ public class RegistrationWindow extends Window {
                 }
                 else
                 {
+                    UserNameValidator validator = new UserNameValidator();
+                    userNameField.addValidator(validator);
                     validator.validate(userNameField.getValue());
                     usernameFree = validator.isValid();
-                    Notification.show(usernameFree + "");
+                    userNameField.removeAllValidators();
+
                 }
 
                 if(!usernameFree)
