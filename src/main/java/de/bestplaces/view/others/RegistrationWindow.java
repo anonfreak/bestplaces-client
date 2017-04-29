@@ -45,11 +45,6 @@ public class RegistrationWindow extends Window {
         Panel panel = new Panel();
         form = new FormLayout();
 
-        //TODO: Funktion: ueberpruefung, ob alle Felder wirklich gefuellt sind und die daten übereinstimmen mit dem validator
-        //TODO: https://vaadin.com/docs/-/part/framework/components/components-textfield.html#figure.components.textfield.textchangeevents
-        //TODO: Handling errors https://vaadin.com/book/vaadin6/-/page/application.errors.html
-
-
         form.addComponents(getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
                 getUserNameField(), getPasswordField(), getConfirmPasswordField(), getRegisterButton());
         form.setSizeFull();

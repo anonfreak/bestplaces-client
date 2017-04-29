@@ -1,9 +1,14 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.data.validator.EmailValidator;
+import com.vaadin.data.validator.StringLengthValidator;
+import com.vaadin.event.FieldEvents;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
+import de.bestplaces.controller.ConfirmPasswordValidator;
 import de.bestplaces.controller.UserDataController;
 
 import static de.bestplaces.MyUI.navigator;
@@ -51,16 +56,24 @@ public class EditUserData extends FormLayout implements View {
 
         }
 
-        public void navigateToTimeline()
+    public void navigateToTimeline()
         {
             navigator.navigateTo(Timeline.TIMELINE);
         }
+
+    private void validateRequiredField(TextField textField, String errorMessage) {
+        textField.setRequiredError(errorMessage);
+        textField.setImmediate(true);
+        textField.setValidationVisible(true);
+        textField.addValidator(new StringLengthValidator("Must have at least 4 characters", 4, 100, false));
+    }
 
     public TextField getFirstNameField() {
         if (firstNameField == null)
         {
             firstNameField = new TextField("First name");
             firstNameField.setRequired(true);
+            validateRequiredField(firstNameField, "Give first Name");
         }
         return firstNameField;
     }
@@ -70,6 +83,7 @@ public class EditUserData extends FormLayout implements View {
         {
             lastNameField = new TextField("Last name");
             lastNameField.setRequired(true);
+            validateRequiredField(lastNameField, "Give last Name");
         }
         return lastNameField;
     }
@@ -86,9 +100,16 @@ public class EditUserData extends FormLayout implements View {
         if (emailField == null)
         {
             emailField = new TextField("Email");
-//            emailField.setWidth("300px");
+            emailField.addValidator(new EmailValidator("This is not a valid email address"));
         }
         return emailField;
+    }
+
+    private void validateRequiredPasswordField(PasswordField passwordField, String errorMessage) {
+        passwordField.setRequiredError(errorMessage);
+        passwordField.setImmediate(true);
+        passwordField.setValidationVisible(true);
+        passwordField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
     }
 
     public PasswordField getPasswordField() {
@@ -96,6 +117,8 @@ public class EditUserData extends FormLayout implements View {
         {
             passwordField = new PasswordField("old Password");
             passwordField.setRequired(true);
+            validateRequiredPasswordField(passwordField, "Password is required");
+
         }
         return passwordField;
     }
@@ -104,6 +127,15 @@ public class EditUserData extends FormLayout implements View {
         if(newPasswordField == null)
         {
             newPasswordField = new PasswordField("new Password");
+            newPasswordField.addBlurListener(new FieldEvents.BlurListener() {
+                @Override
+                public void blur(FieldEvents.BlurEvent blurEvent) {
+
+                    newPasswordConfirmField.setRequired(true);
+                    validateRequiredPasswordField(newPasswordConfirmField, "Confirm Password is required");
+                }
+            });
+
         }
         return newPasswordField;
     }
@@ -112,6 +144,22 @@ public class EditUserData extends FormLayout implements View {
         if(newPasswordConfirmField == null)
         {
             newPasswordConfirmField = new PasswordField("Cornfirm new Password");
+
+            newPasswordConfirmField.addBlurListener(new FieldEvents.BlurListener() {
+                @Override
+                public void blur(FieldEvents.BlurEvent blurEvent) {
+                    ConfirmPasswordValidator confirmPasswordValidator = new ConfirmPasswordValidator(newPasswordField.getValue());
+                    confirmPasswordValidator.validate(newPasswordConfirmField.getValue());
+                    if(confirmPasswordValidator.isValid())
+                    {
+                        newPasswordConfirmField.setComponentError(null);
+                    }else
+                    {
+                        newPasswordConfirmField.setComponentError(new UserError("Passwords doesn't match"));
+                    }
+                    newPasswordConfirmField.removeValidator(confirmPasswordValidator);
+                }
+            });
         }
         return newPasswordConfirmField;
     }

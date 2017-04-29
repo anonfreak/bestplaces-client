@@ -1,6 +1,7 @@
 package de.bestplaces.view.others;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;
@@ -32,9 +33,17 @@ public class Login extends Window {
            userNameField = new TextField("Username");
            userNameField.setRequired(true);
            userNameField.focus();
+           userNameField.setRequiredError("Username is required");
+           userNameField.setImmediate(true);
+           userNameField.setValidationVisible(true);
+           userNameField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
 
            passwordField = new PasswordField("Password");
            passwordField.setRequired(true);
+           passwordField.setRequiredError("Password is required");
+           passwordField.setImmediate(true);
+           passwordField.setValidationVisible(true);
+           passwordField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
 
            Button login = new Button("Login");
            login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
