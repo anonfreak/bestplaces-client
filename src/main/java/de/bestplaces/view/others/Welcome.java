@@ -31,7 +31,6 @@ public class Welcome extends VerticalLayout implements View {
         VerticalLayout layout = new VerticalLayout();
 
         Panel gross = new Panel();
-        //gross.setSizeFull();
         gross.setHeight("576px");
 
         //Image above, Welcome Text and Buttons
@@ -48,12 +47,6 @@ public class Welcome extends VerticalLayout implements View {
 
         Button registerButton = new Button("Register Now");
         registerButton.addClickListener(clickEvent -> callRegistrationWindow());
-        //VerticalLayout layoutFuerButton = new VerticalLayout();
-        //Panel fuerButton = new Panel(layoutFuerButton);
-        //layoutFuerButton.addComponent(registerButton);
-        //layoutFuerButton.setComponentAlignment(registerButton, Alignment.MIDDLE_RIGHT);
-        //layoutFuerButton.setStyleName("background");
-
         Button loginButton = new Button("Log In");
         loginButton.addClickListener(clickEvent -> callLoginWindow());
 
@@ -72,11 +65,19 @@ public class Welcome extends VerticalLayout implements View {
         //Inhalt unter dem Bild
         HorizontalSplitPanel bottomPanel = new HorizontalSplitPanel();
 
-        TextArea descriptionText = new TextArea("BestPlaces");
-        descriptionText.setValue("Track your Favourite Places and discover more!\n" +
-                                    "more Text");
+        RichTextArea descriptionText = new RichTextArea("BestPlaces");
+        descriptionText.setValue("<h4>Track your Favourite Places and discover more!</h4>" +
+                                    "<p>Not sure where to go for dinner? BestPlaces can show you, where you went, " +
+                                    "what you ate and how you liked it. It can help you to plan trips and get an overview " +
+                                    "about your personal favorites.</p>" +
+                                    "<p>In you Timeline are all visited places. You can add personal information to each visit " +
+                                    "just like how much money you spend, or with whom you went there. There is also the possibility" +
+                                    " to show them all on a map.</p>" +
+                                    "<p>So what are you waiting for? Register now for BestPlaces and start to track your Favorite Places! " +
+                                    "- Totally free</p>");
         descriptionText.setReadOnly(true);
-        descriptionText.setSizeFull();
+        descriptionText.setWidth("100%");
+        descriptionText.setHeight("100%");
 
         ThemeResource resource = new ThemeResource("img/Timeline.JPG");
         Image timelineImage = new Image("Timeline", resource);

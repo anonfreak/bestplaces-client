@@ -12970,7 +12970,9 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .backgroundimage {
 	background: url("img/city-1209105-1024x576.jpg") !important;
-	width: 20px;
+	width: 1024px;
+	height: 576px;
+	background-size: cover;
 }
 
 .mytheme .v-label-stylename {
