@@ -1,24 +1,17 @@
 package de.bestplaces.view.others;
 
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.Validator;
-import com.vaadin.data.util.filter.Not;
-import com.vaadin.data.validator.AbstractStringValidator;
+import com.vaadin.data.validator.EmailValidator;
+import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.FieldEvents;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.Runo;
+import de.bestplaces.controller.ConfirmPasswordValidator;
 import de.bestplaces.controller.UserDataController;
 import de.bestplaces.controller.UserNameValidator;
-import de.bestplaces.model.User;
-import javafx.scene.layout.Pane;
-
-import java.util.*;
 
 /**
  * Created by franz on 24.11.2016.
@@ -36,7 +29,6 @@ public class RegistrationWindow extends Window {
     private PasswordField confirmPasswordField;
     private UserDataController userDataController;
     private Button registerButton;
-
 
 
     public RegistrationWindow()
@@ -57,8 +49,6 @@ public class RegistrationWindow extends Window {
         //TODO: https://vaadin.com/docs/-/part/framework/components/components-textfield.html#figure.components.textfield.textchangeevents
         //TODO: Handling errors https://vaadin.com/book/vaadin6/-/page/application.errors.html
 
-        getConfirmPasswordField().addValidator(new MyValidator());
-        getConfirmPasswordField().setImmediate(true);
 
         form.addComponents(getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
                 getUserNameField(), getPasswordField(), getConfirmPasswordField(), getRegisterButton());
@@ -87,11 +77,20 @@ public class RegistrationWindow extends Window {
     public TextField getFirstNameField() {
         if (firstNameField == null)
         {
-        firstNameField = new TextField("First name");
-        firstNameField.setRequired(true);
-        firstNameField.focus();
+            firstNameField = new TextField("First name");
+            firstNameField.setRequired(true);
+            firstNameField.focus();
+
+            validateRequiredField(firstNameField, "Give first Name");
         }
         return firstNameField;
+    }
+
+    private void validateRequiredField(TextField textField, String errorMessage) {
+        textField.setRequiredError(errorMessage);
+        textField.setImmediate(true);
+        textField.setValidationVisible(true);
+        textField.addValidator(new StringLengthValidator("Must have at least 4 characters", 4, 100, false));
     }
 
     public void setFirstNameField(TextField firstNameField) {
@@ -103,6 +102,7 @@ public class RegistrationWindow extends Window {
     {
         lastNameField = new TextField("Last name");
         lastNameField.setRequired(true);
+        validateRequiredField(lastNameField, "Give last Name");
     }
         return lastNameField;
     }
@@ -128,6 +128,8 @@ public class RegistrationWindow extends Window {
         {
             userNameField = new TextField("Username");
             userNameField.setRequired(true);
+
+            validateRequiredField(userNameField, "Give a user name");
         }
 
         userNameField.addBlurListener(new FieldEvents.BlurListener() {
@@ -172,6 +174,8 @@ public class RegistrationWindow extends Window {
         {
             passwordField = new PasswordField("Password");
             passwordField.setRequired(true);
+
+            validateRequiredPasswordField(passwordField, "Give a password");
         }
         return passwordField;
     }
@@ -180,12 +184,35 @@ public class RegistrationWindow extends Window {
         this.passwordField = passwordField;
     }
 
+    private void validateRequiredPasswordField(PasswordField passwordField, String errorMessage) {
+        passwordField.setRequiredError(errorMessage);
+        passwordField.setImmediate(true);
+        passwordField.setValidationVisible(true);
+        passwordField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
+    }
+
     public PasswordField getConfirmPasswordField() {
         if (confirmPasswordField == null)
         {
             confirmPasswordField = new PasswordField("Confirm Password");
             confirmPasswordField.setRequired(true);
 
+            validateRequiredPasswordField(confirmPasswordField, "Confirm Password");
+
+            confirmPasswordField.addBlurListener(new FieldEvents.BlurListener() {
+                @Override
+                public void blur(FieldEvents.BlurEvent blurEvent) {
+                    ConfirmPasswordValidator confirmPasswordValidator = new ConfirmPasswordValidator(passwordField.getValue());
+                    confirmPasswordValidator.validate(confirmPasswordField.getValue());
+                    if(confirmPasswordValidator.isValid())
+                    {
+                        confirmPasswordField.setComponentError(null);
+                    }else
+                    {
+                        confirmPasswordField.setComponentError(new UserError("Passwords doesn't match"));
+                    }
+                }
+            });
         }
         return confirmPasswordField;
     }
@@ -217,6 +244,7 @@ public class RegistrationWindow extends Window {
         if (emailField == null)
         {
             emailField = new TextField("Email");
+            emailField.addValidator(new EmailValidator("This is not a valid email address"));
         }
         return emailField;
     }
@@ -225,14 +253,5 @@ public class RegistrationWindow extends Window {
         this.registerButton = registerButton;
     }
 
-    class MyValidator implements Validator {
-        @Override
-        public void validate(Object value)
-                throws InvalidValueException {
-            if ( ((String)value).equals((String) getPasswordField().getData()))
-            {
-                throw new InvalidValueException("Password is not the same");
-            }
-        }
-    }
+
 }
