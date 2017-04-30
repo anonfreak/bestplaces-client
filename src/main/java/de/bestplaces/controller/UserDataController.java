@@ -46,14 +46,12 @@ public class UserDataController {
 
     }
 
-    public void createUser() throws UnirestException {
-        String username =  registrationWindow.getUserNameField().getValue();
+    public UserDataController()
+    {
 
-        String firstName = registrationWindow.getFirstNameField().getValue();
-        String lastName = registrationWindow.getLastNameField().getValue();
-        String email = registrationWindow.getEmailField().getValue();
-        String password = registrationWindow.getPasswordField().getValue();
-        String hometown = registrationWindow.getHometownField().getValue();
+    }
+
+    public boolean createUser(String username, String firstName, String lastName, String email, String password, String hometown) throws UnirestException {
 
         User user = new User(username, firstName, lastName, email, password, hometown);
 
@@ -65,22 +63,17 @@ public class UserDataController {
                     .header("Content-Type", "application/json")
                     .body(user)
                     .asJson();
+
         if(response.getStatus() == 201){
-            Success succesWindow = new Success();
-            succesWindow.setResizable(false);
-            registrationWindow.getUI().addWindow(succesWindow);
-            registrationWindow.closeWindow();
+            return true;
         } else {
             Notification.show("Registration failed. Please try again.");
+            return false;
         }
-
-
-
     }
 
-    public void login() throws UnirestException {
-        username = login.getUserNameField().getValue();
-        String password = login.getPasswordField().getValue();
+    public boolean login(String username, String password) throws UnirestException {
+        this.username = username;
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/api-token-auth/").
                 header("Accept", "application/json").
@@ -89,15 +82,15 @@ public class UserDataController {
         if(response.getStatus() == 200){
             token = (String) response.getBody().getObject().get("token");
             //da steht das token drin. Drauf aufpassen
-            login.closeWindow();
+            return true;
         } else {
             login.getPasswordField().setRequiredError("wrong password or username");
-
+            return false;
         }
 
     }
 
-    public void getUserData() throws UnirestException {
+    public User getUserData() throws UnirestException {
         HttpResponse<User> response = Unirest.get("http://mathtap.de:1194/user/" + username)
                 .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
                 .header("Accept", "application/json")
@@ -105,27 +98,10 @@ public class UserDataController {
                 .asObject(User.class);
 
         User aktuellerUser = response.getBody();
-
-        editUserData.getFirstNameField().setValue(aktuellerUser.getFirstName());
-        editUserData.getLastNameField().setValue(aktuellerUser.getLastName());
-        editUserData.getHometownField().setValue(aktuellerUser.getHometown());
-        editUserData.getEmailField().setValue(aktuellerUser.getEmail());
+        return aktuellerUser;
     }
 
-    public void editUserData() throws UnirestException {
-        String firstName = editUserData.getFirstNameField().getValue();
-        String lastName = editUserData.getLastNameField().getValue();
-        String hometown = editUserData.getHometownField().getValue();
-        String email = editUserData.getEmailField().getValue();
-        String password;
-        if(editUserData.getNewPasswordConfirmField().getValue() == null)
-        {
-            password = editUserData.getPasswordField().getValue();
-        }
-        else
-        {
-            password = editUserData.getNewPasswordConfirmField().getValue();
-        }
+    public boolean editUserData(String firstName, String lastName, String hometown, String email, String password) throws UnirestException {
 
         User user = new User(username, firstName, lastName, email, password, hometown);
 
@@ -137,9 +113,9 @@ public class UserDataController {
                 .asJson();
 
         if(response.getStatus() == 200){
-            Notification.show("Changes successfully saved");
+            return true;
         } else {
-            Notification.show("Error");
+            return false;
         }
     }
 

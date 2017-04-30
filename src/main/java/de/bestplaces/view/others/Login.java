@@ -50,7 +50,12 @@ public class Login extends Window {
            login.addClickListener(new Button.ClickListener() {
                public void buttonClick(Button.ClickEvent event) {
                    try {
-                       userDataController.login();
+                       boolean loginSuccessfull = userDataController.login(getUserNameField().getValue(),
+                               getPasswordField().getValue());
+                       if(loginSuccessfull)
+                       {
+                           closeWindow();
+                       }
                    } catch (UnirestException e) {
                        e.printStackTrace();
                    }

@@ -225,7 +225,18 @@ public class RegistrationWindow extends Window {
                 public void buttonClick(Button.ClickEvent event) {
 
                     try {
-                        userDataController.createUser();
+                            boolean registrationSuccesfull = userDataController.createUser(getUserNameField().getValue(), getFirstNameField().getValue(),
+                                getLastNameField().getValue(), emailField.getValue(), getPasswordField().getValue(),
+                                getHometownField().getValue());
+
+                            if(registrationSuccesfull)
+                            {
+                                Success successWindow = new Success();
+                                successWindow.setResizable(false);
+                                getUI().addWindow(successWindow);
+                                closeWindow();
+                            }
+
                     } catch (UnirestException e) {
                         e.printStackTrace();
                     }

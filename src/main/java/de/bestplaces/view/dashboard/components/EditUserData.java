@@ -10,6 +10,7 @@ import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.ConfirmPasswordValidator;
 import de.bestplaces.controller.UserDataController;
+import de.bestplaces.model.User;
 
 import static de.bestplaces.MyUI.navigator;
 
@@ -49,7 +50,12 @@ public class EditUserData extends FormLayout implements View {
                     getPasswordField(), getNewPasswordField(), getNewPasswordConfirmField(), getSaveChances());
 
             userDataController = new UserDataController(this);
-            userDataController.getUserData();
+            User aktuellerUser = userDataController.getUserData();
+
+            getFirstNameField().setValue(aktuellerUser.getFirstName());
+            getLastNameField().setValue(aktuellerUser.getLastName());
+            getHometownField().setValue(aktuellerUser.getHometown());
+            getEmailField().setValue(aktuellerUser.getEmail());
 
             setSizeFull();
             setMargin(true);
@@ -173,7 +179,26 @@ public class EditUserData extends FormLayout implements View {
                 public void buttonClick(Button.ClickEvent event) {
 
                     try {
-                        userDataController.editUserData();
+                        String password;
+                        if(getNewPasswordConfirmField().getValue() == null || getNewPasswordConfirmField().getValue().length() ==0)
+                        {
+                            password = getPasswordField().getValue();
+                        }
+                        else
+                        {
+                            password = getNewPasswordConfirmField().getValue();
+                        }
+                        boolean changeSuccessfull = userDataController.editUserData(getFirstNameField().getValue(), getLastNameField().getValue(),
+                                getHometownField().getValue(), getEmailField().getValue(), password);
+
+                        if(changeSuccessfull)
+                        {
+                            Notification.show("Changes successfully saved");
+                        } else
+                        {
+                            Notification.show("Error");
+                        }
+
                     } catch (UnirestException e) {
                         e.printStackTrace();
                     }
