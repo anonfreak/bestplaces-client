@@ -3,14 +3,19 @@ package de.bestplaces.view.dashboard.components;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
-
-import static de.bestplaces.MyUI.navigator;
+import de.bestplaces.controller.NavigatorController;
+import de.bestplaces.model.Pages;
 
 /**
  * Created by franz on 25.11.2016.
  */
 public class Search extends VerticalLayout implements View {
     public static final String SEARCH = "Search";
+    private NavigatorController navigatorController;
+
+    public Search(NavigatorController controller){
+        navigatorController = controller;
+    }
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
@@ -22,7 +27,7 @@ public class Search extends VerticalLayout implements View {
         layoutSearchBar.setWidth("100%");
 
         Button backButton = new Button("Back");
-        backButton.addClickListener(clickEvent -> navigator.navigateTo(Timeline.TIMELINE));
+        backButton.addClickListener(clickEvent -> navigatorController.switchToView(Pages.TIMELINE));
 
         TextField search = new TextField();
         search.setWidth("100%");

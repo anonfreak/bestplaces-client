@@ -10,15 +10,14 @@ import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.ConfirmPasswordValidator;
+import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.UserDataController;
 import de.bestplaces.controller.UserNameValidator;
 
 /**
  * Created by franz on 24.11.2016.
  */
-public class RegistrationWindow extends Window {
-
-
+public class RegistrationWindow extends CustomizedWindow {
     protected FormLayout form;
     private TextField firstNameField;
     private TextField lastNameField;
@@ -36,7 +35,8 @@ public class RegistrationWindow extends Window {
         super("Registration on BestPlaces"); // Set window caption
         center();
         setSizeUndefined();
-        userDataController = new UserDataController(this);
+        this.userDataController = navigatorController.getUserDataController();
+        setResizable(false);
         init();
     }
 
@@ -60,14 +60,6 @@ public class RegistrationWindow extends Window {
     {
         close();
     }
-
-
-//    private void createUser(String password)
-//    {
-//        getUI().addWindow(new Success());
-//        close();
-//
-//    }
 
     public TextField getFirstNameField() {
         if (firstNameField == null)
@@ -231,10 +223,10 @@ public class RegistrationWindow extends Window {
 
                             if(registrationSuccesfull)
                             {
-                                Success successWindow = new Success();
-                                successWindow.setResizable(false);
-                                getUI().addWindow(successWindow);
+                                navigatorController.openWindow(new Success());
                                 closeWindow();
+                            } else {
+                                Notification.show("Registration failed. Please try again.");
                             }
 
                     } catch (UnirestException e) {

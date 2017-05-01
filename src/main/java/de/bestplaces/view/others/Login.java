@@ -11,7 +11,7 @@ import de.bestplaces.view.dashboard.view.MainView;
 /**
  * Created by franz on 24.11.2016.
  */
-public class Login extends Window {
+public class Login extends CustomizedWindow {
     private TextField userNameField;
     private PasswordField passwordField;
     private UserDataController userDataController;
@@ -21,7 +21,8 @@ public class Login extends Window {
        {
            super("Login to BestPlaces");
            center();
-           userDataController = new UserDataController(this);
+           userDataController = navigatorController.getUserDataController();
+           setResizable(false);
            init();
        }
 
@@ -55,6 +56,8 @@ public class Login extends Window {
                        if(loginSuccessfull)
                        {
                            closeWindow();
+                       } else {
+                           getPasswordField().setRequiredError("wrong password or username");
                        }
                    } catch (UnirestException e) {
                        e.printStackTrace();

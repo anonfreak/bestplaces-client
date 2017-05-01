@@ -6,6 +6,8 @@ import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
+import de.bestplaces.controller.NavigatorController;
+import de.bestplaces.controller.UserDataController;
 
 /**
  * Created by franz on 25.11.2016.
@@ -14,10 +16,11 @@ public class Welcome extends VerticalLayout implements View {
         public static final String WELCOME = "Welcome";
         private RegistrationWindow regWindow;
         private Login loginWindow;
+        private NavigatorController navigatorController;
 
-    public Welcome()
+    public Welcome(NavigatorController controller)
     {
-
+        navigatorController = controller;
     }
 
     @Override
@@ -46,9 +49,9 @@ public class Welcome extends VerticalLayout implements View {
         buttonPanel.setLocked(true);
 
         Button registerButton = new Button("Register Now");
-        registerButton.addClickListener(clickEvent -> callRegistrationWindow());
+        registerButton.addClickListener(clickEvent -> navigatorController.openWindow(new RegistrationWindow()));
         Button loginButton = new Button("Log In");
-        loginButton.addClickListener(clickEvent -> callLoginWindow());
+        loginButton.addClickListener(clickEvent -> navigatorController.openWindow(new Login()));
 
         buttonPanel.setSplitPosition(12, Sizeable.UNITS_PERCENTAGE);
         buttonPanel.setFirstComponent(registerButton);
@@ -98,39 +101,39 @@ public class Welcome extends VerticalLayout implements View {
 
         addComponent(layout);
 
-        regWindow = new RegistrationWindow();
-        loginWindow = new Login();
+//        regWindow = new RegistrationWindow();
+//        loginWindow = new Login();
 
     }
 
-    public void callRegistrationWindow()
-    {
-        loginWindow.close();
-        regWindow.setResizable(false);
-
-        this.getUI().addClickListener(new MouseEvents.ClickListener() {
-
-            @Override
-            public void click(MouseEvents.ClickEvent event) {
-                regWindow.close();
-            }
-        });
-
-        getUI().addWindow(regWindow);
-
-    }
-    public void callLoginWindow()
-    {
-        regWindow.close();
-        loginWindow.setResizable(false);
-
-        this.getUI().addClickListener(new MouseEvents.ClickListener() {
-            @Override
-            public void click(MouseEvents.ClickEvent clickEvent) {
-                loginWindow.close();
-            }
-        });
-
-        getUI().addWindow(loginWindow);
-    }
+//    public void callRegistrationWindow()
+//    {
+//        loginWindow.close();
+//        regWindow.setResizable(false);
+//
+//        this.getUI().addClickListener(new MouseEvents.ClickListener() {
+//
+//            @Override
+//            public void click(MouseEvents.ClickEvent event) {
+//                regWindow.close();
+//            }
+//        });
+//
+//        getUI().addWindow(regWindow);
+//
+//    }
+//    public void callLoginWindow()
+//    {
+//        regWindow.close();
+//        loginWindow.setResizable(false);
+//
+//        this.getUI().addClickListener(new MouseEvents.ClickListener() {
+//            @Override
+//            public void click(MouseEvents.ClickEvent clickEvent) {
+//                loginWindow.close();
+//            }
+//        });
+//
+//        getUI().addWindow(loginWindow);
+//    }
 }

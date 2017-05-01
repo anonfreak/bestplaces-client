@@ -9,10 +9,10 @@ import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.ConfirmPasswordValidator;
+import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.UserDataController;
+import de.bestplaces.model.Pages;
 import de.bestplaces.model.User;
-
-import static de.bestplaces.MyUI.navigator;
 
 /**
  * Created by franz on 25.11.2016.
@@ -30,7 +30,15 @@ public class EditUserData extends FormLayout implements View {
     private PasswordField newPasswordField;
     private PasswordField newPasswordConfirmField;
 
+    private NavigatorController navigatorController;
+
     private Button saveChances;
+
+
+    public EditUserData(NavigatorController controller){
+        navigatorController = controller;
+        userDataController = navigatorController.getUserDataController();
+    }
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
@@ -49,7 +57,6 @@ public class EditUserData extends FormLayout implements View {
             addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
                     getPasswordField(), getNewPasswordField(), getNewPasswordConfirmField(), getSaveChances());
 
-            userDataController = new UserDataController(this);
             User aktuellerUser = userDataController.getUserData();
 
             getFirstNameField().setValue(aktuellerUser.getFirstName());
@@ -64,7 +71,7 @@ public class EditUserData extends FormLayout implements View {
 
     public void navigateToTimeline()
         {
-            navigator.navigateTo(Timeline.TIMELINE);
+            navigatorController.switchToView(Pages.TIMELINE);
         }
 
     private void validateRequiredField(TextField textField, String errorMessage) {

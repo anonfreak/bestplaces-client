@@ -11,6 +11,7 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
+import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.view.dashboard.components.EditUserData;
 import de.bestplaces.view.dashboard.components.Search;
 import de.bestplaces.view.dashboard.components.Timeline;
@@ -28,14 +29,15 @@ import java.io.IOException;
 @Theme("mytheme")
 public class MyUI extends UI {
 
-    public static Navigator navigator;
+    private NavigatorController navigatorController;
 
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         getPage().setTitle("BestPlaces");
-        initJackson();
-        // Create a navigator to control the views
+
+        navigatorController = new NavigatorController(this);
+        /*// Create a navigator to control the views
         navigator = new Navigator(this, this);
 
         // Create and register the views
@@ -44,30 +46,11 @@ public class MyUI extends UI {
         navigator.addView(Search.SEARCH, Search.class);
         navigator.addView(EditUserData.EDITUSERDATA, EditUserData.class);
 
-        navigator.navigateTo(Welcome.WELCOME);
+        navigator.navigateTo(Welcome.WELCOME);*/
     }
 
-    private void initJackson(){
-        Unirest.setObjectMapper(new ObjectMapper() {
-            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
-                    = new com.fasterxml.jackson.databind.ObjectMapper();
-
-            public <T> T readValue(String value, Class<T> valueType) {
-                try {
-                    return jacksonObjectMapper.readValue(value, valueType);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-
-            public String writeValue(Object value) {
-                try {
-                    return jacksonObjectMapper.writeValueAsString(value);
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+    public NavigatorController getNavigatorController(){
+        return navigatorController;
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

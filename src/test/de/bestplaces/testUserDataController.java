@@ -1,13 +1,16 @@
 package de.bestplaces;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import cucumber.api.java.ca.I;
 import de.bestplaces.controller.UserDataController;
 import static org.junit.Assert.*;
 
+import junit.framework.TestCase;
+import org.apache.xpath.operations.String;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
@@ -19,36 +22,12 @@ import java.io.IOException;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class testUserDataController {
 
-    UserDataController userDataController;
+    private static UserDataController userDataController;
 
-    @Before
-    public void init()
+    @BeforeClass
+    public static void init()
     {
         userDataController = new UserDataController();
-    }
-
-    @Before
-    public void setMappers(){
-        Unirest.setObjectMapper(new ObjectMapper() {
-            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
-                    = new com.fasterxml.jackson.databind.ObjectMapper();
-
-            public <T> T readValue(String value, Class<T> valueType) {
-                try {
-                    return jacksonObjectMapper.readValue(value, valueType);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-
-            public String writeValue(Object value) {
-                try {
-                    return jacksonObjectMapper.writeValueAsString(value);
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
     }
 
     @Test
@@ -74,10 +53,9 @@ public class testUserDataController {
                 "Durlach", "shaundasschaf.neumann@gmx.de", "1234"));
     }
 
-    @After
-    public void removeUser()
-    {
+    @AfterClass
+    public static void removeUser() throws UnirestException {
         //diese Methode ist noch leer im Controller
-        userDataController.removeUser();
+        assertEquals(true, userDataController.removeUser("IskaN"));
     }
 }

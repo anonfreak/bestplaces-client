@@ -1,16 +1,18 @@
 package de.bestplaces.view.others;
 
 import com.vaadin.ui.*;
+import de.bestplaces.controller.NavigatorController;
 
 /**
  * Created by franz on 24.11.2016.
  */
-public class Success extends Window {
+public class Success extends CustomizedWindow {
 
     public Success()
     {
         super("Success");
         center();
+        setResizable(false);
         init();
 
     }
@@ -24,10 +26,7 @@ public class Success extends Window {
         Button loginButton = new Button("Login now");
         loginButton.addClickListener(new Button.ClickListener() {
             public void buttonClick(Button.ClickEvent event) {
-
-                Login loginWindow = new Login();
-                loginWindow.setResizable(false);
-                getUI().addWindow(loginWindow);
+                navigatorController.openWindow(new Login());
                 close();
             }});
 
