@@ -80,7 +80,7 @@ public class Login extends CustomizedWindow {
        {
            close();
 
-           MyUI.getCurrent().setContent(new MainView());
+           MyUI.getCurrent().setContent(new MainView(navigatorController));
        }
 
 

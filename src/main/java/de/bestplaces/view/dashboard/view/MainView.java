@@ -6,6 +6,7 @@ package de.bestplaces.view.dashboard.view;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
+import de.bestplaces.controller.NavigatorController;
 
 /*
  * Dashboard MainView is a simple HorizontalLayout that wraps the menu on the
@@ -14,11 +15,11 @@ import com.vaadin.ui.HorizontalLayout;
 @SuppressWarnings("serial")
 public class MainView extends HorizontalLayout {
 
-    public MainView() {
+    public MainView(NavigatorController navigatorController) {
         setSizeFull();
         addStyleName("mainview");
 
-        addComponent(new DashboardMenu());
+        addComponent(new DashboardMenu(navigatorController));
 
         ComponentContainer content = new CssLayout();
         content.addStyleName("view-content");
@@ -26,6 +27,6 @@ public class MainView extends HorizontalLayout {
         addComponent(content);
         setExpandRatio(content, 1.0f);
 
-        new DashboardNavigator(content);
+        navigatorController.setContent(content);
     }
 }

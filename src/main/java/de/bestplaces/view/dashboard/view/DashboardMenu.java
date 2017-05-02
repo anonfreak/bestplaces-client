@@ -5,6 +5,8 @@ package de.bestplaces.view.dashboard.view;
  */
 
 import de.bestplaces.MyUI;
+import de.bestplaces.controller.NavigatorController;
+import de.bestplaces.model.Pages;
 import de.bestplaces.model.User;
 
 
@@ -47,8 +49,10 @@ public final class DashboardMenu extends CustomComponent {
     private Label notificationsBadge;
     private Label reportsBadge;
     private MenuItem settingsItem;
+    private NavigatorController navigatorController;
 
-    public DashboardMenu() {
+    public DashboardMenu(NavigatorController navigatorController) {
+        this.navigatorController = navigatorController;
         setPrimaryStyleName("valo-menu");
         setId(ID);
         setSizeUndefined();
@@ -104,7 +108,7 @@ public final class DashboardMenu extends CustomComponent {
             public void menuSelected(final MenuItem selectedItem) {
 //                ProfilePreferencesWindow.open(user, false);
                 UI.getCurrent().getNavigator()
-                        .navigateTo(EditUserData.EDITUSERDATA);
+                        .navigateTo(Pages.EDITUSERDATA.toString());
             }
         });
         settingsItem.addSeparator();
@@ -140,7 +144,7 @@ public final class DashboardMenu extends CustomComponent {
         CssLayout menuItemsLayout = new CssLayout();
         menuItemsLayout.addStyleName("valo-menuitems");
 
-        for (final DashboardViewType view : DashboardViewType.values()) {
+        for (final Pages view : Pages.values()) {
             Component menuItemComponent = new ValoMenuItemButton(view);
 
 //            if (view == DashboardViewType.REPORTS) {
@@ -170,13 +174,13 @@ public final class DashboardMenu extends CustomComponent {
 //                menuItemComponent = reports;
 //            }
 
-            if (view == DashboardViewType.TIMELINE) {
+            if (view == Pages.TIMELINE) {
                 notificationsBadge = new Label();
                 notificationsBadge.setId(NOTIFICATIONS_BADGE_ID);
                 menuItemComponent = buildBadgeWrapper(menuItemComponent,
                         notificationsBadge);
             }
-            if (view == DashboardViewType.SEARCH) {
+            if (view == Pages.SEARCH) {
                 notificationsBadge = new Label();
                 notificationsBadge.setId(NOTIFICATIONS_BADGE_ID);
                 menuItemComponent = buildBadgeWrapper(menuItemComponent,
@@ -244,20 +248,20 @@ public final class DashboardMenu extends CustomComponent {
 
         private static final String STYLE_SELECTED = "selected";
 
-        private final DashboardViewType view;
+        private final Pages view;
 
-        public ValoMenuItemButton(final DashboardViewType view) {
+        public ValoMenuItemButton(final Pages view) {
             this.view = view;
             setPrimaryStyleName("valo-menu-item");
             setIcon(view.getIcon());
-            setCaption(view.getViewName().substring(0, 1).toUpperCase()
-                    + view.getViewName().substring(1));
+            setCaption(view.toString().substring(0, 1).toUpperCase()
+                    + view.toString().substring(1));
 //            DashboardEventBus.register(this);
             addClickListener(new ClickListener() {
                 @Override
                 public void buttonClick(final ClickEvent event) {
                     UI.getCurrent().getNavigator()
-                            .navigateTo(view.getViewName());
+                            .navigateTo(view.toString());
                 }
             });
 
