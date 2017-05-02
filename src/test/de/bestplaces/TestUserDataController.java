@@ -20,7 +20,7 @@ import java.io.IOException;
  * Created by franz on 30.04.2017.
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class testUserDataController {
+public class TestUserDataController {
 
     private static UserDataController userDataController;
 

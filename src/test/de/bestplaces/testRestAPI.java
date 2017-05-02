@@ -38,6 +38,7 @@ public class testRestAPI {
         assertEquals(201, response.getStatus());
     }
 
+    @Ignore
     @Test
     public void authenticate() throws UnirestException {
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/api-token-auth/").
