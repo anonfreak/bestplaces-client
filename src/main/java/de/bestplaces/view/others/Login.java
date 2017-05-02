@@ -5,6 +5,7 @@ import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;
+import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.UserDataController;
 import de.bestplaces.view.dashboard.view.MainView;
 
@@ -21,7 +22,6 @@ public class Login extends CustomizedWindow {
        {
            super("Login to BestPlaces");
            center();
-           userDataController = navigatorController.getUserDataController();
            setResizable(false);
            init();
        }
@@ -99,5 +99,11 @@ public class Login extends CustomizedWindow {
 
     public void setPasswordField(PasswordField passwordField) {
         this.passwordField = passwordField;
+    }
+
+    @Override
+    public void setNavigatorController(NavigatorController navigatorController) {
+        super.setNavigatorController(navigatorController);
+        userDataController = navigatorController.getUserDataController();
     }
 }

@@ -35,7 +35,7 @@ public class RegistrationWindow extends CustomizedWindow {
         super("Registration on BestPlaces"); // Set window caption
         center();
         setSizeUndefined();
-        this.userDataController = navigatorController.getUserDataController();
+
         setResizable(false);
         init();
     }
@@ -251,5 +251,9 @@ public class RegistrationWindow extends CustomizedWindow {
         this.registerButton = registerButton;
     }
 
-
+    @Override
+    public void setNavigatorController(NavigatorController navigatorController) {
+        super.setNavigatorController(navigatorController);
+        userDataController = navigatorController.getUserDataController();
+    }
 }
