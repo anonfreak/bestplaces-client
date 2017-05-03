@@ -4,6 +4,8 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
+import de.bestplaces.model.Adress;
+import de.bestplaces.model.Place;
 
 /**
  * Created by franz on 24.11.2016.
@@ -31,10 +33,14 @@ public class Timeline extends VerticalLayout implements View{
         layout.addComponent(timeline);
         addComponent(layout);
 
-        Tile placeOne = new Tile();
+        Adress adress = new Adress("karlstraße", 167, "Karlsruhe", 0);
+        Place place = new Place(1, "Pizza", null, adress, "0721826110", null, null,true,"good", 5,null);
+
+
+        Tile placeOne = new Tile(place);
         addComponent(placeOne);
 
-        Tile placeTwo = new Tile();
+        Tile placeTwo = new Tile(place);
         addComponent(placeTwo);
 
         setMargin(true);
