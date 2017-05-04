@@ -15,9 +15,6 @@ import de.bestplaces.view.others.Success;
 import elemental.json.Json;
 
 import java.io.IOException;
-import java.util.Calendar;
-
-import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by franz on 25.11.2016.

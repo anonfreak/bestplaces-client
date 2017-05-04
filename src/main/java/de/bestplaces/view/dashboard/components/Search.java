@@ -19,10 +19,12 @@ public class Search extends VerticalLayout implements View {
     public static final String SEARCH = "Search";
     private NavigatorController navigatorController;
     private SearchController searchController;
+    private SearchBarPanel searchBarPanel;
 
     public Search(NavigatorController controller){
         navigatorController = controller;
         searchController = new SearchController();
+
     }
 
     @Override
@@ -33,8 +35,16 @@ public class Search extends VerticalLayout implements View {
 
     public void init()
     {
-        SearchBarPanel searchBarPanel = new SearchBarPanel(navigatorController, searchController, this);
-        addComponent(searchBarPanel);
+
+        addComponent(getSearchBarPanel());
+    }
+
+    private SearchBarPanel getSearchBarPanel() {
+        if(searchBarPanel == null)
+        {
+            searchBarPanel = new SearchBarPanel(navigatorController, searchController, this);
+        }
+        return searchBarPanel;
     }
 
     public void addResultPanel(List<Place> placesList)

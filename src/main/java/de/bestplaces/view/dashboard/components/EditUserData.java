@@ -38,6 +38,7 @@ public class EditUserData extends FormLayout implements View {
     public EditUserData(NavigatorController controller){
         navigatorController = controller;
         userDataController = navigatorController.getUserDataController();
+
     }
 
     @Override
@@ -51,10 +52,7 @@ public class EditUserData extends FormLayout implements View {
 
     public void init() throws UnirestException {
 
-            labelEditUserData = new Label("Edit User Data");
-            labelEditUserData.setStyleName("huge");
-
-            addComponents(labelEditUserData, getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
+            addComponents(getLable(), getFirstNameField(), getLastNameField(), getHometownField(), getEmailField(),
                     getPasswordField(), getNewPasswordField(), getNewPasswordConfirmField(), getSaveChances());
 
             User aktuellerUser = userDataController.getUserData();
@@ -68,6 +66,16 @@ public class EditUserData extends FormLayout implements View {
             setMargin(true);
 
         }
+
+    private Label getLable() {
+        if(labelEditUserData==null)
+        {
+            labelEditUserData = new Label("Edit User Data");
+            labelEditUserData.setStyleName("huge");
+        }
+
+        return labelEditUserData;
+    }
 
     public void navigateToTimeline()
         {

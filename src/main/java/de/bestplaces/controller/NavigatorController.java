@@ -48,7 +48,7 @@ public class NavigatorController {
 
     public void setContent(ComponentContainer component){
         navigator.destroy();
-        navigator = new Navigator(UI.getCurrent(), component);
+        navigator = new Navigator(ui, component);
         addViewsToNavigator();
     }
 
