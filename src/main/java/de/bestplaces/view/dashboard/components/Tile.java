@@ -1,8 +1,9 @@
 package de.bestplaces.view.dashboard.components;
 
-import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Panel;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.*;
+import com.vaadin.ui.themes.Runo;
 import de.bestplaces.model.Place;
 
 /**
@@ -12,19 +13,35 @@ public class Tile extends Panel {
 
     public Tile(Place place)
     {
-        GridLayout layout = new GridLayout(4,4);
+        VerticalLayout layout = new VerticalLayout();
 
         Label placeName = new Label(place.getName());
-        layout.addComponent(placeName,1, 1);
+        placeName.setStyleName("huge");
+        layout.addComponent(placeName);
 
-        Label spaceForImage = new Label("Image2");
-        layout.addComponent(spaceForImage,1,2);
+        ImagePanel images = new ImagePanel(place.getPictures());
+        layout.addComponent(images);
 
-        Label spaceForImageTwo = new Label("Image2");
-        layout.addComponent(spaceForImageTwo,2,2);
+        Label address = new Label(place.getFormattedAddress());
+        layout.addComponent(address);
 
-        Label ort = new Label(place.getAdress().getTown());
-        layout.addComponent(ort,1,3);
+        Label star;
+        HorizontalLayout starLayout = new HorizontalLayout();
+        for (int i = 0; i < place.getAverageStar() ; i++) {
+
+            star = new Label(FontAwesome.STAR.getHtml() + "");
+            star.setContentMode(ContentMode.HTML);
+            starLayout.addComponent(star);
+        }
+        layout.addComponent(starLayout);
+
+        String openNow = "Zur Zeit nicht geöffnet";
+        if(place.isOpenNow())
+        {
+            openNow = "Zur Zeit geöffnet";
+        }
+        Label open = new Label(openNow);
+        layout.addComponent(open);
 
         setContent(layout);
 

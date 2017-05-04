@@ -49,8 +49,8 @@ public class Timeline extends VerticalLayout implements View{
 
     private Tile getPlace()
     {
-        Adress adress = new Adress("karlstraße", 167, "Karlsruhe", 0);
-        Place place = new Place(1, "Pizza", null, adress, "0721826110", null, null,true,"good", 5,null);
+        Place place = new Place("eindeutig", "Pizza", null, "Fritz-Erler-Straße 1, 76133 Karlsruhe, Germany",
+                true, 4,null, null);
 
         if(placeOne == null)
         {
@@ -62,12 +62,12 @@ public class Timeline extends VerticalLayout implements View{
 
     private Tile getPlaceTwo()
     {
-        Adress adress = new Adress("karlstraße", 167, "Karlsruhe", 0);
-        Place place = new Place(1, "Pizza", null, adress, "0721826110", null, null,true,"good", 5,null);
+        Place place2 = new Place("eindeutig", "Eismarie", null, "Karlsstraße 15, 76137 Karlsruhe, Germany",
+                true, 4,null, null);
 
         if(placeTwo == null)
         {
-            placeTwo = new Tile(place);
+            placeTwo = new Tile(place2);
         }
 
         return placeTwo;

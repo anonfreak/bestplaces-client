@@ -14,7 +14,8 @@ public class ResultPanel extends Panel {
     public ResultPanel(List<Place> placesList)
     {
 
-        GridLayout layout = new GridLayout(5,5);
+        GridLayout layout = new GridLayout(3,4);
+
 
         for (Place place : placesList) {
             Tile tile = new Tile(place);
@@ -22,8 +23,7 @@ public class ResultPanel extends Panel {
         }
 
 
-          //  for (int i = 0; i < 5 ; i++) {
-           //     for (int j = 0; j < 5; j++) {
+
 
 
         layout.setMargin(true);

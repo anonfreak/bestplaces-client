@@ -20,6 +20,7 @@ public class Search extends VerticalLayout implements View {
     private NavigatorController navigatorController;
     private SearchController searchController;
     private SearchBarPanel searchBarPanel;
+    private ResultPanel resultPanel;
 
     public Search(NavigatorController controller){
         navigatorController = controller;
@@ -35,8 +36,8 @@ public class Search extends VerticalLayout implements View {
 
     public void init()
     {
-
         addComponent(getSearchBarPanel());
+        removeResultPanel();
     }
 
     private SearchBarPanel getSearchBarPanel() {
@@ -49,7 +50,20 @@ public class Search extends VerticalLayout implements View {
 
     public void addResultPanel(List<Place> placesList)
     {
-        ResultPanel tileViewPanel = new ResultPanel(placesList);
-        addComponent(tileViewPanel);
+        if(resultPanel != null)
+        {
+            removeComponent(resultPanel);
+        }
+        resultPanel = new ResultPanel(placesList);
+        addComponent(resultPanel);
     }
+    public void removeResultPanel()
+    {
+        if(resultPanel != null)
+        {
+            removeComponent(resultPanel);
+        }
+    }
+
+
 }

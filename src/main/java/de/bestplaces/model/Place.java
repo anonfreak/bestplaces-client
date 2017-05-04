@@ -1,41 +1,39 @@
 package de.bestplaces.model;
 
+import com.vaadin.ui.Image;
+
+import java.util.List;
+
 /**
  * Created by franz on 25.11.2016.
  */
 public class Place {
 
-    private int placeID;
+    private String placeID;
     private String name;
     private Geo geo;
-    private Adress adress;
-    private String phonenumber;
-    private String website;
-    private int[] openingHours;
-    private boolean favourite;
-    private String reviewText;
+    private String formattedAddress;
+    private boolean openNow;
     private int averageStar;
-    private Review review;
+    private List<String> pictures;
+    private List<String> categories;
 
-    public Place(int placeID, String name, Geo geo, Adress adress, String phonenumber, String website, int[] openingHours, boolean favourite, String reviewText, int averageStar, Review review) {
+    public Place(String placeID, String name, Geo geo, String formattedAddress, boolean openNow, int averageStar, List<String> pictures, List<String> categories) {
         this.placeID = placeID;
         this.name = name;
         this.geo = geo;
-        this.adress = adress;
-        this.phonenumber = phonenumber;
-        this.website = website;
-        this.openingHours = openingHours;
-        this.favourite = favourite;
-        this.reviewText = reviewText;
+        this.formattedAddress = formattedAddress;
+        this.openNow = openNow;
         this.averageStar = averageStar;
-        this.review = review;
+        this.pictures = pictures;
+        this.categories = categories;
     }
 
-    public int getPlaceID() {
+    public String getPlaceID() {
         return placeID;
     }
 
-    public void setPlaceID(int placeID) {
+    public void setPlaceID(String placeID) {
         this.placeID = placeID;
     }
 
@@ -55,52 +53,20 @@ public class Place {
         this.geo = geo;
     }
 
-    public Adress getAdress() {
-        return adress;
+    public String getFormattedAddress() {
+        return formattedAddress;
     }
 
-    public void setAdress(Adress adress) {
-        this.adress = adress;
+    public void setFormattedAddress(String formattedAddress) {
+        this.formattedAddress = formattedAddress;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public boolean isOpenNow() {
+        return openNow;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public int[] getOpeningHours() {
-        return openingHours;
-    }
-
-    public void setOpeningHours(int[] openingHours) {
-        this.openingHours = openingHours;
-    }
-
-    public boolean isFavourite() {
-        return favourite;
-    }
-
-    public void setFavourite(boolean favourite) {
-        this.favourite = favourite;
-    }
-
-    public String getReviewText() {
-        return reviewText;
-    }
-
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
+    public void setOpenNow(boolean openNow) {
+        this.openNow = openNow;
     }
 
     public int getAverageStar() {
@@ -111,11 +77,19 @@ public class Place {
         this.averageStar = averageStar;
     }
 
-    public Review getReview() {
-        return review;
+    public List<String> getPictures() {
+        return pictures;
     }
 
-    public void setReview(Review review) {
-        this.review = review;
+    public void setPictures(List<String> pictures) {
+        this.pictures = pictures;
+    }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
     }
 }
