@@ -55,6 +55,8 @@ public class Search extends VerticalLayout implements View {
             removeComponent(resultPanel);
         }
         resultPanel = new ResultPanel(placesList);
+        resultPanel.setHeight("1000px");
+
         addComponent(resultPanel);
     }
     public void removeResultPanel()

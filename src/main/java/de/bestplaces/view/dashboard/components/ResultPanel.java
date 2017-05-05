@@ -13,20 +13,18 @@ public class ResultPanel extends Panel {
 
     public ResultPanel(List<Place> placesList)
     {
-
-        GridLayout layout = new GridLayout(3,4);
-
+        int numberOfPlaces = placesList.size();
+        GridLayout layout = new GridLayout(3,(numberOfPlaces/3));
 
         for (Place place : placesList) {
             Tile tile = new Tile(place);
+            tile.setSizeFull();
             layout.addComponent(tile);
         }
 
-
-
-
-
         layout.setMargin(true);
+        layout.setSizeUndefined();
+
         setContent(layout);
     }
 
