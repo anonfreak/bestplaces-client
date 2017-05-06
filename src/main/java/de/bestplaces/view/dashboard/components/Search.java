@@ -24,7 +24,7 @@ public class Search extends VerticalLayout implements View {
 
     public Search(NavigatorController controller){
         navigatorController = controller;
-        searchController = new SearchController();
+        searchController = new SearchController(navigatorController.getUserDataController());
 
     }
 
@@ -54,7 +54,7 @@ public class Search extends VerticalLayout implements View {
         {
             removeComponent(resultPanel);
         }
-        resultPanel = new ResultPanel(placesList);
+        resultPanel = new ResultPanel(placesList, navigatorController);
         resultPanel.setHeight("1000px");
 
         addComponent(resultPanel);

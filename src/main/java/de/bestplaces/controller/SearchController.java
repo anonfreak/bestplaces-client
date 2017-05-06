@@ -1,10 +1,18 @@
 package de.bestplaces.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.ObjectMapper;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.navigator.View;
 import de.bestplaces.model.Adress;
 import de.bestplaces.model.Place;
+import de.bestplaces.model.User;
 import gherkin.lexer.Pl;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,59 +21,69 @@ import java.util.List;
  */
 public class SearchController {
 
-    public SearchController()
+    private static String token;
+    private UserDataController userDataController;
+
+    public SearchController(UserDataController userDataController)
+    {
+        this.userDataController = userDataController;
+        this.initJackson();
+        token = "";
+    }
+
+    public List<Place> search(String place, String town) throws UnirestException {
+
+        HttpResponse<Place[]> response = Unirest.get("http://mathtap.de:1194/place/search?q=" + place + "&location=" + town)
+                .header("Authorization", "Token " + getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(Place[].class);
+
+        List<Place> placesList = new ArrayList<>();
+
+        Place[] placeArray = response.getBody();
+
+        for (int i = 0; i < placeArray.length; i++) {
+            placesList.add(placeArray[i]);
+        }
+
+        return placesList;
+    }
+
+    public void searchMore()
     {
 
     }
 
-    public List<Place> search(String place, String town)
-    {
-        //Verbindung zu API
-        //mit dem mitgegebenen Suchkriterien
 
+    private String getToken(){
+        if(token == ""){
+            token = userDataController.getToken();
+        }
+        return token;
+    }
 
-        List<String> images = new ArrayList<>();
-        images.add("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRYAAAARKG0abvIum18OTmFfoQ1y9KO20PbZdd0xaH475d1O9dwE9dQy786Uu07rfjxs84Ke27LmrHCzaa-7CNbPxRKMx1Xq72oEKvQWudp948hZBC_tOnfP1_uecjnFvYgZJiLEhCeeGXuXxzfedqINysF8IpxGhQmwZCeDHXroICPs-Rb93haraVrfg&key=AIzaSyCk-JFceB-S7QIakQTajh1O7fMGkob7pO0");
-        Place fakePlace = new Place("eindeutig", "Pizza", null, "Fritz-Erler-Straße 1, 76133 Karlsruhe, Germany",
-                true, 4,images, null);
+    private void initJackson(){
+        Unirest.setObjectMapper(new ObjectMapper() {
+            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
+                    = new com.fasterxml.jackson.databind.ObjectMapper();
 
-        Place fakePlace3 = new Place("eindeutig", "Pizza", null, "Fritz-Erler-Straße 1, 76133 Karlsruhe, Germany",
-                true, 4,null, null);
+            public <T> T readValue(String value, Class<T> valueType) {
+                try {
+                    return jacksonObjectMapper.readValue(value, valueType);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
-        Place fakePlace4 = new Place("eindeutig", "Pizza", null, "Fritz-Erler-Straße 1, 76133 Karlsruhe, Germany",
-                false, 4,images, null);
-
-        Place fakePlace5 = new Place("eindeutig", "Pizza", null, "Fritz-Erler-Straße 1, 76133 Karlsruhe, Germany",
-                true, 4,null, null);
-
-        List<String> images2 = new ArrayList<>();
-        images2.add("https://s3-media2.fl.yelpcdn.com/bphoto/FK66TQEFCj4jtQSsP590vw/ls.jpg");
-        images2.add("https://www.karlsruhe-insider.de/wp-content/uploads/2015/09/Eismarie1.jpg");
-
-        Place fakePlace2 = new Place("eindeutig", "Eismarie", null, "Karlsstraße 15, 76137 Karlsruhe, Germany",
-                true, 2,images2, null);
-
-        Place fakePlace6 = new Place("eindeutig", "Eismarie", null, "Karlsstraße 15, 76137 Karlsruhe, Germany",
-                false, 2,null, null);
-
-        Place fakePlace7 = new Place("eindeutig", "Eismarie", null, "Karlsstraße 15, 76137 Karlsruhe, Germany",
-                false, 2,images2, null);
-
-        List<Place> placesList = new ArrayList<>();
-        placesList.add(fakePlace);
-        placesList.add(fakePlace2);
-        placesList.add(fakePlace6);
-        placesList.add(fakePlace3);
-        placesList.add(fakePlace4);
-        placesList.add(fakePlace5);
-        placesList.add(fakePlace7);
-        placesList.add(fakePlace);
-        placesList.add(fakePlace);
-        placesList.add(fakePlace);
-        placesList.add(fakePlace);
-        placesList.add(fakePlace);
-        placesList.add(fakePlace);
-        return placesList;
+            public String writeValue(Object value) {
+                try {
+                    return jacksonObjectMapper.writeValueAsString(value);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
 }

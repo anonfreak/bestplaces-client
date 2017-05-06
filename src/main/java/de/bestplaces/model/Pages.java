@@ -8,7 +8,8 @@ import org.apache.regexp.RE;
  * Created by kolbm on 01.05.2017.
  */
 public enum Pages {
-    TIMELINE("Timeline", FontAwesome.HOME), SEARCH("Search", FontAwesome.SEARCH), EDITUSERDATA("EditUserData", FontAwesome.EDIT);
+    TIMELINE("Timeline", FontAwesome.HOME), SEARCH("Search", FontAwesome.SEARCH),
+    EDITUSERDATA("EditUserData", FontAwesome.EDIT), PLACEVIEW("PlaceView", FontAwesome.HOME);
 
     private final String text;
     private final Resource icon;

@@ -1,5 +1,6 @@
 package de.bestplaces.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vaadin.ui.Image;
 
 import java.util.List;
@@ -9,13 +10,22 @@ import java.util.List;
  */
 public class Place {
 
+    @JsonProperty(value = "placeId")
     private String placeID;
+    @JsonProperty(value = "name")
     private String name;
+    @JsonProperty(value = "geo")
     private Geo geo;
+    @JsonProperty(value = "formatted_address")
     private String formattedAddress;
+    @JsonProperty(value = "openNow")
     private boolean openNow;
+    @JsonProperty(value = "rating")
     private int averageStar;
+    @JsonProperty(value = "photos")
     private List<String> pictures;
+    @JsonProperty(value = "\n" +
+            "categories restaurant, food, poi")
     private List<String> categories;
 
     public Place(String placeID, String name, Geo geo, String formattedAddress, boolean openNow, int averageStar, List<String> pictures, List<String> categories) {

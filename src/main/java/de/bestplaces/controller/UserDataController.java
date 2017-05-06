@@ -102,7 +102,7 @@ public class UserDataController {
         return response.getStatus() == 204;
     }
 
-    private String getToken(){
+    static String getToken(){
         if(token == ""){
             return "80f8d09d703f70f7a30c5ecba4428f6376c16d6d";
         }

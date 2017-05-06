@@ -11,15 +11,15 @@ import de.bestplaces.model.Place;
  */
 public class Tile extends Panel {
 
+    private Label placeName;
+
     public Tile(Place place)
     {
         VerticalLayout layout = new VerticalLayout();
 
-        Label placeName = new Label(place.getName());
-        placeName.setStyleName("huge");
-        layout.addComponent(placeName);
+        layout.addComponent(getPlaceName(place));
 
-        ImagePanel images = new ImagePanel(place.getPictures());
+        ImagePanel images = new ImagePanel(place.getPictures(), true);
         layout.addComponent(images);
 
         Label address = new Label(place.getFormattedAddress());
@@ -46,6 +46,22 @@ public class Tile extends Panel {
         setContent(layout);
 
 
+    }
+
+    private Label getPlaceName(Place place) {
+        if(placeName == null)
+        {
+            placeName = new Label(place.getName());
+            placeName.setStyleName("huge");
+
+        }
+        return placeName;
+    }
+
+    public String getPlaceInformation(Place place)
+    {
+        //hier könnte ich auch die ID zurückgeben, damit ich mit ihr nach weiteren infos zum beispiel suchen kann
+        return place.getName();
     }
 
 }
