@@ -14,8 +14,7 @@ import java.util.List;
  */
 public class ImagePanel extends Panel {
 
-    public ImagePanel(List<String> pictures)
-    {
+    public ImagePanel(List<String> pictures, boolean showOnlyOnePicture) {
         HorizontalLayout layout = new HorizontalLayout();
 
         Image white = new Image();
@@ -23,33 +22,46 @@ public class ImagePanel extends Panel {
         white.setWidth("170px");
         white.setHeight("145px");
 
-        if(pictures == null)
-        {
-            Image image = new Image();
-            image.setSource(new ExternalResource("http://vignette3.wikia.nocookie.net/max-steel-reboot/images/7/72/No_Image_Available.gif/revision/latest?cb=20130902173013"));
-            image.setWidth("170px");
-            image.setHeight("145px");
-            layout.addComponent(image);
-            layout.addComponent(white);
-        } else
+        Image noImageAvailable = new Image();
+        noImageAvailable.setSource(new ExternalResource("http://vignette3.wikia.nocookie.net/max-steel-reboot/images/7/72/No_Image_Available.gif/revision/latest?cb=20130902173013"));
+        noImageAvailable.setWidth("170px");
+        noImageAvailable.setHeight("145px");
 
-        if(pictures.size() == 1) {
-
-            Image image = new Image();
-            image.setSource(new ExternalResource(pictures.get(0)));
-            image.setWidth("170px");
-            image.setHeight("145px");
-            layout.addComponent(image);
-            layout.addComponent(white);
-
-        } else{
-
-            for (String picture : pictures) {
+        if (showOnlyOnePicture) {
+            if (pictures == null) {
+                layout.addComponent(noImageAvailable);
+                layout.addComponent(white);
+            } else {
                 Image image = new Image();
-                image.setSource(new ExternalResource(picture));
+                image.setSource(new ExternalResource(pictures.get(0)));
                 image.setWidth("170px");
                 image.setHeight("145px");
                 layout.addComponent(image);
+                layout.addComponent(white);
+            }
+        } else {
+
+            if (pictures == null) {
+                layout.addComponent(noImageAvailable);
+                layout.addComponent(white);
+            } else if (pictures.size() == 1) {
+
+                Image image = new Image();
+                image.setSource(new ExternalResource(pictures.get(0)));
+                image.setWidth("170px");
+                image.setHeight("145px");
+                layout.addComponent(image);
+                layout.addComponent(white);
+
+            } else {
+
+                for (String picture : pictures) {
+                    Image image = new Image();
+                    image.setSource(new ExternalResource(picture));
+                    image.setWidth("170px");
+                    image.setHeight("145px");
+                    layout.addComponent(image);
+                }
             }
         }
 

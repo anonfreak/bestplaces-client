@@ -6,6 +6,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.PlaceController;
+import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
 
@@ -41,7 +42,8 @@ public class ResultPanel extends Panel {
                     // aber nicht über den Navigator, weil der eine neue page erzeugt
                     // am besten über place controller
                     PlaceController placeController = new PlaceController();
-                    placeController.getFullPlaceInformationToPlaceWithId(place.getPlaceID());
+                    FullPlace fullPlace= placeController.getFullPlaceInformationToPlaceWithId(place.getPlaceID());
+                    // dem navigator irgendwie den fullplace mitgeben
                     navigatorController.switchToView(Pages.PLACEVIEW);
                     Notification.show(tile.getPlaceInformation(place));
                 }

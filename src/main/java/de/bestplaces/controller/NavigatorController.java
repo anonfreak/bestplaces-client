@@ -7,6 +7,7 @@ import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.UI;
 import de.bestplaces.model.Pages;
 import de.bestplaces.view.dashboard.components.EditUserData;
+import de.bestplaces.view.dashboard.components.PlaceView;
 import de.bestplaces.view.dashboard.components.Search;
 import de.bestplaces.view.dashboard.components.Timeline;
 import de.bestplaces.view.others.*;
@@ -62,5 +63,6 @@ public class NavigatorController {
         navigator.addView(Pages.TIMELINE.toString(), new Timeline(this));
         navigator.addView(Pages.SEARCH.toString(), new Search(this));
         navigator.addView(Pages.EDITUSERDATA.toString(), new EditUserData(this));
+        navigator.addView(Pages.PLACEVIEW.toString(), new PlaceView(this));
     }
 }

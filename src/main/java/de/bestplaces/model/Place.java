@@ -24,12 +24,15 @@ public class Place {
     private int averageStar;
     @JsonProperty(value = "photos")
     private List<String> pictures;
-    @JsonProperty(value = "\n" +
-            "categories restaurant, food, poi")
+    @JsonProperty(value = "categories")
     private List<String> categories;
 
-    public Place(String placeID, String name, Geo geo, String formattedAddress, boolean openNow, int averageStar, List<String> pictures, List<String> categories) {
-        this.placeID = placeID;
+    public Place(){
+
+    }
+
+    public Place(String placeId, String name, Geo geo, String formattedAddress, boolean openNow, int averageStar, List<String> pictures, List<String> categories) {
+        this.placeID = placeId;
         this.name = name;
         this.geo = geo;
         this.formattedAddress = formattedAddress;
