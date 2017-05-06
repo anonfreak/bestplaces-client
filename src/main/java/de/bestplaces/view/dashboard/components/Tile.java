@@ -19,7 +19,7 @@ public class Tile extends Panel {
 
         layout.addComponent(getPlaceName(place));
 
-        ImagePanel images = new ImagePanel(place.getPictures(), true);
+        ImagePanel images = new ImagePanel(place.getPictures());
         layout.addComponent(images);
 
         Label address = new Label(place.getFormattedAddress());

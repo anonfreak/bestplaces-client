@@ -24,7 +24,7 @@ public class Search extends VerticalLayout implements View {
 
     public Search(NavigatorController controller){
         navigatorController = controller;
-        searchController = new SearchController(navigatorController.getUserDataController());
+        searchController = new SearchController();
 
     }
 

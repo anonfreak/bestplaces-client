@@ -41,7 +41,7 @@ public class ResultPanel extends Panel {
                     // aber nicht über den Navigator, weil der eine neue page erzeugt
                     // am besten über place controller
                     PlaceController placeController = new PlaceController();
-                    placeController.getFullPlaceInformationToPlaceWithId(place.getPlaceID());
+                    //placeController.getFullPlaceInformationToPlaceWithId(place.getPlaceID());
                     navigatorController.switchToView(Pages.PLACEVIEW);
                     Notification.show(tile.getPlaceInformation(place));
                 }

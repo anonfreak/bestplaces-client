@@ -2,14 +2,17 @@ package de.bestplaces.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.navigator.View;
 import de.bestplaces.model.Adress;
 import de.bestplaces.model.Place;
+import de.bestplaces.model.SearchResults;
 import de.bestplaces.model.User;
 import gherkin.lexer.Pl;
+import org.json.JSONArray;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -22,30 +25,24 @@ import java.util.List;
 public class SearchController {
 
     private static String token;
-    private UserDataController userDataController;
 
-    public SearchController(UserDataController userDataController)
+    public SearchController()
     {
-        this.userDataController = userDataController;
         this.initJackson();
         token = "";
     }
 
     public List<Place> search(String place, String town) throws UnirestException {
 
-        HttpResponse<Place[]> response = Unirest.get("http://mathtap.de:1194/place/search?q=" + place + "&location=" + town)
-                .header("Authorization", "Token " + getToken())
+        HttpResponse<SearchResults> response = Unirest.get("http://mathtap.de:1194/place/search?q=" + place + "&location=" + town)
+                .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
-                .asObject(Place[].class);
+                .asObject(SearchResults.class);
 
-        List<Place> placesList = new ArrayList<>();
+        SearchResults results = response.getBody();
 
-        Place[] placeArray = response.getBody();
-
-        for (int i = 0; i < placeArray.length; i++) {
-            placesList.add(placeArray[i]);
-        }
+        List<Place> placesList = results.getResults();
 
         return placesList;
     }
@@ -58,7 +55,7 @@ public class SearchController {
 
     private String getToken(){
         if(token == ""){
-            token = userDataController.getToken();
+            token = UserDataController.getToken();
         }
         return token;
     }

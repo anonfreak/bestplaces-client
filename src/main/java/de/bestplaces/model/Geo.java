@@ -12,6 +12,10 @@ public class Geo {
     @JsonProperty(value = "latitude")
     private double latitude;
 
+    public Geo(){
+
+    }
+
     public Geo(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;

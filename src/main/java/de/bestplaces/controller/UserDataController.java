@@ -21,13 +21,12 @@ import java.io.IOException;
  */
 public class UserDataController {
 
-    private static String token;
-    private static String username;
+    private static String token = "";
+    private String username;
 
     public UserDataController()
     {
         this.initJackson();
-        token = "";
     }
 
     public boolean createUser(String username, String firstName, String lastName, String email, String password, String hometown) throws UnirestException {
@@ -102,7 +101,7 @@ public class UserDataController {
         return response.getStatus() == 204;
     }
 
-    static String getToken(){
+    public static String getToken(){
         if(token == ""){
             return "80f8d09d703f70f7a30c5ecba4428f6376c16d6d";
         }
