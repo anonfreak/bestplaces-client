@@ -5,7 +5,9 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.UI;
+import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
+import de.bestplaces.model.Place;
 import de.bestplaces.view.dashboard.components.EditUserData;
 import de.bestplaces.view.dashboard.components.PlaceView;
 import de.bestplaces.view.dashboard.components.Search;
@@ -19,6 +21,9 @@ public class NavigatorController {
     private Navigator navigator;
     private UI ui;
     private UserDataController userDataController;
+    private PlaceController placeController;
+
+    private PlaceView placeView;
 
     public NavigatorController(UI ui){
         this.ui = ui;
@@ -27,12 +32,19 @@ public class NavigatorController {
         addViewsToNavigator();
 
         userDataController = new UserDataController();
+        placeController = new PlaceController();
 
         navigator.navigateTo("welcome");
     }
 
     public void switchToView(Pages page){
         navigator.navigateTo(page.toString());
+    }
+
+    public void switchToView(String view)
+    {
+        navigator.navigateTo(view);
+
     }
 
     public void openWindow(CustomizedWindow window){
@@ -57,12 +69,23 @@ public class NavigatorController {
         return userDataController;
     }
 
+    public PlaceController getPlaceController() {
+        return placeController;
+    }
+
     private void addViewsToNavigator(){
         // Create and register the views
         navigator.addView("welcome", new Welcome(this));
         navigator.addView(Pages.TIMELINE.toString(), new Timeline(this));
         navigator.addView(Pages.SEARCH.toString(), new Search(this));
         navigator.addView(Pages.EDITUSERDATA.toString(), new EditUserData(this));
-        navigator.addView(Pages.PLACEVIEW.toString(), new PlaceView(this));
+
+        placeView = new PlaceView(this);
+        navigator.addView("PlaceView", placeView);
+    }
+
+    public void setPlace(FullPlace place)
+    {
+        placeView.setPlace(place);
     }
 }

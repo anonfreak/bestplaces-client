@@ -1,13 +1,21 @@
 package de.bestplaces.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.print.attribute.standard.QueuedJobCount;
+
 /**
  * Created by franz on 29.11.2016.
  */
 public class Address {
 
+    @JsonProperty(value = "street")
     private String street;
+    @JsonProperty(value = "streetNumber")
     private int houseNumber;
+    @JsonProperty(value = "town")
     private String town;
+    @JsonProperty(value = "zipCode")
     private int zipCode;
 
     public Address(String street, int houseNumber, String town, int zipCode) {

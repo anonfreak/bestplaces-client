@@ -1,5 +1,6 @@
 package de.bestplaces.view.dashboard.components;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Notification;
@@ -41,10 +42,16 @@ public class ResultPanel extends Panel {
                     // hier über Controller zur nächsten View kommen
                     // aber nicht über den Navigator, weil der eine neue page erzeugt
                     // am besten über place controller
-                    PlaceController placeController = new PlaceController();
-                    FullPlace fullPlace= placeController.getFullPlaceInformationToPlaceWithId(place.getPlaceID());
+                    PlaceController placeController = navigatorController.getPlaceController();
+                    FullPlace fullPlace= null;
+                    try {
+                        fullPlace = placeController.getFullPlaceInformationToPlaceWithId(place.getPlaceID(), null);
+                    } catch (UnirestException e) {
+                        e.printStackTrace();
+                    }
                     // dem navigator irgendwie den fullplace mitgeben
-                    navigatorController.switchToView(Pages.PLACEVIEW);
+                    navigatorController.setPlace(fullPlace);
+                    navigatorController.switchToView("PlaceView");
                     Notification.show(tile.getPlaceInformation(place));
                 }
             });

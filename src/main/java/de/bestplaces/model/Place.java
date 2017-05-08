@@ -1,7 +1,6 @@
 package de.bestplaces.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.vaadin.ui.Image;
 
 import java.util.List;
 

@@ -9,7 +9,7 @@ import org.apache.regexp.RE;
  */
 public enum Pages {
     TIMELINE("Timeline", FontAwesome.HOME), SEARCH("Search", FontAwesome.SEARCH),
-    EDITUSERDATA("EditUserData", FontAwesome.EDIT), PLACEVIEW("PlaceView", FontAwesome.HOME);
+    EDITUSERDATA("EditUserData", FontAwesome.EDIT);
 
     private final String text;
     private final Resource icon;

@@ -2,6 +2,7 @@ package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.Sizeable;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;
@@ -9,7 +10,7 @@ import de.bestplaces.model.FullPlace;
 /**
  * Created by franz on 06.05.2017.
  */
-public class PlaceView extends VerticalLayout implements View {
+public class PlaceView extends VerticalSplitPanel implements View {
 
     public static final String PLACE_VIEW = "PlaceView";
     private NavigatorController navigatorController;
@@ -24,6 +25,11 @@ public class PlaceView extends VerticalLayout implements View {
         navigatorController = controller;
     }
 
+    public void setPlace(FullPlace place)
+    {
+        this.place = place;
+    }
+
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
 
@@ -32,7 +38,10 @@ public class PlaceView extends VerticalLayout implements View {
 
     private void init() {
 
-        addComponents(getTopPanel(), getBottomSplitPanel());
+        setSizeFull();
+        addComponent(getTopPanel());
+        addComponent(getBottomSplitPanel());
+        setSplitPosition(5);
     }
 
     private Panel getTopPanel()
@@ -52,6 +61,7 @@ public class PlaceView extends VerticalLayout implements View {
             bottomSplitPanel = new HorizontalSplitPanel();
             bottomSplitPanel.setFirstComponent(getLeftVerticalSplitPanel());
             bottomSplitPanel.setSecondComponent(getRightVerticalSplitPanel());
+            bottomSplitPanel.setSizeFull();
         }
         return bottomSplitPanel;
     }
@@ -63,6 +73,7 @@ public class PlaceView extends VerticalLayout implements View {
             leftVerticalSplitPanel = new VerticalSplitPanel();
             leftVerticalSplitPanel.addComponent(new AddressPanel(place));
             leftVerticalSplitPanel.addComponent(new OpeningHoursPanel(place));
+            leftVerticalSplitPanel.setSizeFull();
         }
         return  leftVerticalSplitPanel;
     }
@@ -75,6 +86,7 @@ public class PlaceView extends VerticalLayout implements View {
 
             rightVerticalSplitPanel.addComponent(new ImagePanel(place.getPictures(), false));
             rightVerticalSplitPanel.addComponent(new RatingPanel(place));
+            rightVerticalSplitPanel.setSizeFull();
         }
         return  rightVerticalSplitPanel;
     }

@@ -1,12 +1,17 @@
 package de.bestplaces.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by franz on 29.11.2016.
  */
 public class Review {
 
+    @JsonProperty(value = "stars")
     private int stars;
+    @JsonProperty(value = "showName")
     private boolean showName;
+    @JsonProperty(value = "text")
     private String text;
 
     public Review(int stars, boolean showName, String text) {
