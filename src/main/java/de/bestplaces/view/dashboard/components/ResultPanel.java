@@ -52,7 +52,6 @@ public class ResultPanel extends Panel {
                     // dem navigator irgendwie den fullplace mitgeben
                     navigatorController.setPlace(fullPlace);
                     navigatorController.switchToView("PlaceView");
-                    Notification.show(tile.getPlaceInformation(place));
                 }
             });
             layout.addComponent(tile);

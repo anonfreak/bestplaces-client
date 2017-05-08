@@ -18,6 +18,11 @@ public class Address {
     @JsonProperty(value = "zipCode")
     private int zipCode;
 
+    public Address()
+    {
+
+    }
+
     public Address(String street, int houseNumber, String town, int zipCode) {
         this.street = street;
         this.houseNumber = houseNumber;

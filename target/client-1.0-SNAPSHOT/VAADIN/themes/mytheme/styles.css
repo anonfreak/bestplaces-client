@@ -12982,3 +12982,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .background {
 	background: transparent;
 }
+
+.mytheme .v-panel-caption {
+	background-color: deepskyblue;
+}

@@ -1,6 +1,7 @@
 package de.bestplaces.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.regexp.RE;
 
 /**
  * Created by franz on 29.11.2016.
@@ -13,6 +14,11 @@ public class Review {
     private boolean showName;
     @JsonProperty(value = "text")
     private String text;
+
+    public Review()
+    {
+
+    }
 
     public Review(int stars, boolean showName, String text) {
         this.stars = stars;

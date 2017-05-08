@@ -3,9 +3,7 @@ package de.bestplaces.view.dashboard.components;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Panel;
+import com.vaadin.ui.*;
 
 import java.util.List;
 
@@ -41,25 +39,28 @@ public class ImagePanel extends Panel {
             }
         } else {
 
+            setCaption("Pictures");
+            setStyleName(".v-panel-caption");
+
             if (pictures == null) {
                 layout.addComponent(noImageAvailable);
-                layout.addComponent(white);
+               // layout.addComponent(white);
             } else if (pictures.size() == 1) {
 
                 Image image = new Image();
                 image.setSource(new ExternalResource(pictures.get(0)));
-                image.setWidth("170px");
-                image.setHeight("145px");
+                image.setWidth("350px");
+                image.setHeight("315px");
                 layout.addComponent(image);
-                layout.addComponent(white);
+                //layout.addComponent(white);
 
             } else {
 
                 for (String picture : pictures) {
                     Image image = new Image();
                     image.setSource(new ExternalResource(picture));
-                    image.setWidth("170px");
-                    image.setHeight("145px");
+                    image.setWidth("350px");
+                    image.setHeight("315px");
                     layout.addComponent(image);
                 }
             }

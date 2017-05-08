@@ -90,4 +90,6 @@ public class PlaceView extends VerticalSplitPanel implements View {
         }
         return  rightVerticalSplitPanel;
     }
+
+
 }

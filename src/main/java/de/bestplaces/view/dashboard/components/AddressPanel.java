@@ -18,6 +18,8 @@ public class AddressPanel extends Panel {
 
         this.place = place;
         setSizeFull();
+        setCaption("Location information");
+        setStyleName(".v-panel-caption");
         VerticalSplitPanel layout = new VerticalSplitPanel();
         layout.setSizeFull();
 

@@ -63,6 +63,7 @@ public class TopPanelPlace extends Panel {
         if(addToTimeline == null)
         {
             addToTimeline = new Button(FontAwesome.CALENDAR);
+            addToTimeline.setDescription("Add this place to your Timeline");
             addToTimeline.setSizeFull();
         }
         return addToTimeline;
