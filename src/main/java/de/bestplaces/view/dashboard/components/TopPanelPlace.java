@@ -1,8 +1,11 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.server.FontAwesome;
+import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
+import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;
+import de.bestplaces.model.Pages;
 
 /**
  * Created by franz on 06.05.2017.
@@ -15,10 +18,12 @@ public class TopPanelPlace extends Panel {
     Button addToFavorite;
 
     FullPlace place;
+    NavigatorController navigatorController;
 
-    public TopPanelPlace(FullPlace place) {
+    public TopPanelPlace(FullPlace place, NavigatorController navigatorController) {
 
         this.place = place;
+        this.navigatorController = navigatorController;
         HorizontalLayout layout = new HorizontalLayout();
         layout.setMargin(false);
         layout.setSizeFull();
@@ -36,6 +41,19 @@ public class TopPanelPlace extends Panel {
         if(backButton == null)
         {
             backButton = new Button("back", FontAwesome.ARROW_LEFT);
+            backButton.addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+
+                    //Das setzt noch nicht die suhce zurück auf das was gesucht wurde..
+                    // eine möglichkeit: im navigatorcontroler beim initialisieren mitgeben
+                    Search search = navigatorController.getSearch();
+                    search.addResultPanel(navigatorController.getPlaceList());
+
+                    navigatorController.setPlaceViewBack();
+                    navigatorController.switchToView(Pages.SEARCH);
+                }
+            });
             backButton.setSizeFull();
         }
         return backButton;
@@ -48,8 +66,9 @@ public class TopPanelPlace extends Panel {
     public Label getName() {
         if(name == null)
         {
-            name = new Label(place.getName());
-            name.setStyleName("huge");
+            name = new Label();
+            name.setValue("<b>" + place.getName() + "<b>");
+            name.setContentMode(ContentMode.HTML);
             name.setSizeFull();
         }
         return name;

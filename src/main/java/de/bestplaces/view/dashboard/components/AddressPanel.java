@@ -33,7 +33,7 @@ public class AddressPanel extends Panel {
         if (addressSplitPanel == null)
         {
             addressSplitPanel = new HorizontalSplitPanel();
-            addressSplitPanel.setFirstComponent(new GoogleMapsPanel());
+            addressSplitPanel.setFirstComponent(new GoogleMapsPanel(place));
             addressSplitPanel.setSecondComponent(getAddressLabel());
             addressSplitPanel.setSizeFull();
         }

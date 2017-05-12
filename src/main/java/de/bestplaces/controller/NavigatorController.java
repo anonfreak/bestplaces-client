@@ -4,7 +4,9 @@ import com.vaadin.event.MouseEvents;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.ComponentContainer;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
+import cucumber.api.java.eo.Se;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
@@ -13,6 +15,8 @@ import de.bestplaces.view.dashboard.components.PlaceView;
 import de.bestplaces.view.dashboard.components.Search;
 import de.bestplaces.view.dashboard.components.Timeline;
 import de.bestplaces.view.others.*;
+
+import java.util.List;
 
 /**
  * Created by kolbm on 01.05.2017.
@@ -24,6 +28,9 @@ public class NavigatorController {
     private PlaceController placeController;
 
     private PlaceView placeView;
+    private Search searchView;
+
+    private List<Place> listPlaces;
 
     public NavigatorController(UI ui){
         this.ui = ui;
@@ -77,15 +84,46 @@ public class NavigatorController {
         // Create and register the views
         navigator.addView("welcome", new Welcome(this));
         navigator.addView(Pages.TIMELINE.toString(), new Timeline(this));
-        navigator.addView(Pages.SEARCH.toString(), new Search(this));
+        searchView = new Search(this);
+        navigator.addView(Pages.SEARCH.toString(), searchView);
         navigator.addView(Pages.EDITUSERDATA.toString(), new EditUserData(this));
 
-        placeView = new PlaceView(this);
-        navigator.addView("PlaceView", placeView);
+        navigator.addView("PlaceView", getPlaceView());
     }
 
     public void setPlace(FullPlace place)
     {
+        navigator.addView("PlaceView", getPlaceView());
         placeView.setPlace(place);
     }
+
+    public Search getSearch()
+    {
+        return searchView;
+    }
+
+    public PlaceView getPlaceView()
+    {
+        if(placeView == null)
+        {
+            placeView = new PlaceView(this);
+        }
+        return placeView;
+    }
+
+    public void setPlaceViewBack(){
+        placeView = null;
+    }
+
+    public void saveSearch(List<Place> list)
+    {
+        this.listPlaces = list;
+    }
+
+    public List<Place> getPlaceList()
+    {
+        return listPlaces;
+    }
+
+
 }

@@ -57,6 +57,7 @@ public class SearchBarPanel extends Panel {
                     e.printStackTrace();
                 }
                 searchView.addResultPanel(placesList);
+                navigatorController.saveSearch(placesList);
                 location.setValue("");
                 search.setValue("");
             }

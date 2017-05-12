@@ -48,8 +48,7 @@ public class PlaceView extends VerticalSplitPanel implements View {
     {
         if(topPanel == null)
         {
-            topPanel = new TopPanelPlace(place);
-
+            topPanel = new TopPanelPlace(place, navigatorController);
         }
         return topPanel;
     }
@@ -83,7 +82,6 @@ public class PlaceView extends VerticalSplitPanel implements View {
         if(rightVerticalSplitPanel == null)
         {
             rightVerticalSplitPanel = new VerticalSplitPanel();
-
             rightVerticalSplitPanel.addComponent(new ImagePanel(place.getPictures(), false));
             rightVerticalSplitPanel.addComponent(new RatingPanel(place));
             rightVerticalSplitPanel.setSizeFull();

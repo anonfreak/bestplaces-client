@@ -43,4 +43,9 @@ public class OpeningHoursPanel extends Panel {
         }
         return openingTime;
     }
+
+    public void setOpeningTime()
+    {
+        openingTime = null;
+    }
 }

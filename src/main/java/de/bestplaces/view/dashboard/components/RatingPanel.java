@@ -17,11 +17,11 @@ public class RatingPanel extends Panel {
     public RatingPanel(FullPlace place) {
         this.place = place;
 
-        setCaption("Review");
+        setCaption("Ratings");
         setStyleName(".v-panel-caption");
         setSizeFull();
         VerticalLayout layout = new VerticalLayout();
-        layout.addComponents(getStars(), getContentTextArea());
+        layout.addComponents(getContentTextArea());
         setContent(layout);
     }
 

@@ -12,8 +12,10 @@ import java.util.List;
  */
 public class ImagePanel extends Panel {
 
+    HorizontalLayout layout;
+
     public ImagePanel(List<String> pictures, boolean showOnlyOnePicture) {
-        HorizontalLayout layout = new HorizontalLayout();
+        layout = new HorizontalLayout();
 
         Image white = new Image();
         white.setSource(new ThemeResource("img/white.jpg"));
