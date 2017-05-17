@@ -34,7 +34,9 @@ public class SearchController {
 
     public List<Place> search(String place, String town) throws UnirestException {
 
-        HttpResponse<SearchResults> response = Unirest.get("http://mathtap.de:1194/place/search?q=" + place + "&location=" + town)
+        HttpResponse<SearchResults> response = Unirest.get("http://mathtap.de:1194/place/search")
+                .queryString("q",place)
+                .queryString("location",town)
                 .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")

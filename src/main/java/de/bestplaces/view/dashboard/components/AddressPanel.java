@@ -25,6 +25,7 @@ public class AddressPanel extends Panel {
 
         layout.addComponent(getAddressSplitPanel());
         layout.addComponent(getContactPanel());
+        layout.setSplitPosition(70);
 
         setContent(layout);
     }
@@ -35,6 +36,7 @@ public class AddressPanel extends Panel {
             addressSplitPanel = new HorizontalSplitPanel();
             addressSplitPanel.setFirstComponent(new GoogleMapsPanel(place));
             addressSplitPanel.setSecondComponent(getAddressLabel());
+            addressSplitPanel.setSplitPosition(70);
             addressSplitPanel.setSizeFull();
         }
 
@@ -47,7 +49,7 @@ public class AddressPanel extends Panel {
         {
             contactPanel = new RichTextArea();
             contactPanel.setSizeFull();
-            contactPanel.setValue("<h3> Contact </h3> <p> Website: " + place.getWebsite() + "</p>" +
+            contactPanel.setValue("<p> Website: " + place.getWebsite() + "</p>" +
                     "<p> Phone number: " + place.getPhonenumber() + "</p>");
             contactPanel.setReadOnly(true);
         }

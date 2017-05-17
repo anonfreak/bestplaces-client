@@ -50,7 +50,6 @@
           <element id="library" level="project" name="Maven: xalan:xalan:2.7.2" />
           <element id="library" level="project" name="Maven: xalan:serializer:2.7.2" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
           <element id="library" level="project" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.17" />
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.11.0" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
@@ -70,6 +69,10 @@
           <element id="library" level="project" name="Maven: org.webbitserver:webbit:0.4.14" />
           <element id="library" level="project" name="Maven: io.netty:netty:3.5.2.Final" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-leg-rc:2.47.1" />
+          <element id="library" level="project" name="Maven: com.vaadin.tapio:googlemaps:1.3.4" />
+          <element id="library" level="project" name="Maven: com.github.branflake2267:gwt-maps-api:3.10.0-alpha-7" />
+          <element id="library" level="project" name="Maven: com.google.gwt.google-apis:gwt-ajaxloader:1.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">

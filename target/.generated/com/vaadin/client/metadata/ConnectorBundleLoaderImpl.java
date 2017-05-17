@@ -2,7 +2,7 @@ package com.vaadin.client.metadata;
 
 public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.ConnectorBundleLoader {
   public void init() {
-    addAsyncBlockLoader(new AsyncBundleLoader("__eager", new String[] {"com.vaadin.server.AbstractJavaScriptExtension","com.vaadin.ui.renderers.ButtonRenderer","com.vaadin.ui.renderers.DateRenderer","com.vaadin.ui.Grid.DetailComponentManager","com.vaadin.ui.Grid","com.vaadin.ui.renderers.ImageRenderer","com.vaadin.ui.renderers.AbstractJavaScriptRenderer","com.vaadin.ui.Grid.MultiSelectionModel","com.vaadin.ui.Grid.NoSelectionModel","com.vaadin.ui.renderers.NumberRenderer","com.vaadin.ui.renderers.ProgressBarRenderer","com.vaadin.server.communication.data.RpcDataProviderExtension","com.vaadin.ui.Grid.SingleSelectionModel","com.vaadin.ui.renderers.TextRenderer","com.vaadin.ui.renderers.HtmlRenderer","com.vaadin.server.BrowserWindowOpener","com.vaadin.server.FileDownloader","com.vaadin.server.Responsive","com.vaadin.ui.JavaScript","com.vaadin.ui.AbstractJavaScriptComponent","com.vaadin.ui.AbsoluteLayout","com.vaadin.ui.Accordion","com.vaadin.ui.Audio","com.vaadin.ui.BrowserFrame","com.vaadin.ui.Button","com.vaadin.ui.CheckBox","com.vaadin.ui.ComboBox","com.vaadin.ui.CssLayout","com.vaadin.ui.CustomComponent","com.vaadin.ui.CustomField","com.vaadin.ui.CustomLayout","com.vaadin.ui.DateField","com.vaadin.ui.InlineDateField","com.vaadin.ui.PopupDateField","com.vaadin.ui.DragAndDropWrapper","com.vaadin.ui.Embedded","com.vaadin.ui.Flash","com.vaadin.ui.Form","com.vaadin.ui.FormLayout","com.vaadin.ui.GridLayout","com.vaadin.ui.Image","com.vaadin.ui.Label","com.vaadin.ui.Link","com.vaadin.ui.ListSelect","com.vaadin.ui.LoginForm","com.vaadin.ui.MenuBar","com.vaadin.ui.NativeButton","com.vaadin.ui.NativeSelect","com.vaadin.ui.OptionGroup","com.vaadin.ui.HorizontalLayout","com.vaadin.ui.VerticalLayout","com.vaadin.ui.Panel","com.vaadin.ui.PasswordField","com.vaadin.ui.PopupView","com.vaadin.ui.ProgressBar","com.vaadin.ui.ProgressIndicator","com.vaadin.ui.Slider","com.vaadin.ui.HorizontalSplitPanel","com.vaadin.ui.VerticalSplitPanel","com.vaadin.ui.Table","com.vaadin.ui.TabSheet","com.vaadin.ui.TextArea","com.vaadin.ui.TextField","com.vaadin.ui.Tree","com.vaadin.ui.TreeTable","com.vaadin.ui.TwinColSelect","com.vaadin.ui.UI","com.vaadin.ui.Upload","com.vaadin.ui.Video","com.vaadin.ui.Window",}) {
+    addAsyncBlockLoader(new AsyncBundleLoader("__eager", new String[] {"com.vaadin.server.AbstractJavaScriptExtension","com.vaadin.ui.renderers.ButtonRenderer","com.vaadin.ui.renderers.DateRenderer","com.vaadin.ui.Grid.DetailComponentManager","com.vaadin.ui.Grid","com.vaadin.ui.renderers.ImageRenderer","com.vaadin.ui.renderers.AbstractJavaScriptRenderer","com.vaadin.ui.Grid.MultiSelectionModel","com.vaadin.ui.Grid.NoSelectionModel","com.vaadin.ui.renderers.NumberRenderer","com.vaadin.ui.renderers.ProgressBarRenderer","com.vaadin.server.communication.data.RpcDataProviderExtension","com.vaadin.ui.Grid.SingleSelectionModel","com.vaadin.ui.renderers.TextRenderer","com.vaadin.ui.renderers.HtmlRenderer","com.vaadin.server.BrowserWindowOpener","com.vaadin.server.FileDownloader","com.vaadin.server.Responsive","com.vaadin.ui.JavaScript","com.vaadin.ui.AbstractJavaScriptComponent","com.vaadin.ui.AbsoluteLayout","com.vaadin.ui.Accordion","com.vaadin.ui.Audio","com.vaadin.ui.BrowserFrame","com.vaadin.ui.Button","com.vaadin.ui.CheckBox","com.vaadin.ui.ComboBox","com.vaadin.ui.CssLayout","com.vaadin.ui.CustomComponent","com.vaadin.ui.CustomField","com.vaadin.ui.CustomLayout","com.vaadin.ui.DateField","com.vaadin.ui.InlineDateField","com.vaadin.ui.PopupDateField","com.vaadin.ui.DragAndDropWrapper","com.vaadin.ui.Embedded","com.vaadin.ui.Flash","com.vaadin.ui.Form","com.vaadin.ui.FormLayout","com.vaadin.ui.GridLayout","com.vaadin.ui.Image","com.vaadin.ui.Label","com.vaadin.ui.Link","com.vaadin.ui.ListSelect","com.vaadin.ui.LoginForm","com.vaadin.ui.MenuBar","com.vaadin.ui.NativeButton","com.vaadin.ui.NativeSelect","com.vaadin.ui.OptionGroup","com.vaadin.ui.HorizontalLayout","com.vaadin.ui.VerticalLayout","com.vaadin.ui.Panel","com.vaadin.ui.PasswordField","com.vaadin.ui.PopupView","com.vaadin.ui.ProgressBar","com.vaadin.ui.ProgressIndicator","com.vaadin.ui.Slider","com.vaadin.ui.HorizontalSplitPanel","com.vaadin.ui.VerticalSplitPanel","com.vaadin.ui.Table","com.vaadin.ui.TabSheet","com.vaadin.ui.TextArea","com.vaadin.ui.TextField","com.vaadin.ui.Tree","com.vaadin.ui.TreeTable","com.vaadin.ui.TwinColSelect","com.vaadin.ui.UI","com.vaadin.ui.Upload","com.vaadin.ui.Video","com.vaadin.ui.Window","com.vaadin.tapio.googlemaps.GoogleMap",}) {
       protected void load(final com.vaadin.client.metadata.TypeDataStore store) {
         new com.google.gwt.core.client.RunAsyncCallback() {
           public void onSuccess() {
@@ -14,11 +14,17 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setSuperClass(java.util.AbstractMap.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState.ChildComponentData.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, java.lang.Object.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, java.lang.Object.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class, java.lang.Object.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, java.lang.Object.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, java.lang.Object.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.grid.GridColumnState.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.grid.GridStaticSectionState.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.grid.GridStaticSectionState.CellState.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.grid.GridStaticSectionState.RowState.class, java.lang.Object.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.LatLon.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.MouseEventDetails.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.ui.ui.PageState.class, java.lang.Object.class);
             store.setSuperClass(com.vaadin.shared.communication.SharedState.class, java.lang.Object.class);
@@ -40,6 +46,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setSuperClass(com.vaadin.shared.ui.AbstractMediaState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(com.vaadin.shared.ui.BrowserWindowOpenerState.class, com.vaadin.shared.AbstractComponentState.class);
+            store.setSuperClass(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(java.util.HashMap.class, java.util.AbstractMap.class);
             store.setSuperClass(com.vaadin.shared.ui.JavaScriptComponentState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(com.vaadin.shared.ui.label.LabelState.class, com.vaadin.shared.AbstractComponentState.class);
@@ -161,6 +168,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setClass("com.vaadin.ui.Upload", com.vaadin.client.ui.upload.UploadConnector.class);
             store.setClass("com.vaadin.ui.Video", com.vaadin.client.ui.video.VideoConnector.class);
             store.setClass("com.vaadin.ui.Window", com.vaadin.client.ui.window.WindowConnector.class);
+            store.setClass("com.vaadin.tapio.googlemaps.GoogleMap", com.vaadin.tapio.googlemaps.client.GoogleMapConnector.class);
             store.setConstructor(com.vaadin.client.JavaScriptExtension.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(com.vaadin.client.JavaScriptExtension.class);
@@ -396,6 +404,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return com.google.gwt.core.client.GWT.create(com.vaadin.client.ui.VListSelect.class);
               }
             });
+            load0();
+          }
+          private void load0() {
             store.setConstructor(com.vaadin.client.ui.VMenuBar.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(com.vaadin.client.ui.VMenuBar.class);
@@ -416,9 +427,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return com.google.gwt.core.client.GWT.create(com.vaadin.client.ui.VOptionGroup.class);
               }
             });
-            load0();
-          }
-          private void load0() {
             store.setConstructor(com.vaadin.client.ui.VPanel.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(com.vaadin.client.ui.VPanel.class);
@@ -969,6 +977,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return com.google.gwt.core.client.GWT.create(com.vaadin.shared.ui.loginform.LoginFormState.class);
               }
             });
+            load1();
+          }
+          private void load1() {
             store.setConstructor(com.vaadin.shared.ui.menubar.MenuBarState.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(com.vaadin.shared.ui.menubar.MenuBarState.class);
@@ -989,9 +1000,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return com.google.gwt.core.client.GWT.create(com.vaadin.shared.ui.orderedlayout.FormLayoutState.class);
               }
             });
-            load1();
-          }
-          private void load1() {
             store.setConstructor(com.vaadin.shared.ui.orderedlayout.HorizontalLayoutState.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(com.vaadin.shared.ui.orderedlayout.HorizontalLayoutState.class);
@@ -1147,6 +1155,46 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return com.google.gwt.core.client.GWT.create(com.vaadin.shared.ui.window.WindowState.class);
               }
             });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.GoogleMapConnector.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.GoogleMapConnector.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.GoogleMapState.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.LatLon.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.LatLon.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class);
+              }
+            });
+            store.setConstructor(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return com.google.gwt.core.client.GWT.create(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class);
+              }
+            });
             store.setConstructor(java.util.HashMap.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(java.util.HashMap.class);
@@ -1272,6 +1320,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setReturnType(com.vaadin.client.ui.tree.TreeConnector.class, "getState", new Type(com.vaadin.shared.ui.tree.TreeState.class));
             store.setReturnType(com.vaadin.client.ui.treetable.TreeTableConnector.class, "getWidget", new Type(com.vaadin.client.ui.VTreeTable.class));
             store.setReturnType(com.vaadin.client.ui.treetable.TreeTableConnector.class, "getState", new Type(com.vaadin.shared.ui.treetable.TreeTableState.class));
+            load2();
+          }
+          private void load2() {
             store.setReturnType(com.vaadin.client.ui.twincolselect.TwinColSelectConnector.class, "getWidget", new Type(com.vaadin.client.ui.VTwinColSelect.class));
             store.setReturnType(com.vaadin.client.ui.twincolselect.TwinColSelectConnector.class, "getState", new Type(com.vaadin.shared.ui.twincolselect.TwinColSelectState.class));
             store.setReturnType(com.vaadin.client.ui.ui.UIConnector.class, "getWidget", new Type(com.vaadin.client.ui.VUI.class));
@@ -1282,6 +1333,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setReturnType(com.vaadin.client.ui.video.VideoConnector.class, "getState", new Type(com.vaadin.shared.ui.video.VideoState.class));
             store.setReturnType(com.vaadin.client.ui.window.WindowConnector.class, "getWidget", new Type(com.vaadin.client.ui.VWindow.class));
             store.setReturnType(com.vaadin.client.ui.window.WindowConnector.class, "getState", new Type(com.vaadin.shared.ui.window.WindowState.class));
+            store.setReturnType(com.vaadin.tapio.googlemaps.client.GoogleMapConnector.class, "getState", new Type(com.vaadin.tapio.googlemaps.client.GoogleMapState.class));
             store.setInvoker(com.vaadin.client.connectors.MultiSelectionModelConnector.class, "updateSelectAllCheckbox",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
                 target.@com.vaadin.client.connectors.MultiSelectionModelConnector::updateSelectAllCheckbox(*)();
@@ -1324,9 +1376,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return null;
               }
             });
-            load2();
-          }
-          private void load2() {
             store.setInvoker(com.vaadin.client.ui.button.ButtonConnector.class, "onResourceChange",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
                 target.@com.vaadin.client.ui.button.ButtonConnector::onResourceChange(*)();
@@ -1646,6 +1695,15 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setParamTypes(com.vaadin.shared.ui.window.WindowServerRpc.class, "click", new Type[] {new Type(com.vaadin.shared.MouseEventDetails.class), });
             store.setParamTypes(com.vaadin.shared.ui.window.WindowServerRpc.class, "windowModeChanged", new Type[] {new Type(com.vaadin.shared.ui.window.WindowMode.class), });
             store.setParamTypes(com.vaadin.shared.ui.window.WindowServerRpc.class, "windowMoved", new Type[] {new Type(java.lang.Integer.class), new Type(java.lang.Integer.class), });
+            store.setParamTypes(com.vaadin.tapio.googlemaps.client.rpcs.InfoWindowClosedRpc.class, "infoWindowClosed", new Type[] {new Type(java.lang.Long.class), });
+            store.setParamTypes(com.vaadin.tapio.googlemaps.client.rpcs.MapClickedRpc.class, "mapClicked", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), });
+            store.setParamTypes(com.vaadin.tapio.googlemaps.client.rpcs.MapMovedRpc.class, "mapMoved", new Type[] {new Type(java.lang.Integer.class), new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), });
+            store.setParamTypes(com.vaadin.tapio.googlemaps.client.rpcs.MapTypeChangedRpc.class, "mapTypeChanged", new Type[] {new Type(java.lang.String.class), });
+            load3();
+          }
+          private void load3() {
+            store.setParamTypes(com.vaadin.tapio.googlemaps.client.rpcs.MarkerClickedRpc.class, "markerClicked", new Type[] {new Type(java.lang.Long.class), });
+            store.setParamTypes(com.vaadin.tapio.googlemaps.client.rpcs.MarkerDraggedRpc.class, "markerDragged", new Type[] {new Type(java.lang.Long.class), new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), });
             store.setProxyHandler(com.vaadin.shared.ContextClickRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
               public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
                 return new com.vaadin.shared.ContextClickRpc() {
@@ -1724,9 +1782,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 };
               }
             });
-            load3();
-          }
-          private void load3() {
             store.setProxyHandler(com.vaadin.shared.ui.button.ButtonServerRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
               public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
                 return new com.vaadin.shared.ui.button.ButtonServerRpc() {
@@ -2096,6 +2151,63 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 };
               }
             });
+            store.setProxyHandler(com.vaadin.tapio.googlemaps.client.rpcs.InfoWindowClosedRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+              public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
+                return new com.vaadin.tapio.googlemaps.client.rpcs.InfoWindowClosedRpc() {
+                  public void infoWindowClosed(long p0) {
+                    handler.invoke(this, com.vaadin.client.metadata.TypeData.getType(com.vaadin.tapio.googlemaps.client.rpcs.InfoWindowClosedRpc.class).getMethod("infoWindowClosed"), new Object [] {p0, });
+                  }
+                };
+              }
+            });
+            store.setProxyHandler(com.vaadin.tapio.googlemaps.client.rpcs.MapClickedRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+              public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
+                return new com.vaadin.tapio.googlemaps.client.rpcs.MapClickedRpc() {
+                  public void mapClicked(com.vaadin.tapio.googlemaps.client.LatLon p0) {
+                    handler.invoke(this, com.vaadin.client.metadata.TypeData.getType(com.vaadin.tapio.googlemaps.client.rpcs.MapClickedRpc.class).getMethod("mapClicked"), new Object [] {p0, });
+                  }
+                };
+              }
+            });
+            load4();
+          }
+          private void load4() {
+            store.setProxyHandler(com.vaadin.tapio.googlemaps.client.rpcs.MapMovedRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+              public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
+                return new com.vaadin.tapio.googlemaps.client.rpcs.MapMovedRpc() {
+                  public void mapMoved(int p0, com.vaadin.tapio.googlemaps.client.LatLon p1, com.vaadin.tapio.googlemaps.client.LatLon p2, com.vaadin.tapio.googlemaps.client.LatLon p3) {
+                    handler.invoke(this, com.vaadin.client.metadata.TypeData.getType(com.vaadin.tapio.googlemaps.client.rpcs.MapMovedRpc.class).getMethod("mapMoved"), new Object [] {p0, p1, p2, p3, });
+                  }
+                };
+              }
+            });
+            store.setProxyHandler(com.vaadin.tapio.googlemaps.client.rpcs.MapTypeChangedRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+              public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
+                return new com.vaadin.tapio.googlemaps.client.rpcs.MapTypeChangedRpc() {
+                  public void mapTypeChanged(java.lang.String p0) {
+                    handler.invoke(this, com.vaadin.client.metadata.TypeData.getType(com.vaadin.tapio.googlemaps.client.rpcs.MapTypeChangedRpc.class).getMethod("mapTypeChanged"), new Object [] {p0, });
+                  }
+                };
+              }
+            });
+            store.setProxyHandler(com.vaadin.tapio.googlemaps.client.rpcs.MarkerClickedRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+              public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
+                return new com.vaadin.tapio.googlemaps.client.rpcs.MarkerClickedRpc() {
+                  public void markerClicked(long p0) {
+                    handler.invoke(this, com.vaadin.client.metadata.TypeData.getType(com.vaadin.tapio.googlemaps.client.rpcs.MarkerClickedRpc.class).getMethod("markerClicked"), new Object [] {p0, });
+                  }
+                };
+              }
+            });
+            store.setProxyHandler(com.vaadin.tapio.googlemaps.client.rpcs.MarkerDraggedRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+              public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
+                return new com.vaadin.tapio.googlemaps.client.rpcs.MarkerDraggedRpc() {
+                  public void markerDragged(long p0, com.vaadin.tapio.googlemaps.client.LatLon p1) {
+                    handler.invoke(this, com.vaadin.client.metadata.TypeData.getType(com.vaadin.tapio.googlemaps.client.rpcs.MarkerDraggedRpc.class).getMethod("markerDragged"), new Object [] {p0, p1, });
+                  }
+                };
+              }
+            });
             store.setMethodAttribute(com.vaadin.shared.data.DataProviderRpc.class, "insertRowData", com.vaadin.client.metadata.TypeDataStore.MethodAttribute.NO_LAYOUT);
             store.setMethodAttribute(com.vaadin.shared.data.DataProviderRpc.class, "removeRowData", com.vaadin.client.metadata.TypeDataStore.MethodAttribute.NO_LAYOUT);
             store.setMethodAttribute(com.vaadin.shared.data.DataProviderRpc.class, "setRowData", com.vaadin.client.metadata.TypeDataStore.MethodAttribute.NO_LAYOUT);
@@ -2128,24 +2240,30 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.AbstractEmbeddedState.class, "alternateText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.PushConfigurationState.class, "alwaysUseXhrForServerRequests", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "am", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "anchorMarker", new Type(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "animationEnabled", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "apiKey", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "apiUrl", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.flash.FlashState.class, "archive", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistivePostfix", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistivePrefix", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistiveTabStop", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistiveTabStopBottomText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistiveTabStopTopText", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "autoPanDisabled", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.AbstractMediaState.class, "autoplay", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "button", new Type(com.vaadin.shared.MouseEventDetails.MouseButton.class));
             store.setPropertyType(com.vaadin.shared.JavaScriptExtensionState.class, "callbackNames", new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }));
             store.setPropertyType(com.vaadin.shared.ui.JavaScriptComponentState.class, "callbackNames", new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }));
-            load4();
-          }
-          private void load4() {
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "caption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "caption", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "caption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "captionAsHtml", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.RowState.class, "cellGroups", new Type("java.util.Map", new Type[] {new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }), new Type(com.vaadin.shared.ui.grid.GridStaticSectionState.CellState.class), }));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.RowState.class, "cells", new Type("java.util.List", new Type[] {new Type(com.vaadin.shared.ui.grid.GridStaticSectionState.CellState.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "center", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "centerNELimit", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "centerSWLimit", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "centered", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.checkbox.CheckBoxState.class, "checked", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.csslayout.CssLayoutState.class, "childCss", new Type("java.util.Map", new Type[] {new Type(com.vaadin.shared.Connector.class), new Type(java.lang.String.class), }));
@@ -2154,6 +2272,8 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.customlayout.CustomLayoutState.class, "childLocations", new Type("java.util.Map", new Type[] {new Type(com.vaadin.shared.Connector.class), new Type(java.lang.String.class), }));
             store.setPropertyType(com.vaadin.shared.ui.flash.FlashState.class, "classId", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.button.ButtonState.class, "clickShortcutKeyCode", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class, "clickable", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "clientId", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "clientX", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "clientY", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "closable", new Type(java.lang.Boolean.class));
@@ -2173,8 +2293,12 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "componentError", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.CellState.class, "connector", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.absolutelayout.AbsoluteLayoutState.class, "connectorToCssPosition", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(java.lang.String.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "content", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "contentDescription", new Type(com.vaadin.shared.Connector[].class));
             store.setPropertyType(com.vaadin.shared.ui.label.LabelState.class, "contentMode", new Type(com.vaadin.shared.ui.label.ContentMode.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "controls", new Type("java.util.Set", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.GoogleMapControl.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "coordinates", new Type("java.util.List", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "coordinates", new Type("java.util.List", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.LatLon.class), }));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "ctrlKey", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "dateFormat", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "dayNames", new Type(java.lang.String[].class));
@@ -2189,6 +2313,8 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.ReconnectDialogConfigurationState.class, "dialogTextGaveUp", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.button.ButtonState.class, "disableOnClick", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "draggable", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "draggable", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "draggable", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "editable", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "editorBuffered", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "editorCancelCaption", new Type(java.lang.String.class));
@@ -2204,17 +2330,24 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.gridlayout.GridLayoutState.class, "explicitColRatios", new Type("java.util.Set", new Type[] {new Type(java.lang.Integer.class), }));
             store.setPropertyType(com.vaadin.shared.ui.gridlayout.GridLayoutState.class, "explicitRowRatios", new Type("java.util.Set", new Type[] {new Type(java.lang.Integer.class), }));
             store.setPropertyType(com.vaadin.shared.ui.BrowserWindowOpenerState.class, "features", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "fillColor", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "fillOpacity", new Type(java.lang.Double.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.class, "firstChild", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "firstDayOfWeek", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LoadingIndicatorConfigurationState.class, "firstDelay", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "fitToBoundsNE", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "fitToBoundsSW", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
             store.setPropertyType(com.vaadin.shared.ui.form.FormState.class, "footer", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "footer", new Type(com.vaadin.shared.ui.grid.GridStaticSectionState.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "frozenColumnCount", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "geodesic", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "geodesic", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "hasDescriptions", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.PageState.class, "hasResizeListeners", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "header", new Type(com.vaadin.shared.ui.grid.GridStaticSectionState.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "headerCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "height", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "height", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "heightByRows", new Type(java.lang.Double.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "heightMode", new Type(com.vaadin.shared.ui.grid.HeightMode.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "hidable", new Type(java.lang.Boolean.class));
@@ -2229,33 +2362,56 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.AbstractMediaState.class, "htmlContentAllowed", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.button.ButtonState.class, "iconAltText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "iconAltText", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "iconUrl", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "id", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "id", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "id", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "id", new Type(java.lang.Long.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "id", new Type(java.lang.Long.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "id", new Type(java.lang.Long.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "id", new Type(java.lang.Long.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "immediate", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.progressindicator.ProgressBarState.class, "indeterminate", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "infoWindowContentIdentifiers", new Type("java.util.Map", new Type[] {new Type(java.lang.Long.class), new Type(java.lang.String.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class, "infoWindowRenderingDisabled", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "infoWindows", new Type("java.util.Map", new Type[] {new Type(java.lang.Long.class), new Type(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class), }));
             store.setPropertyType(com.vaadin.shared.ui.textfield.AbstractTextFieldState.class, "inputPrompt", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "key", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "keyboardShortcutsEnabled", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "kmlLayers", new Type("java.util.Set", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "language", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.LatLon.class, "lat", new Type(java.lang.Double.class));
             store.setPropertyType(com.vaadin.shared.ui.form.FormState.class, "layout", new Type(com.vaadin.shared.Connector.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "limitCenterBounds", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "limitVisibleAreaBounds", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "loadingIndicatorConfiguration", new Type(com.vaadin.shared.ui.ui.UIState.LoadingIndicatorConfigurationState.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleServiceState.class, "localeData", new Type("java.util.List", new Type[] {new Type(com.vaadin.shared.ui.ui.UIState.LocaleData.class), }));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "localeServiceState", new Type(com.vaadin.shared.ui.ui.UIState.LocaleServiceState.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "locked", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.loginform.LoginFormState.class, "loginButtonConnector", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.loginform.LoginFormState.class, "loginResource", new Type(com.vaadin.shared.communication.URLReference.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.LatLon.class, "lon", new Type(java.lang.Double.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "mapTypeId", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.gridlayout.GridLayoutState.class, "marginsBitmask", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState.class, "marginsBitmask", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "markers", new Type("java.util.Map", new Type[] {new Type(java.lang.Long.class), new Type(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class), }));
             store.setPropertyType(com.vaadin.shared.ui.textfield.AbstractTextFieldState.class, "maxLength", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "maxPosition", new Type(java.lang.Float.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "maxPositionUnit", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.slider.SliderState.class, "maxValue", new Type(java.lang.Double.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "maxWidth", new Type(java.lang.Double.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState.class, "maxWidth", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "maxWidth", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "maxZoom", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "metaKey", new Type(java.lang.Boolean.class));
+            load5();
+          }
+          private void load5() {
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "minPosition", new Type(java.lang.Float.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "minPositionUnit", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.slider.SliderState.class, "minValue", new Type(java.lang.Double.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "minWidth", new Type(java.lang.Double.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "minZoom", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "modal", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.PushConfigurationState.class, "mode", new Type(com.vaadin.shared.communication.PushMode.class));
             store.setPropertyType(com.vaadin.shared.AbstractFieldState.class, "modified", new Type(java.lang.Boolean.class));
@@ -2267,16 +2423,23 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "notificationConfigurations", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration.class), }));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration.class, "notificationRole", new Type(com.vaadin.shared.ui.ui.NotificationRole.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState.class, "openDelay", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "optimized", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.slider.SliderState.class, "orientation", new Type(com.vaadin.shared.ui.slider.SliderOrientation.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "overlayContainerLabel", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "pageState", new Type(com.vaadin.shared.ui.ui.PageState.class));
             store.setPropertyType(com.vaadin.shared.ui.BrowserWindowOpenerState.class, "parameters", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(java.lang.String.class), }));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.PushConfigurationState.class, "parameters", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(java.lang.String.class), }));
             store.setPropertyType(com.vaadin.shared.ui.loginform.LoginFormState.class, "passwordFieldConnector", new Type(com.vaadin.shared.Connector.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "pixelOffsetHeight", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "pixelOffsetWidth", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "pm", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "pollInterval", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.progressindicator.ProgressIndicatorState.class, "pollingInterval", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "polygons", new Type("java.util.Set", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class), }));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "polylines", new Type("java.util.Set", new Type[] {new Type(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class), }));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "position", new Type(java.lang.Float.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "position", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker.class, "position", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "positionReversed", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class, "positionUnit", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "positionX", new Type(java.lang.Integer.class));
@@ -2316,6 +2479,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.JavaScriptComponentState.class, "rpcInterfaces", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }), }));
             store.setPropertyType(com.vaadin.shared.ui.panel.PanelState.class, "scrollLeft", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.panel.PanelState.class, "scrollTop", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "scrollWheelEnabled", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.class, "secondChild", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LoadingIndicatorConfigurationState.class, "secondDelay", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabsheetState.class, "selected", new Type(java.lang.String.class));
@@ -2333,6 +2497,12 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.class, "splitterState", new Type(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState.class));
             store.setPropertyType(com.vaadin.shared.ui.flash.FlashState.class, "standby", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.progressindicator.ProgressBarState.class, "state", new Type(java.lang.Float.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "strokeColor", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "strokeColor", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "strokeOpacity", new Type(java.lang.Double.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "strokeOpacity", new Type(java.lang.Double.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "strokeWeight", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "strokeWeight", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.CellState.class, "styleName", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.RowState.class, "styleName", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "styleName", new Type(java.lang.String.class));
@@ -2358,21 +2528,28 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LoadingIndicatorConfigurationState.class, "thirdDelay", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.PageState.class, "title", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "tooltipConfiguration", new Type(com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "trafficLayerVisible", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "twelveHourClock", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "type", new Type(java.lang.Integer.class));
-            load5();
-          }
-          private void load5() {
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.CellState.class, "type", new Type(com.vaadin.shared.ui.grid.GridStaticCellType.class));
             store.setPropertyType(com.vaadin.shared.ui.BrowserWindowOpenerState.class, "uriFragment", new Type(java.lang.String.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class, "url", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.loginform.LoginFormState.class, "userNameFieldConnector", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.slider.SliderState.class, "value", new Type(java.lang.Double.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer.class, "viewportPreserved", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridStaticSectionState.class, "visible", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "visible", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "visibleAreaNELimit", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "visibleAreaSWLimit", new Type(com.vaadin.tapio.googlemaps.client.LatLon.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "width", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridColumnState.class, "width", new Type(java.lang.Double.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "width", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "windowMode", new Type(com.vaadin.shared.ui.window.WindowMode.class));
             store.setPropertyType(com.vaadin.shared.ui.textarea.TextAreaState.class, "wordwrap", new Type(java.lang.Boolean.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow.class, "zIndex", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon.class, "zIndex", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline.class, "zIndex", new Type(java.lang.Integer.class));
+            store.setPropertyType(com.vaadin.tapio.googlemaps.client.GoogleMapState.class, "zoom", new Type(java.lang.Integer.class));
             store.setSerializerFactory(com.vaadin.shared.MouseEventDetails.MouseButton.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return new com.vaadin.client.communication.JSONSerializer<com.vaadin.shared.MouseEventDetails.MouseButton>() {
@@ -2591,6 +2768,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 };
               }
             });
+            load6();
+          }
+          private void load6() {
             store.setSerializerFactory(com.vaadin.shared.ui.slider.SliderOrientation.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return new com.vaadin.client.communication.JSONSerializer<com.vaadin.shared.ui.slider.SliderOrientation>() {
@@ -2708,6 +2888,41 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                     }
                     if ("DIALOG".equals(enumIdentifier)) {
                       return com.vaadin.shared.ui.window.WindowRole.DIALOG;
+                    }
+                    return null;
+                  }
+                };
+              }
+            });
+            store.setSerializerFactory(com.vaadin.tapio.googlemaps.client.GoogleMapControl.class, new Invoker() {
+              public Object invoke(Object target, Object[] params) {
+                return new com.vaadin.client.communication.JSONSerializer<com.vaadin.tapio.googlemaps.client.GoogleMapControl>() {
+                  public elemental.json.JsonValue serialize(com.vaadin.tapio.googlemaps.client.GoogleMapControl value, com.vaadin.client.ApplicationConnection connection) {
+                    com.vaadin.tapio.googlemaps.client.GoogleMapControl castedValue = (com.vaadin.tapio.googlemaps.client.GoogleMapControl) value;
+                    return elemental.json.Json.create(castedValue.name());
+                  }
+                  public com.vaadin.tapio.googlemaps.client.GoogleMapControl deserialize(Type type, elemental.json.JsonValue jsonValue, com.vaadin.client.ApplicationConnection connection) {
+                    String enumIdentifier = jsonValue.asString();
+                    if ("MapType".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.MapType;
+                    }
+                    if ("OverView".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.OverView;
+                    }
+                    if ("Pan".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.Pan;
+                    }
+                    if ("Rotate".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.Rotate;
+                    }
+                    if ("Scale".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.Scale;
+                    }
+                    if ("StreetView".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.StreetView;
+                    }
+                    if ("Zoom".equals(enumIdentifier)) {
+                      return com.vaadin.tapio.googlemaps.client.GoogleMapControl.Zoom;
                     }
                     return null;
                   }
@@ -2844,9 +3059,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.addOnStateChangeMethod(com.vaadin.client.ui.combobox.ComboBoxConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.csslayout.CssLayoutConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.customcomponent.CustomComponentConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
-            load6();
-          }
-          private void load6() {
             store.addOnStateChangeMethod(com.vaadin.client.ui.customfield.CustomFieldConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.customlayout.CustomLayoutConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.datefield.DateFieldConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
@@ -2884,11 +3096,15 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.addOnStateChangeMethod(com.vaadin.client.ui.tree.TreeConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.treetable.TreeTableConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.twincolselect.TwinColSelectConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
+            load7();
+          }
+          private void load7() {
             store.addOnStateChangeMethod(com.vaadin.client.ui.ui.UIConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.ui.UIConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("onThemeChange", new String[] {"theme", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.upload.UploadConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.video.VideoConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.window.WindowConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
+            store.addOnStateChangeMethod(com.vaadin.tapio.googlemaps.client.GoogleMapConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
           }
           @com.google.gwt.core.client.UnsafeNativeLong
           private native void loadNativeJs(com.vaadin.client.metadata.TypeDataStore store) /*-{
@@ -2976,6 +3192,46 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setAnchorMarker(Lcom/vaadin/tapio/googlemaps/client/overlays/GoogleMapMarker;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getAnchorMarker()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'anchorMarker', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setAnimationEnabled(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::isAnimationEnabled()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'animationEnabled', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::apiKey = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::apiKey;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'apiKey', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::apiUrl = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::apiUrl;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'apiUrl', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.flash.FlashState::archive = value;
               },
               getter: function(bean) {
@@ -3040,6 +3296,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.window.WindowState::class, 'assistiveTabStopTopText', data);
             
             var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setAutoPanDisabled(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::isAutoPanDisabled()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'autoPanDisabled', data);
+            
+            var data = {
               noLayout: 1, 
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.AbstractMediaState::autoplay = value.@java.lang.Boolean::booleanValue()();
@@ -3102,6 +3368,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setCaption(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::getCaption()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'caption', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.AbstractComponentState::captionAsHtml = value.@java.lang.Boolean::booleanValue()();
               },
               getter: function(bean) {
@@ -3129,6 +3405,36 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.grid.GridStaticSectionState.RowState::class, 'cells', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::center = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::center;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'center', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::centerNELimit = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::centerNELimit;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'centerNELimit', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::centerSWLimit = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::centerSWLimit;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'centerSWLimit', data);
             
             var data = {
               noLayout: 1, 
@@ -3211,6 +3517,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.button.ButtonState::class, 'clickShortcutKeyCode', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::setClickable(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::isClickable()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::class, 'clickable', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::clientId = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::clientId;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'clientId', data);
             
             var data = {
               setter: function(bean, value) {
@@ -3382,6 +3708,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.tabsheet.TabState::class, 'componentError', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs0(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.GridStaticSectionState.CellState::connector = value;
@@ -3403,6 +3732,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.absolutelayout.AbsoluteLayoutState::class, 'connectorToCssPosition', data);
             
             var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setContent(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getContent()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'content', data);
+            
+            var data = {
               noLayout: 1, 
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.window.WindowState::contentDescription = value;
@@ -3422,6 +3761,36 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.label.LabelState::class, 'contentMode', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::controls = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::controls;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'controls', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setCoordinates(Ljava/util/List;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getCoordinates()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'coordinates', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setCoordinates(Ljava/util/List;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::getCoordinates()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'coordinates', data);
             
             var data = {
               setter: function(bean, value) {
@@ -3505,9 +3874,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.grid.selection.SingleSelectionModelState::class, 'deselectAllowed', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs0(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.ui.UIState.ReconnectDialogConfigurationState::dialogGracePeriod = value.@java.lang.Integer::intValue()();
@@ -3569,6 +3935,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.window.WindowState::class, 'draggable', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::draggable = value.@java.lang.Boolean::booleanValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::draggable);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'draggable', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setDraggable(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::isDraggable()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'draggable', data);
             
             var data = {
               setter: function(bean, value) {
@@ -3722,6 +4108,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setFillColor(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getFillColor()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'fillColor', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setFillOpacity(D)(value.@java.lang.Double::doubleValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Double::valueOf(D)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getFillOpacity()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'fillOpacity', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState::firstChild = value;
               },
               getter: function(bean) {
@@ -3752,6 +4158,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::fitToBoundsNE = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::fitToBoundsNE;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'fitToBoundsNE', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::fitToBoundsSW = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::fitToBoundsSW;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'fitToBoundsSW', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.form.FormState::footer = value;
               },
               getter: function(bean) {
@@ -3779,6 +4205,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.grid.GridState::class, 'frozenColumnCount', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setGeodesic(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::isGeodesic()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'geodesic', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setGeodesic(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::isGeodesic()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'geodesic', data);
             
             var data = {
               setter: function(bean, value) {
@@ -3832,6 +4278,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setHeight(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getHeight()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'height', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.GridState::heightByRows = value.@java.lang.Double::doubleValue()();
               },
               getter: function(bean) {
@@ -3840,6 +4296,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.grid.GridState::class, 'heightByRows', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs1(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.GridState::heightMode = value;
@@ -3974,6 +4433,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setIconUrl(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::getIconUrl()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'iconUrl', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.AbstractComponentState::id = value;
               },
               getter: function(bean) {
@@ -4003,6 +4472,46 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.tabsheet.TabState::class, 'id', data);
             
             var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setId(J)(value.@java.lang.Long::longValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Long::valueOf(J)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getId()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'id', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setId(J)(value.@java.lang.Long::longValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Long::valueOf(J)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::getId()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'id', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setId(J)(value.@java.lang.Long::longValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Long::valueOf(J)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getId()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'id', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setId(J)(value.@java.lang.Long::longValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Long::valueOf(J)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::getId()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'id', data);
+            
+            var data = {
               noLayout: 1, 
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.AbstractComponentState::immediate = value.@java.lang.Boolean::booleanValue()();
@@ -4022,6 +4531,36 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.progressindicator.ProgressBarState::class, 'indeterminate', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::infoWindowContentIdentifiers = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::infoWindowContentIdentifiers;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'infoWindowContentIdentifiers', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::setInfoWindowRenderingDisabled(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::isInfoWindowRenderingDisabled()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::class, 'infoWindowRenderingDisabled', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::infoWindows = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::infoWindows;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'infoWindows', data);
             
             var data = {
               noLayout: 1, 
@@ -4046,6 +4585,46 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::keyboardShortcutsEnabled = value.@java.lang.Boolean::booleanValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::keyboardShortcutsEnabled);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'keyboardShortcutsEnabled', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::kmlLayers = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::kmlLayers;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'kmlLayers', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::language = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::language;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'language', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.LatLon::setLat(D)(value.@java.lang.Double::doubleValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Double::valueOf(D)(bean.@com.vaadin.tapio.googlemaps.client.LatLon::getLat()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.LatLon::class, 'lat', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.form.FormState::layout = value;
               },
               getter: function(bean) {
@@ -4053,6 +4632,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.form.FormState::class, 'layout', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::limitCenterBounds = value.@java.lang.Boolean::booleanValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::limitCenterBounds);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'limitCenterBounds', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::limitVisibleAreaBounds = value.@java.lang.Boolean::booleanValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::limitVisibleAreaBounds);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'limitVisibleAreaBounds', data);
             
             var data = {
               setter: function(bean, value) {
@@ -4114,9 +4713,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.loginform.LoginFormState::class, 'loginResource', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs1(com.vaadin.client.metadata.TypeDataStore store) /*-{
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.LatLon::setLon(D)(value.@java.lang.Double::doubleValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Double::valueOf(D)(bean.@com.vaadin.tapio.googlemaps.client.LatLon::getLon()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.LatLon::class, 'lon', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::mapTypeId = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::mapTypeId;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'mapTypeId', data);
+            
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.gridlayout.GridLayoutState::marginsBitmask = value.@java.lang.Integer::intValue()();
@@ -4136,6 +4752,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState::class, 'marginsBitmask', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::markers = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::markers;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'markers', data);
             
             var data = {
               noLayout: 1, 
@@ -4201,6 +4827,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setMaxWidth(Ljava/lang/Integer;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getMaxWidth()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'maxWidth', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::maxZoom = value.@java.lang.Integer::intValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::maxZoom);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'maxZoom', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.MouseEventDetails::setMetaKey(Z)(value.@java.lang.Boolean::booleanValue()());
               },
               getter: function(bean) {
@@ -4240,6 +4886,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.slider.SliderState::class, 'minValue', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs2(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.GridColumnState::minWidth = value.@java.lang.Double::doubleValue()();
@@ -4249,6 +4898,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.grid.GridColumnState::class, 'minWidth', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::minZoom = value.@java.lang.Integer::intValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::minZoom);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'minZoom', data);
             
             var data = {
               noLayout: 1, 
@@ -4364,6 +5023,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setOptimized(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::isOptimized()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'optimized', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.slider.SliderState::orientation = value;
               },
               getter: function(bean) {
@@ -4424,6 +5093,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setPixelOffsetHeight(Ljava/lang/Integer;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getPixelOffsetHeight()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'pixelOffsetHeight', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setPixelOffsetWidth(Ljava/lang/Integer;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getPixelOffsetWidth()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'pixelOffsetWidth', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.ui.UIState.LocaleData::pm = value;
               },
               getter: function(bean) {
@@ -4455,6 +5144,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::polygons = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::polygons;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'polygons', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::polylines = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::polylines;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'polylines', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState::position = value.@java.lang.Float::floatValue()();
               },
               getter: function(bean) {
@@ -4462,6 +5171,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState::class, 'position', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setPosition(Lcom/vaadin/tapio/googlemaps/client/LatLon;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getPosition()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'position', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::setPosition(Lcom/vaadin/tapio/googlemaps/client/LatLon;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::getPosition()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker::class, 'position', data);
             
             var data = {
               setter: function(bean, value) {
@@ -4708,9 +5437,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.grid.GridColumnState::class, 'resizable', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs2(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               noLayout: 1, 
               setter: function(bean, value) {
@@ -4754,6 +5480,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.communication.SharedState::class, 'resources', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs3(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               noLayout: 1, 
               setter: function(bean, value) {
@@ -4866,6 +5595,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.panel.PanelState::class, 'scrollTop', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::scrollWheelEnabled = value.@java.lang.Boolean::booleanValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::scrollWheelEnabled);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'scrollWheelEnabled', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5037,6 +5776,66 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.progressindicator.ProgressBarState::class, 'state', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setStrokeColor(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getStrokeColor()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'strokeColor', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setStrokeColor(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::getStrokeColor()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'strokeColor', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setStrokeOpacity(D)(value.@java.lang.Double::doubleValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Double::valueOf(D)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getStrokeOpacity()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'strokeOpacity', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setStrokeOpacity(D)(value.@java.lang.Double::doubleValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Double::valueOf(D)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::getStrokeOpacity()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'strokeOpacity', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setStrokeWeight(I)(value.@java.lang.Integer::intValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getStrokeWeight()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'strokeWeight', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setStrokeWeight(I)(value.@java.lang.Integer::intValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::getStrokeWeight()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'strokeWeight', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5292,6 +6091,19 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.ui.UIState::class, 'tooltipConfiguration', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs4(com.vaadin.client.metadata.TypeDataStore store) /*-{
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::trafficLayerVisible = value.@java.lang.Boolean::booleanValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::trafficLayerVisible);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'trafficLayerVisible', data);
+            
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.ui.UIState.LocaleData::twelveHourClock = value.@java.lang.Boolean::booleanValue()();
@@ -5332,9 +6144,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.BrowserWindowOpenerState::class, 'uriFragment', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs3(com.vaadin.client.metadata.TypeDataStore store) /*-{
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::setUrl(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::getUrl()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::class, 'url', data);
+            
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.loginform.LoginFormState::userNameFieldConnector = value;
@@ -5358,6 +6177,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::setViewportPreserved(Z)(value.@java.lang.Boolean::booleanValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Boolean::valueOf(Z)(bean.@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::isViewportPreserved()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.layers.GoogleMapKmlLayer::class, 'viewportPreserved', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.GridStaticSectionState::visible = value.@java.lang.Boolean::booleanValue()();
               },
               getter: function(bean) {
@@ -5375,6 +6204,26 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.tabsheet.TabState::class, 'visible', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::visibleAreaNELimit = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::visibleAreaNELimit;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'visibleAreaNELimit', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::visibleAreaSWLimit = value;
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::visibleAreaSWLimit;
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'visibleAreaSWLimit', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5398,6 +6247,16 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setWidth(Ljava/lang/String;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getWidth()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'width', data);
+            
+            var data = {
+              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.window.WindowState::windowMode = value;
               },
               getter: function(bean) {
@@ -5417,6 +6276,46 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.textarea.TextAreaState::class, 'wordwrap', data);
             
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::setzIndex(Ljava/lang/Integer;)(value);
+              },
+              getter: function(bean) {
+                return bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::getzIndex()();
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapInfoWindow::class, 'zIndex', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::setzIndex(I)(value.@java.lang.Integer::intValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::getzIndex()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon::class, 'zIndex', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::setzIndex(I)(value.@java.lang.Integer::intValue()());
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::getzIndex()());
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolyline::class, 'zIndex', data);
+            
+            var data = {
+              setter: function(bean, value) {
+                bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::zoom = value.@java.lang.Integer::intValue()();
+              },
+              getter: function(bean) {
+                return @java.lang.Integer::valueOf(I)(bean.@com.vaadin.tapio.googlemaps.client.GoogleMapState::zoom);
+              }
+            };
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.tapio.googlemaps.client.GoogleMapState::class, 'zoom', data);
+            
           }-*/;
           private void loadJsBundle(com.vaadin.client.metadata.TypeDataStore store) {
             loadNativeJs(store);
@@ -5424,6 +6323,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             loadNativeJs1(store);
             loadNativeJs2(store);
             loadNativeJs3(store);
+            loadNativeJs4(store);
           }
           public void onFailure(Throwable reason) {
             com.vaadin.client.metadata.ConnectorBundleLoader.get().setLoadFailure(getName(), reason);

@@ -67,7 +67,10 @@ public class TopPanelPlace extends Panel {
         if(name == null)
         {
             name = new Label();
-            name.setValue("<b>" + place.getName() + "<b>");
+            if((place.getName().length() != 0) && (place.getName() != null))
+            {
+                name.setValue("<b>" + place.getName() + "<b>");
+            }
             name.setContentMode(ContentMode.HTML);
             name.setSizeFull();
         }
