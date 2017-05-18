@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/anonfreak/bestplaces-client.svg?branch=master)](https://travis-ci.org/anonfreak/bestplaces-client)
+[![Coverage Status](https://coveralls.io/repos/github/anonfreak/bestplaces-client/badge.svg?branch=master)](https://coveralls.io/github/anonfreak/bestplaces-client?branch=master)
 
 client
 ==============
