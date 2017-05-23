@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a740460201604a9d81d1db68daed21a9)](https://www.codacy.com/app/kolb.marco/bestplaces-client?utm_source=github.com&utm_medium=referral&utm_content=anonfreak/bestplaces-client&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/anonfreak/bestplaces-client.svg?branch=master)](https://travis-ci.org/anonfreak/bestplaces-client)
 [![Coverage Status](https://coveralls.io/repos/github/anonfreak/bestplaces-client/badge.svg?branch=master)](https://coveralls.io/github/anonfreak/bestplaces-client?branch=master)
 
