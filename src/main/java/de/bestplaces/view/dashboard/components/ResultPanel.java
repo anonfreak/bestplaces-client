@@ -24,13 +24,13 @@ public class ResultPanel extends Panel {
     {
         this.navigatorController = navigatorController;
         int numberOfPlaces = placesList.size();
-        int rows = (numberOfPlaces/3);
+        int rows = (numberOfPlaces/2);
         if(rows < 1)
         {
             rows = 1;
         }
 
-        GridLayout layout = new GridLayout(3,rows);
+        GridLayout layout = new GridLayout(2,rows);
 
         for (Place place : placesList) {
             Tile tile = new Tile(place);

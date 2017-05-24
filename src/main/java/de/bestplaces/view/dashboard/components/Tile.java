@@ -6,12 +6,14 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.Runo;
 import de.bestplaces.model.Place;
 
+import java.util.List;
+
 /**
  * Created by franz on 25.11.2016.
  */
 public class Tile extends Panel {
 
-    private Label placeName;
+    private RichTextArea placeName;
 
     public Tile(Place place)
     {
@@ -44,16 +46,23 @@ public class Tile extends Panel {
         layout.addComponent(open);
 
         setContent(layout);
-
-
     }
 
-    private Label getPlaceName(Place place) {
+    private RichTextArea getPlaceName(Place place) {
         if(placeName == null)
         {
-            placeName = new Label(place.getName());
-            placeName.setStyleName("huge");
-
+            placeName = new RichTextArea();
+            placeName.setValue("<html>\n" +
+                    "<head>\n" +
+                    "<style>\n" +
+                    "<body bgcolor=\"#104e8b\">\n" +
+                    "</style>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<font color=\"#104e8b\">" + place.getName() + "</font>" +
+                    "</body>\n" +
+                    "</html>");
+            placeName.setReadOnly(true);
         }
         return placeName;
     }

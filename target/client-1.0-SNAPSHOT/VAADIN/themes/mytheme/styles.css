@@ -12983,6 +12983,6 @@ div.v-layout.v-horizontal.v-widget {
 	background: transparent;
 }
 
-.mytheme .v-panel-caption {
-	background-color: deepskyblue;
+.mytheme .v.app .v-panel .v-panel-caption {
+	background-color: deepskyblue !important;
 }
