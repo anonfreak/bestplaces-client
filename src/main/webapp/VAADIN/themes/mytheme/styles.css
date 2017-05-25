@@ -12979,6 +12979,10 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: normal;
 }
 
+.mytheme .newbackground {
+	background-color: #00bfff;
+}
+
 .mytheme .background {
 	background: transparent;
 }
