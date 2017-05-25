@@ -17,7 +17,7 @@ public enum Pages {
     /**
      * @param text
      */
-    private Pages(final String text, final Resource icon) {
+    Pages(final String text, final Resource icon) {
         this.text = text;
         this.icon = icon;
     }

@@ -51,8 +51,8 @@
     background: transparent;
   }
 
-  .v-panel-caption {
-    background-color: deepskyblue;
+  .v.app .v-panel .v-panel-caption {
+    background-color: deepskyblue !important;
   }
 
 }

@@ -30,14 +30,14 @@ public class ImagePanel extends Panel {
         if (showOnlyOnePicture) {
             if (pictures == null) {
                 layout.addComponent(noImageAvailable);
-                layout.addComponent(white);
+                //layout.addComponent(white);
             } else {
                 Image image = new Image();
                 image.setSource(new ExternalResource(pictures.get(0)));
                 image.setWidth("170px");
                 image.setHeight("145px");
                 layout.addComponent(image);
-                layout.addComponent(white);
+                //layout.addComponent(white);
             }
         } else {
 
