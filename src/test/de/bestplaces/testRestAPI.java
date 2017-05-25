@@ -8,11 +8,13 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import de.bestplaces.model.Place;
 import de.bestplaces.model.User;
+import de.bestplaces.model.Visit;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Date;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -104,5 +106,22 @@ public class testRestAPI {
             .asObject(Place[].class);
 
         assertEquals(200, response.getStatus());
+    }
+
+
+    @Test
+    public void addVisitToTimelineTest() throws UnirestException {
+
+        Date date = new Date();
+        date.setTime(1495742164);
+        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "Franzi", date, 10, "Sehr lecker");
+
+        HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
+                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(testVisit)
+                .asJson();
+        assertEquals(201, response.getStatus());
     }
 }

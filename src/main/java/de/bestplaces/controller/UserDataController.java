@@ -110,6 +110,11 @@ public class UserDataController {
         return token;
     }
 
+    public String getUsername()
+    {
+        return username;
+    }
+
     private void initJackson(){
         Unirest.setObjectMapper(new ObjectMapper() {
             private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper

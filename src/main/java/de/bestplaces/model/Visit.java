@@ -1,25 +1,46 @@
 package de.bestplaces.model;
 
-import com.vaadin.ui.Calendar;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Date;
 
 /**
  * Created by franz on 25.11.2016.
  */
 public class Visit {
+    @JsonProperty(value = "visitid")
     private int visitId;
-    private User user;
-    private Place place;
-    private Calendar visitTime;
-    private String notes;
+    @JsonProperty(value = "place")
+    private String placeId;
+    @JsonProperty(value = "user")
+    private String userString;
+    @JsonProperty(value = "visittime")
+    private Date visitTime;
+    @JsonProperty(value = "money")
     private double money;
+    @JsonProperty(value = "notes")
+    private String notes;
 
-    public Visit(int visitId, User user, Place place, Calendar visitTime, String notes, double money) {
-        this.visitId = visitId;
-        this.user = user;
-        this.place = place;
+    public Visit()
+    {
+
+    }
+
+    public Visit(String placeId, String userString, Date visitTime, double money, String notes) {
+        this.placeId = placeId;
+        this.userString = userString;
         this.visitTime = visitTime;
-        this.notes = notes;
         this.money = money;
+        this.notes = notes;
+    }
+
+    public Visit(int visitId, String placeId, String userString, Date visitTime, double money, String notes) {
+        this.visitId = visitId;
+        this.placeId = placeId;
+        this.userString = userString;
+        this.visitTime = visitTime;
+        this.money = money;
+        this.notes = notes;
     }
 
     public int getVisitId() {
@@ -30,36 +51,28 @@ public class Visit {
         this.visitId = visitId;
     }
 
-    public User getUser() {
-        return user;
+    public String getPlaceId() {
+        return placeId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPlaceId(String placeId) {
+        this.placeId = placeId;
     }
 
-    public Place getPlace() {
-        return place;
+    public String getUserString() {
+        return userString;
     }
 
-    public void setPlace(Place place) {
-        this.place = place;
+    public void setUserString(String userString) {
+        this.userString = userString;
     }
 
-    public Calendar getVisitTime() {
+    public Date getVisitTime() {
         return visitTime;
     }
 
-    public void setVisitTime(Calendar visitTime) {
+    public void setVisitTime(Date visitTime) {
         this.visitTime = visitTime;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 
     public double getMoney() {
@@ -68,5 +81,13 @@ public class Visit {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
