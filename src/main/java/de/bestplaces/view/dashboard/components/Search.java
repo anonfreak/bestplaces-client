@@ -19,10 +19,11 @@ public class Search extends VerticalLayout implements View {
     private SearchController searchController;
     private SearchBarPanel searchBarPanel;
     private ResultPanel resultPanel;
-    private ResultPanel resultPanelMore;
     private Panel loadMoreButtonPanel;
 
     private String currentSearchValue;
+    private String currentLocationValue;
+    private List<Place> currentPlaceList;
 
     public Search(NavigatorController controller){
         navigatorController = controller;
@@ -40,6 +41,13 @@ public class Search extends VerticalLayout implements View {
     {
         addComponent(getSearchBarPanel());
         removeResultPanel();
+
+        if(getSearchBarPanel().getSearchField().getValue().equals(currentSearchValue)
+                && getSearchBarPanel().getLocationField().getValue().equals(currentLocationValue))
+        {
+            addResultPanel(currentPlaceList, currentSearchValue, currentLocationValue);
+        }
+
     }
 
     private SearchBarPanel getSearchBarPanel() {
@@ -50,10 +58,12 @@ public class Search extends VerticalLayout implements View {
         return searchBarPanel;
     }
 
-    public void addResultPanel(List<Place> placesList, String searchValue)
+    public void addResultPanel(List<Place> placesList, String searchValue, String locationValue)
     {
+        this.currentLocationValue = locationValue;
         this.currentSearchValue = searchValue;
-        if(placesList.size() == 20)
+        this.currentPlaceList = placesList;
+        if(currentPlaceList.size() == 20)
         {
             addLoadMoreButton();
         }
@@ -61,23 +71,10 @@ public class Search extends VerticalLayout implements View {
         {
             removeComponent(resultPanel);
         }
-        resultPanel = new ResultPanel(placesList, navigatorController);
+        resultPanel = new ResultPanel(currentPlaceList, navigatorController);
         resultPanel.setHeight("740px");
 
         addComponent(resultPanel);
-    }
-
-    public void addMoreResults(List<Place> placesList)
-    {
-        if(resultPanelMore != null)
-        {
-            removeComponent(resultPanelMore);
-        }
-        resultPanelMore = new ResultPanel(placesList, navigatorController);
-        resultPanelMore.setHeight("740px");
-
-        addComponent(resultPanelMore);
-
     }
 
     public void addLoadMoreButton()
@@ -94,7 +91,7 @@ public class Search extends VerticalLayout implements View {
                     SearchController searchController = navigatorController.getSearchController();
                     try {
                         List<Place> placesList = searchController.searchMore(currentSearchValue);
-                        addResultPanel(placesList, currentSearchValue);
+                        addResultPanel(placesList, currentSearchValue, currentLocationValue);
                     } catch (UnirestException e) {
                         e.printStackTrace();
                     }
@@ -113,11 +110,10 @@ public class Search extends VerticalLayout implements View {
         if(resultPanel != null)
         {
             removeComponent(resultPanel);
-            removeComponent(loadMoreButtonPanel);
         }
-        if(resultPanelMore !=null)
+        if(loadMoreButtonPanel !=null)
         {
-            removeComponent(resultPanelMore);
+            removeComponent(loadMoreButtonPanel);
 
         }
     }

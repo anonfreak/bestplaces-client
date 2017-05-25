@@ -5,9 +5,7 @@ import com.vaadin.event.MouseEvents;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.PlaceController;
-import de.bestplaces.controller.SearchController;
 import de.bestplaces.model.FullPlace;
-import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
 
 import java.util.List;
@@ -39,9 +37,6 @@ public class ResultPanel extends Panel{
                 @Override
                 public void click(MouseEvents.ClickEvent clickEvent) {
 
-                    // hier über Controller zur nächsten View kommen
-                    // aber nicht über den Navigator, weil der eine neue page erzeugt
-                    // am besten über place controller
                     PlaceController placeController = navigatorController.getPlaceController();
                     FullPlace fullPlace= null;
                     try {
@@ -49,7 +44,6 @@ public class ResultPanel extends Panel{
                     } catch (UnirestException e) {
                         e.printStackTrace();
                     }
-                    // dem navigator irgendwie den fullplace mitgeben
                     navigatorController.setPlace(fullPlace);
                     navigatorController.switchToView("PlaceView");
                 }

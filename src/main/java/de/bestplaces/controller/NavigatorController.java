@@ -120,16 +120,4 @@ public class NavigatorController {
     public void setPlaceViewBack(){
         placeView = null;
     }
-
-    public void saveSearch(List<Place> list)
-    {
-        this.listPlaces = list;
-    }
-
-    public List<Place> getPlaceList()
-    {
-        return listPlaces;
-    }
-
-
 }
