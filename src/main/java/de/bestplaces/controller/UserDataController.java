@@ -22,13 +22,13 @@ import java.util.Calendar;
  */
 public class UserDataController {
 
-    private static String token;
+    private static String token = "";
     private static String username;
 
     public UserDataController()
     {
         this.initJackson();
-        token = "";
+        //token = "";
     }
 
     public boolean createUser(String username, String firstName, String lastName, String email, String password, String hometown) throws UnirestException {
@@ -103,7 +103,7 @@ public class UserDataController {
         return response.getStatus() == 204;
     }
 
-    private String getToken(){
+    public static String getToken(){
         if(token == ""){
             return "80f8d09d703f70f7a30c5ecba4428f6376c16d6d";
         }

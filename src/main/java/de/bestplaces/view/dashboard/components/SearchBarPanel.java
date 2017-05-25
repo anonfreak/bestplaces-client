@@ -26,6 +26,7 @@ public class SearchBarPanel extends Panel {
 
 
         Button backButton = new Button("Back", FontAwesome.ARROW_LEFT);
+        backButton.setDescription("Go back to Timeline");
         backButton.addClickListener(clickEvent -> {
             navigatorController.switchToView(Pages.TIMELINE);
             searchView.removeResultPanel();
@@ -56,7 +57,8 @@ public class SearchBarPanel extends Panel {
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
-                searchView.addResultPanel(placesList);
+                searchView.addResultPanel(placesList, search.getValue());
+                //searchView.addLoadMoreButton();
                 navigatorController.saveSearch(placesList);
                 location.setValue("");
                 search.setValue("");

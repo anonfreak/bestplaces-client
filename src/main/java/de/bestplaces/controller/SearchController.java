@@ -25,6 +25,7 @@ import java.util.List;
 public class SearchController {
 
     private static String token;
+    private static String pageToken;
 
     public SearchController()
     {
@@ -45,12 +46,25 @@ public class SearchController {
         SearchResults results = response.getBody();
 
         List<Place> placesList = results.getResults();
+        pageToken = results.getPagetoken();
 
         return placesList;
     }
 
-    public void searchMore()
-    {
+    public List<Place> searchMore(String place) throws UnirestException {
+        HttpResponse<SearchResults> response = Unirest.get("http://mathtap.de:1194/place/search")
+                .queryString("q",place)
+                .queryString("pt",pageToken)
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(SearchResults.class);
+
+        SearchResults results = response.getBody();
+
+        List<Place> placesList = results.getResults();
+
+        return placesList;
 
     }
 

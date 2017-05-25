@@ -26,6 +26,7 @@ public class NavigatorController {
     private UI ui;
     private UserDataController userDataController;
     private PlaceController placeController;
+    private SearchController searchController;
 
     private PlaceView placeView;
     private Search searchView;
@@ -40,6 +41,7 @@ public class NavigatorController {
 
         userDataController = new UserDataController();
         placeController = new PlaceController();
+        searchController = new SearchController();
 
         navigator.navigateTo("welcome");
     }
@@ -78,6 +80,10 @@ public class NavigatorController {
 
     public PlaceController getPlaceController() {
         return placeController;
+    }
+
+    public SearchController getSearchController() {
+        return searchController;
     }
 
     private void addViewsToNavigator(){

@@ -2,11 +2,10 @@ package de.bestplaces.view.dashboard.components;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.event.MouseEvents;
-import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.Panel;
+import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.PlaceController;
+import de.bestplaces.controller.SearchController;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
@@ -16,12 +15,13 @@ import java.util.List;
 /**
  * Created by franz on 25.11.2016.
  */
-public class ResultPanel extends Panel {
+public class ResultPanel extends Panel{
 
     private NavigatorController navigatorController;
 
     public ResultPanel(List<Place> placesList, NavigatorController navigatorController)
     {
+
         this.navigatorController = navigatorController;
         int numberOfPlaces = placesList.size();
         int rows = (numberOfPlaces/2);
@@ -56,9 +56,9 @@ public class ResultPanel extends Panel {
             });
             layout.addComponent(tile);
         }
-
         layout.setMargin(true);
         layout.setSizeUndefined();
+
 
         setContent(layout);
     }

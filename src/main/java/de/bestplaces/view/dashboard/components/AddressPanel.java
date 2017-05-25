@@ -1,6 +1,5 @@
 package de.bestplaces.view.dashboard.components;
 
-import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 import de.bestplaces.model.Address;
 import de.bestplaces.model.FullPlace;
@@ -20,6 +19,7 @@ public class AddressPanel extends Panel {
         this.place = place;
         setSizeFull();
         setCaption("Location information");
+       // this.addStyleName("newbackground");
         VerticalSplitPanel layout = new VerticalSplitPanel();
         layout.setSizeFull();
 

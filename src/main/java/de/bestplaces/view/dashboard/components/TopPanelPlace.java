@@ -48,7 +48,7 @@ public class TopPanelPlace extends Panel {
                     //Das setzt noch nicht die suhce zurück auf das was gesucht wurde..
                     // eine möglichkeit: im navigatorcontroler beim initialisieren mitgeben
                     Search search = navigatorController.getSearch();
-                    search.addResultPanel(navigatorController.getPlaceList());
+                   // search.addResultPanel(navigatorController.getPlaceList());
 
                     navigatorController.setPlaceViewBack();
                     navigatorController.switchToView(Pages.SEARCH);
