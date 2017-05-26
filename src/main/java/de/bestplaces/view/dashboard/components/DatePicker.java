@@ -57,22 +57,26 @@ public class DatePicker extends CustomizedWindow {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
                 //Sat May 27 21:34:04 CEST 2017
-                //dateLabel.setValue(date.toString());
-                //1495740987
-                // hier müssen die letzten drei zaheln noch wegemacht werden, da es sonst nicht stimmt
-                // und umrechnung in  deutsche zeit
-                dateLabel.setValue("" + date.getTime());
+                dateLabel.setValue(date.toString());
 
                 // verbindung zur API und speichern! Danach winow schließen
 
-              //  Visit visit = new Visit(place.getPlaceID(), navigatorController.getUserDataController().getUsername() , date.getTime(), 0.0, null);
-              //  VisitController visitController = navigatorController.getVisitController();
-              //  try {
-              //      visitController.addVisitToTimeline(visit);
-              //  } catch (UnirestException e) {
-             //       e.printStackTrace();
-              //  }
-                // datePicker.close();
+                Visit visit = new Visit(place.getPlaceID(), navigatorController.getUserDataController().getUsername() ,
+                        date, 0.0, null);
+                VisitController visitController = navigatorController.getVisitController();
+                try {
+                    boolean saved = visitController.addVisitToTimeline(visit);
+                    if(saved)
+                    {
+                        close();
+                    } else
+                    {
+                        Notification.show("Sorry, this doesn't work. Try again.");
+                    }
+
+                } catch (UnirestException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
