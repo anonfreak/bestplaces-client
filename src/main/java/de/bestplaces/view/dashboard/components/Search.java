@@ -1,13 +1,11 @@
 package de.bestplaces.view.dashboard.components;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.ValoTheme;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.SearchController;
-import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
 
 import java.util.List;
@@ -21,10 +19,15 @@ public class Search extends VerticalLayout implements View {
     private SearchController searchController;
     private SearchBarPanel searchBarPanel;
     private ResultPanel resultPanel;
+    private Panel loadMoreButtonPanel;
+
+    private String currentSearchValue;
+    private String currentLocationValue;
+    private List<Place> currentPlaceList;
 
     public Search(NavigatorController controller){
         navigatorController = controller;
-        searchController = new SearchController();
+        searchController = navigatorController.getSearchController();
 
     }
 
@@ -38,6 +41,13 @@ public class Search extends VerticalLayout implements View {
     {
         addComponent(getSearchBarPanel());
         removeResultPanel();
+
+        if(getSearchBarPanel().getSearchField().getValue().equals(currentSearchValue)
+                && getSearchBarPanel().getLocationField().getValue().equals(currentLocationValue))
+        {
+            addResultPanel(currentPlaceList, currentSearchValue, currentLocationValue);
+        }
+
     }
 
     private SearchBarPanel getSearchBarPanel() {
@@ -48,24 +58,63 @@ public class Search extends VerticalLayout implements View {
         return searchBarPanel;
     }
 
-    public void addResultPanel(List<Place> placesList)
+    public void addResultPanel(List<Place> placesList, String searchValue, String locationValue)
     {
+        this.currentLocationValue = locationValue;
+        this.currentSearchValue = searchValue;
+        this.currentPlaceList = placesList;
+        if(currentPlaceList.size() == 20)
+        {
+            addLoadMoreButton();
+        }
         if(resultPanel != null)
         {
             removeComponent(resultPanel);
         }
-        resultPanel = new ResultPanel(placesList, navigatorController);
-        resultPanel.setHeight("1000px");
+        resultPanel = new ResultPanel(currentPlaceList, navigatorController);
+        resultPanel.setHeight("740px");
 
         addComponent(resultPanel);
     }
+
+    public void addLoadMoreButton()
+    {
+        if(loadMoreButtonPanel == null)
+        {
+            loadMoreButtonPanel = new Panel();
+            VerticalLayout layout = new VerticalLayout();
+
+            Button loadMore = new Button("Load more");
+            loadMore.addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    SearchController searchController = navigatorController.getSearchController();
+                    try {
+                        List<Place> placesList = searchController.searchMore(currentSearchValue);
+                        addResultPanel(placesList, currentSearchValue, currentLocationValue);
+                    } catch (UnirestException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            layout.addComponent(loadMore);
+            loadMoreButtonPanel.setContent(layout);
+
+            addComponent(loadMoreButtonPanel);
+        }
+    }
+
     public void removeResultPanel()
     {
         if(resultPanel != null)
         {
             removeComponent(resultPanel);
         }
+        if(loadMoreButtonPanel !=null)
+        {
+            removeComponent(loadMoreButtonPanel);
+
+        }
     }
-
-
 }

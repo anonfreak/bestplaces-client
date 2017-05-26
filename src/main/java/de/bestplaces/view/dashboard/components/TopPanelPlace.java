@@ -44,12 +44,6 @@ public class TopPanelPlace extends Panel {
             backButton.addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
-
-                    //Das setzt noch nicht die suhce zurück auf das was gesucht wurde..
-                    // eine möglichkeit: im navigatorcontroler beim initialisieren mitgeben
-                    Search search = navigatorController.getSearch();
-                    search.addResultPanel(navigatorController.getPlaceList());
-
                     navigatorController.setPlaceViewBack();
                     navigatorController.switchToView(Pages.SEARCH);
                 }

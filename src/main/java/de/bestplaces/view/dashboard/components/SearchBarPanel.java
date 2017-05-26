@@ -11,12 +11,16 @@ import de.bestplaces.controller.SearchController;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
 
+import javax.xml.soap.Text;
 import java.util.List;
 
 /**
  * Created by franz on 03.05.2017.
  */
 public class SearchBarPanel extends Panel {
+
+    private TextField search;
+    private TextField location;
 
     public SearchBarPanel(NavigatorController navigatorController, SearchController searchController, Search searchView)
     {
@@ -26,6 +30,7 @@ public class SearchBarPanel extends Panel {
 
 
         Button backButton = new Button("Back", FontAwesome.ARROW_LEFT);
+        backButton.setDescription("Go back to Timeline");
         backButton.addClickListener(clickEvent -> {
             navigatorController.switchToView(Pages.TIMELINE);
             searchView.removeResultPanel();
@@ -34,13 +39,13 @@ public class SearchBarPanel extends Panel {
         layoutSearchBar.addComponent(backButton);
 
 
-        TextField search = new TextField();
+        search = new TextField();
         search.setInputPrompt("Search for a place..");
         search.addValidator(new StringLengthValidator("Must not be empty",0,100,false));
         search.setSizeFull();
         layoutSearchBar.addComponent(search);
 
-        TextField location = new TextField();
+        location = new TextField();
         location.setInputPrompt("In which town do you want to search?");
         location.addValidator(new StringLengthValidator("Must not be empty",0,100,false));
         location.setSizeFull();
@@ -56,10 +61,7 @@ public class SearchBarPanel extends Panel {
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
-                searchView.addResultPanel(placesList);
-                navigatorController.saveSearch(placesList);
-                location.setValue("");
-                search.setValue("");
+                searchView.addResultPanel(placesList, search.getValue(), location.getValue());
             }
         });
         searchButton.setSizeFull();
@@ -72,5 +74,13 @@ public class SearchBarPanel extends Panel {
 
         setContent(layoutSearchBar);
 
+    }
+
+    public TextField getSearchField() {
+        return search;
+    }
+
+    public TextField getLocationField() {
+        return location;
     }
 }

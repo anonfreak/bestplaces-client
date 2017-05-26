@@ -19,7 +19,7 @@ public class AddressPanel extends Panel {
         this.place = place;
         setSizeFull();
         setCaption("Location information");
-        this.addStyleName("newbackground");
+       // this.addStyleName("newbackground");
         VerticalSplitPanel layout = new VerticalSplitPanel();
         layout.setSizeFull();
 

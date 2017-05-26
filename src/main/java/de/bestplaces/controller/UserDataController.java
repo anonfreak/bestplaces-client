@@ -15,10 +15,7 @@ import de.bestplaces.view.others.Success;
 import elemental.json.Json;
 
 import java.io.IOException;
-<<<<<<< .merge_file_a44760
 import java.util.Calendar;
-=======
->>>>>>> .merge_file_a35972
 
 /**
  * Created by franz on 25.11.2016.
@@ -26,11 +23,12 @@ import java.util.Calendar;
 public class UserDataController {
 
     private static String token = "";
-    private String username;
+    private static String username;
 
     public UserDataController()
     {
         this.initJackson();
+        //token = "";
     }
 
     public boolean createUser(String username, String firstName, String lastName, String email, String password, String hometown) throws UnirestException {
@@ -39,12 +37,12 @@ public class UserDataController {
 
         HttpResponse<String> response;
 
-        response = Unirest.post("http://mathtap.de:1194/user/")
-                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
-                .header("Accept", "application/json")
-                .header("Content-Type", "application/json")
-                .body(user)
-                .asString();
+            response = Unirest.post("http://mathtap.de:1194/user/")
+                    .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .body(user)
+                    .asString();
 
         if(response.getStatus() == 201){
             return true;

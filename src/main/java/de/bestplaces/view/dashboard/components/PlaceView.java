@@ -90,14 +90,14 @@ public class PlaceView extends VerticalSplitPanel implements View {
     private AddressPanel getAddressPanel() {
         if(addressPanel == null)
         {
-            Page.Styles styles = Page.getCurrent().getStyles();
+         //   Page.Styles styles = Page.getCurrent().getStyles();
 //        styles.add(".v-app .my-panel .v-panel-caption { background-color:#00bfff; }");
-            styles.add("$color1: #00bfff;");
-            styles.add(".v-panel-caption-color1 {\n" +
-                    "    @include valo-panel-caption-style($background-color: $color1);\n" +
-                    "  }");
+         //   styles.add("$color1: #00bfff;");
+        //    styles.add(".v-panel-caption-color1 {\n" +
+       //             "    @include valo-panel-caption-style($background-color: $color1);\n" +
+         //           "  }");
             addressPanel = new AddressPanel(place);
-            addressPanel.addStyleName("color1");
+            addressPanel.addStyleName("v-app .my-panel .v-panel-caption");
         }
         return addressPanel;
     }

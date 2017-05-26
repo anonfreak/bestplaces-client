@@ -12979,12 +12979,12 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: normal;
 }
 
-.mytheme .newbackground {
-	background-color: #00bfff;
-}
-
 .mytheme .background {
 	background: transparent;
+}
+
+.mytheme .newbackground {
+	background-color: #00bfff;
 }
 
 .mytheme .v.app .v-panel .v-panel-caption {
