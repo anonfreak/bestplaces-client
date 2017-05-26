@@ -1,5 +1,6 @@
 package de.bestplaces.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class Visit {
     @JsonProperty(value = "user")
     private String userString;
     @JsonProperty(value = "visittime")
+    @JsonFormat(shape=JsonFormat.Shape.STRING)
     private Date visitTime;
     @JsonProperty(value = "money")
     private double money;
