@@ -100,6 +100,8 @@ public class UserDataController {
                 .header("Accept", "application/json")
                 .asString();
 
+        token="";
+
         return response.getStatus() == 204;
     }
 
