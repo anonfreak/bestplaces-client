@@ -30,8 +30,11 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.5" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.5" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.5" />
-          <element id="library" level="project" name="Maven: junit:junit:4.12" />
-          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: info.cukes:cucumber-java:1.2.5" />
+          <element id="library" level="project" name="Maven: info.cukes:cucumber-core:1.2.5" />
+          <element id="library" level="project" name="Maven: info.cukes:cucumber-html:0.2.3" />
+          <element id="library" level="project" name="Maven: info.cukes:cucumber-jvm-deps:1.0.5" />
+          <element id="library" level="project" name="Maven: info.cukes:gherkin:2.12.2" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-java:2.47.1" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:2.47.1" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:2.47.1" />
@@ -47,7 +50,6 @@
           <element id="library" level="project" name="Maven: xalan:xalan:2.7.2" />
           <element id="library" level="project" name="Maven: xalan:serializer:2.7.2" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
           <element id="library" level="project" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.17" />
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.11.0" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
@@ -67,6 +69,10 @@
           <element id="library" level="project" name="Maven: org.webbitserver:webbit:0.4.14" />
           <element id="library" level="project" name="Maven: io.netty:netty:3.5.2.Final" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-leg-rc:2.47.1" />
+          <element id="library" level="project" name="Maven: com.vaadin.tapio:googlemaps:1.3.4" />
+          <element id="library" level="project" name="Maven: com.github.branflake2267:gwt-maps-api:3.10.0-alpha-7" />
+          <element id="library" level="project" name="Maven: com.google.gwt.google-apis:gwt-ajaxloader:1.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">

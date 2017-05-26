@@ -12969,9 +12969,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .backgroundimage {
-	background: url("img/city-1209105-1024x576.jpg") !important;
-	width: 1024px;
-	height: 576px;
+	background: url("img/Jersey_City_Banner.jpg") !important;
 	background-size: cover;
 }
 
@@ -12983,4 +12981,8 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .background {
 	background: transparent;
+}
+
+.mytheme .v.app .v-panel .v-panel-caption {
+	background-color: deepskyblue !important;
 }
