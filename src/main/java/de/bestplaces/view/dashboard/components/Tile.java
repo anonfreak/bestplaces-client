@@ -1,33 +1,76 @@
 package de.bestplaces.view.dashboard.components;
 
-import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Panel;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.*;
+import com.vaadin.ui.themes.Runo;
+import de.bestplaces.model.Place;
+
+import java.util.List;
 
 /**
  * Created by franz on 25.11.2016.
  */
 public class Tile extends Panel {
 
-    public Tile()
+    private RichTextArea placeName;
+
+    public Tile(Place place)
     {
-        GridLayout layout = new GridLayout(4,4);
+        VerticalLayout layout = new VerticalLayout();
 
-        Label placeName = new Label("Pizzeria Mustermann");
-        layout.addComponent(placeName,1, 1);
+        layout.addComponent(getPlaceName(place));
 
-        Label spaceForImage = new Label("Image");
-        layout.addComponent(spaceForImage,1,2);
+        ImagePanel images = new ImagePanel(place.getPictures(), true);
+        layout.addComponent(images);
 
-        Label spaceForImageTwo = new Label("Image2");
-        layout.addComponent(spaceForImageTwo,2,2);
+        Label address = new Label(place.getFormattedAddress());
+        layout.addComponent(address);
 
-        Label ort = new Label("Ort");
-        layout.addComponent(ort,1,3);
+        Label star;
+        HorizontalLayout starLayout = new HorizontalLayout();
+        for (int i = 0; i < place.getAverageStar() ; i++) {
+
+            star = new Label(FontAwesome.STAR.getHtml() + "");
+            star.setContentMode(ContentMode.HTML);
+            starLayout.addComponent(star);
+        }
+        layout.addComponent(starLayout);
+
+        String openNow = "Zur Zeit nicht geöffnet";
+        if(place.isOpenNow())
+        {
+            openNow = "Zur Zeit geöffnet";
+        }
+        Label open = new Label(openNow);
+        layout.addComponent(open);
 
         setContent(layout);
+    }
 
+    private RichTextArea getPlaceName(Place place) {
+        if(placeName == null)
+        {
+            placeName = new RichTextArea();
+            placeName.setValue("<html>\n" +
+                    "<head>\n" +
+                    "<style>\n" +
+                    "<body bgcolor=\"#104e8b\">\n" +
+                    "</style>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<font color=\"#104e8b\">" + place.getName() + "</font>" +
+                    "</body>\n" +
+                    "</html>");
+            placeName.setReadOnly(true);
+        }
+        return placeName;
+    }
 
+    public String getPlaceInformation(Place place)
+    {
+        //hier könnte ich auch die ID zurückgeben, damit ich mit ihr nach weiteren infos zum beispiel suchen kann
+        return place.getName();
     }
 
 }

@@ -34,7 +34,7 @@ public class Welcome extends VerticalLayout implements View {
         VerticalLayout layout = new VerticalLayout();
 
         Panel gross = new Panel();
-        gross.setHeight("576px");
+        gross.setHeight("450px");
 
         //Image above, Welcome Text and Buttons
         VerticalSplitPanel upPanel = new VerticalSplitPanel();

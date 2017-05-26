@@ -2,56 +2,58 @@ package de.bestplaces.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.navigator.View;
 import de.bestplaces.model.Address;
-import de.bestplaces.model.FullPlace;
-import de.bestplaces.model.Geo;
-import de.bestplaces.model.Review;
+import de.bestplaces.model.Place;
+import de.bestplaces.model.SearchResults;
+import de.bestplaces.model.User;
+import gherkin.lexer.Pl;
+import org.json.JSONArray;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by franz on 29.11.2016.
+ * Created by franz on 03.05.2017.
  */
-public class PlaceController {
+public class SearchController {
 
     private static String token;
 
-    public PlaceController()
+    public SearchController()
     {
         this.initJackson();
         token = "";
     }
 
+    public List<Place> search(String place, String town) throws UnirestException {
 
-    public void addPlace()
-    {
-
-    }
-
-    public void updatePlaceInformation()
-    {
-
-    }
-
-    public FullPlace getFullPlaceInformationToPlaceWithId(String placeId, String userId) throws UnirestException {
-
-        //Request mit id
-        HttpResponse<FullPlace> response = Unirest.get("http://mathtap.de:1194/place/" + placeId + "?userId=" + userId)
-                .header("Authorization", "Token " + getToken())
+        HttpResponse<SearchResults> response = Unirest.get("http://mathtap.de:1194/place/search")
+                .queryString("q",place)
+                .queryString("location",town)
+                .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
-                .asObject(FullPlace.class);
+                .asObject(SearchResults.class);
 
-        FullPlace place = response.getBody();
+        SearchResults results = response.getBody();
 
+        List<Place> placesList = results.getResults();
 
-        return place;
+        return placesList;
     }
+
+    public void searchMore()
+    {
+
+    }
+
 
     private String getToken(){
         if(token == ""){
@@ -82,4 +84,5 @@ public class PlaceController {
             }
         });
     }
+
 }

@@ -37,9 +37,7 @@
   // Insert your own theme rules here
 
   .backgroundimage {
-    background: url("img/city-1209105-1024x576.jpg") !important;
-    width: 1024px;
-    height: 576px;
+    background: url("img/Jersey_City_Banner.jpg") !important;
     background-size: cover;
   }
 
@@ -49,8 +47,16 @@
     line-height: normal;
   }
 
+  .newbackground {
+    background-color:#00bfff;
+  }
+
   .background {
     background: transparent;
+  }
+
+  .v.app .v-panel .v-panel-caption {
+    background-color: deepskyblue !important;
   }
 
 }
