@@ -6,7 +6,6 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.Validator;
 import com.vaadin.ui.Notification;
-import de.bestplaces.model.User;
 
 /**
  * Created by franz on 23.04.2017.

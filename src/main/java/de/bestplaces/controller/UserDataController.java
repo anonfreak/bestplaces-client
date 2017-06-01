@@ -6,16 +6,9 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.vaadin.ui.Notification;
 import de.bestplaces.model.User;
-import de.bestplaces.view.dashboard.components.EditUserData;
-import de.bestplaces.view.others.Login;
-import de.bestplaces.view.others.RegistrationWindow;
-import de.bestplaces.view.others.Success;
-import elemental.json.Json;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 /**
  * Created by franz on 25.11.2016.

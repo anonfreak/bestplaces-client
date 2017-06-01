@@ -11,7 +11,6 @@ import de.bestplaces.controller.SearchController;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.Place;
 
-import javax.xml.soap.Text;
 import java.util.List;
 
 /**

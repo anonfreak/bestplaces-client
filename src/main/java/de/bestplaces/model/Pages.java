@@ -2,7 +2,6 @@ package de.bestplaces.model;
 
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Resource;
-import org.apache.regexp.RE;
 
 /**
  * Created by kolbm on 01.05.2017.

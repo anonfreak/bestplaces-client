@@ -2,7 +2,6 @@ package de.bestplaces.view.others;
 
 import com.vaadin.ui.Window;
 import de.bestplaces.controller.NavigatorController;
-import de.bestplaces.controller.UserDataController;
 
 
 /**

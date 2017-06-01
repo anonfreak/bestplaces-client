@@ -2,7 +2,6 @@ package de.bestplaces.view.others;
 
 
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.vaadin.data.Validator;
 import com.vaadin.data.validator.EmailValidator;
 import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.FieldEvents;

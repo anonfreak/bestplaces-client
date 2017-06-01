@@ -7,8 +7,6 @@ import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Created by franz on 06.05.2017.

@@ -1,7 +1,6 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.server.ExternalResource;
-import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
 

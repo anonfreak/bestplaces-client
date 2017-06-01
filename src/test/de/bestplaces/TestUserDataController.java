@@ -1,20 +1,12 @@
 package de.bestplaces;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.ObjectMapper;
-import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import de.bestplaces.controller.UserDataController;
 import static org.junit.Assert.*;
 
-import junit.framework.TestCase;
-import org.apache.xpath.operations.String;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
-import java.io.IOException;
 
 /**
  * Created by franz on 30.04.2017.

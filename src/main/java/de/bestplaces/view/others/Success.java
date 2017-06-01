@@ -1,7 +1,6 @@
 package de.bestplaces.view.others;
 
 import com.vaadin.ui.*;
-import de.bestplaces.controller.NavigatorController;
 
 /**
  * Created by franz on 24.11.2016.

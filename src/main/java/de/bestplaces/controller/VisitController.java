@@ -17,7 +17,6 @@ public class VisitController {
 
 
     private static String token = "";
-    private static String username;
 
     public VisitController()
     {

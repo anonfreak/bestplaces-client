@@ -5,14 +5,9 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import de.bestplaces.model.Address;
 import de.bestplaces.model.FullPlace;
-import de.bestplaces.model.Geo;
-import de.bestplaces.model.Review;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by franz on 29.11.2016.

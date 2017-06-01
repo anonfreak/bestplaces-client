@@ -11,14 +11,13 @@ import de.bestplaces.model.Place;
  */
 public class Timeline extends VerticalLayout implements View{
     public static final String TIMELINE = "Timeline";
-    private NavigatorController navigatorController;
 
     private Label timeline;
     private Tile placeOne;
     private Tile placeTwo;
 
-    public Timeline(NavigatorController controller){
-        this.navigatorController = controller;
+    public Timeline(){
+
     }
 
     @Override
