@@ -37,12 +37,8 @@ public class UserDataController {
                     .body(user)
                     .asString();
 
-        if(response.getStatus() == 201){
-            return true;
-        } else {
+            return response.getStatus() == 201;
 
-            return false;
-        }
     }
 
     public boolean login(String username, String password) throws UnirestException {

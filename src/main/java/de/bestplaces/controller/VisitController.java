@@ -32,11 +32,8 @@ public class VisitController {
                 .body(testVisit)
                 .asJson();
 
-        if(response.getStatus() == 201){
-            return true;
-        } else {
-            return false;
-        }
+        return response.getStatus() == 201;
+
     }
 
     public static String getToken(){
@@ -67,25 +64,5 @@ public class VisitController {
                 }
             }
         });
-    }
-
-    public void updateVisit()
-    {
-
-    }
-
-    public void removeVisitFromTimeline()
-    {
-
-    }
-
-    public void markVisitAsFavorite()
-    {
-
-    }
-
-    public void removeVisitAsFavorite()
-    {
-
     }
 }

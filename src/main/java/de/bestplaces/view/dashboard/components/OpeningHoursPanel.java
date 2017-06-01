@@ -9,8 +9,8 @@ import de.bestplaces.model.FullPlace;
  */
 public class OpeningHoursPanel extends Panel {
 
-    FullPlace place;
-    RichTextArea openingTime;
+    private FullPlace place;
+    private RichTextArea openingTime;
 
     public OpeningHoursPanel(FullPlace place) {
 

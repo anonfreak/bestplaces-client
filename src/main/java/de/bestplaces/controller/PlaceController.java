@@ -22,17 +22,6 @@ public class PlaceController {
         token = "";
     }
 
-
-    public void addPlace()
-    {
-
-    }
-
-    public void updatePlaceInformation()
-    {
-
-    }
-
     public FullPlace getFullPlaceInformationToPlaceWithId(String placeId, String userId) throws UnirestException {
 
         //Request mit id

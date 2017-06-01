@@ -10,9 +10,9 @@ import de.bestplaces.model.FullPlace;
  */
 public class RatingPanel extends Panel {
 
-    FullPlace place;
-    RichTextArea contentTextArea;
-    Label stars;
+    private FullPlace place;
+    private RichTextArea contentTextArea;
+    private Label stars;
 
     public RatingPanel(FullPlace place) {
         this.place = place;

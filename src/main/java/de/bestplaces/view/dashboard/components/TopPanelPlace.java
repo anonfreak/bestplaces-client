@@ -13,13 +13,13 @@ import de.bestplaces.model.Pages;
  */
 public class TopPanelPlace extends Panel {
 
-    Button backButton;
-    Label name;
-    Button addToTimeline;
-    Button addToFavorite;
+    private Button backButton;
+    private Label name;
+    private Button addToTimeline;
+    private Button addToFavorite;
 
-    FullPlace place;
-    NavigatorController navigatorController;
+    private FullPlace place;
+    private NavigatorController navigatorController;
 
     public TopPanelPlace(FullPlace place, NavigatorController navigatorController) {
 

@@ -12,12 +12,7 @@ import com.vaadin.ui.Notification;
  */
 public class UserNameValidator implements Validator {
 
-    boolean isValid = true;
-
-    public UserNameValidator()
-    {
-
-    }
+    private boolean isValid = true;
 
     @Override
     public void validate(Object o) throws InvalidValueException {

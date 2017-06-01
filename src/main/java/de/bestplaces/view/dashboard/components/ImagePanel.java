@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ImagePanel extends Panel {
 
-    HorizontalLayout layout;
+    private HorizontalLayout layout;
 
     public ImagePanel(List<String> pictures, boolean showOnlyOnePicture) {
         layout = new HorizontalLayout();

@@ -7,8 +7,8 @@ import com.vaadin.data.Validator;
  */
 public class ConfirmPasswordValidator implements Validator {
 
-    boolean isValid;
-    String password;
+    private boolean isValid;
+    private String password;
 
     public ConfirmPasswordValidator(String password) {
         this.password = password;
