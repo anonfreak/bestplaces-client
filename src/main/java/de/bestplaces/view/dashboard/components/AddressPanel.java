@@ -1,6 +1,7 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.ui.*;
+import de.bestplaces.controller.PlaceController;
 import de.bestplaces.model.Address;
 import de.bestplaces.model.FullPlace;
 
@@ -34,7 +35,7 @@ public class AddressPanel extends Panel {
         if (addressSplitPanel == null)
         {
             addressSplitPanel = new HorizontalSplitPanel();
-            addressSplitPanel.setFirstComponent(new GoogleMapsPanel(place));
+            addressSplitPanel.setFirstComponent(new GoogleMapsPanel(place, PlaceController.googletoken));
             addressSplitPanel.setSecondComponent(getAddressLabel());
             addressSplitPanel.setSplitPosition(70);
             addressSplitPanel.setSizeFull();

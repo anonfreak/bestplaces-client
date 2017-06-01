@@ -15,10 +15,16 @@ import java.io.IOException;
 public class PlaceController {
 
     private static String token;
+    public static String googletoken;
 
     public PlaceController()
     {
         this.initJackson();
+        try {
+            this.setGoogleToken();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
         token = "";
     }
 
@@ -42,6 +48,13 @@ public class PlaceController {
             token = UserDataController.getToken();
         }
         return token;
+    }
+
+
+    public void setGoogleToken() throws UnirestException {
+        googletoken = Unirest.get("http://mathtap.de:1194/google-token/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .asString().getBody();
     }
 
     private void initJackson(){

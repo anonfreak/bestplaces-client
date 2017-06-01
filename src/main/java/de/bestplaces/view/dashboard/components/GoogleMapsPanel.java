@@ -1,6 +1,7 @@
 package de.bestplaces.view.dashboard.components;
 
 
+import com.mashape.unirest.http.Unirest;
 import com.vaadin.tapio.googlemaps.GoogleMap;
 import com.vaadin.tapio.googlemaps.client.LatLon;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker;
@@ -12,9 +13,10 @@ import de.bestplaces.model.FullPlace;
  */
 public class GoogleMapsPanel extends Panel {
 
-    public GoogleMapsPanel(FullPlace place)
+    public GoogleMapsPanel(FullPlace place, String apiKey)
     {
-        GoogleMap googleMap = new GoogleMap(null, null, null);
+
+        GoogleMap googleMap = new GoogleMap(apiKey, null, null);
         googleMap.setCenter(new LatLon(place.getGeo().getLatitude(), place.getGeo().getLongitude()));
         //Values from 1(far) to 20(near)
         googleMap.setZoom(15);

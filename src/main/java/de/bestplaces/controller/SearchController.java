@@ -61,8 +61,8 @@ public class SearchController {
     }
 
 
-    private String getToken(){
-        if(token == ""){
+    private String getToken() {
+        if (token == "") {
             token = UserDataController.getToken();
         }
         return token;
