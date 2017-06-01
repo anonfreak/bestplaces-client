@@ -7,6 +7,9 @@ import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 /**
  * Created by franz on 06.05.2017.
  */
@@ -79,6 +82,12 @@ public class TopPanelPlace extends Panel {
         if(addToTimeline == null)
         {
             addToTimeline = new Button(FontAwesome.CALENDAR);
+            addToTimeline.addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    navigatorController.openWindow(new DatePicker(place, navigatorController));
+                }
+            });
             addToTimeline.setDescription("Add this place to your Timeline");
             addToTimeline.setSizeFull();
         }
