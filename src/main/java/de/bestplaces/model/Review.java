@@ -1,7 +1,6 @@
 package de.bestplaces.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.regexp.RE;
 
 /**
  * Created by franz on 29.11.2016.

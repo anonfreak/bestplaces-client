@@ -1,21 +1,17 @@
 package de.bestplaces.view.others;
 
-import com.vaadin.event.MouseEvents;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
-import de.bestplaces.controller.UserDataController;
 
 /**
  * Created by franz on 25.11.2016.
  */
 public class Welcome extends VerticalLayout implements View {
         public static final String WELCOME = "Welcome";
-        private RegistrationWindow regWindow;
-        private Login loginWindow;
         private NavigatorController navigatorController;
 
     public Welcome(NavigatorController controller)

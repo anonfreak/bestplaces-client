@@ -2,7 +2,6 @@ package de.bestplaces.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.print.attribute.standard.QueuedJobCount;
 
 /**
  * Created by franz on 29.11.2016.

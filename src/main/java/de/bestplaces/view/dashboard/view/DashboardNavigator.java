@@ -4,10 +4,6 @@ package de.bestplaces.view.dashboard.view;
  * Created by franz on 28.11.2016.
  */
 
-import de.bestplaces.view.dashboard.event.DashboardEvent.BrowserResizeEvent;
-import de.bestplaces.view.dashboard.event.DashboardEvent.CloseOpenWindowsEvent;
-import de.bestplaces.view.dashboard.event.DashboardEvent.PostViewChangeEvent;
-import de.bestplaces.view.dashboard.view.DashboardViewType;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
@@ -28,7 +24,7 @@ public class DashboardNavigator extends Navigator {
     public DashboardNavigator(final ComponentContainer container) {
         super(UI.getCurrent(), container);
 
-        String host = getUI().getPage().getLocation().getHost();
+        getUI().getPage().getLocation().getHost();
 //        if (TRACKER_ID != null && host.endsWith("demo.vaadin.com")) {
 //            initGATracker(TRACKER_ID);
 //        }

@@ -3,10 +3,8 @@ package de.bestplaces.view.dashboard.components;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.Runo;
 import de.bestplaces.model.Place;
 
-import java.util.List;
 
 /**
  * Created by franz on 25.11.2016.

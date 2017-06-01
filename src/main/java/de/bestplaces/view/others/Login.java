@@ -3,7 +3,6 @@ package de.bestplaces.view.others;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.ShortcutAction;
-import com.vaadin.server.ErrorMessage;
 import com.vaadin.server.UserError;
 import com.vaadin.ui.*;
 import de.bestplaces.MyUI;

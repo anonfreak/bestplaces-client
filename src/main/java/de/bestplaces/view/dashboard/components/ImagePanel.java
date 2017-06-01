@@ -1,7 +1,6 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.server.ExternalResource;
-import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
 
@@ -12,7 +11,7 @@ import java.util.List;
  */
 public class ImagePanel extends Panel {
 
-    HorizontalLayout layout;
+    private HorizontalLayout layout;
 
     public ImagePanel(List<String> pictures, boolean showOnlyOnePicture) {
         layout = new HorizontalLayout();

@@ -9,10 +9,10 @@ import de.bestplaces.model.FullPlace;
  */
 public class AddressPanel extends Panel {
 
-    HorizontalSplitPanel addressSplitPanel;
-    RichTextArea contactPanel;
-    RichTextArea addressLabel;
-    FullPlace place;
+    private HorizontalSplitPanel addressSplitPanel;
+    private RichTextArea contactPanel;
+    private RichTextArea addressLabel;
+    private FullPlace place;
 
     public AddressPanel(FullPlace place) {
 

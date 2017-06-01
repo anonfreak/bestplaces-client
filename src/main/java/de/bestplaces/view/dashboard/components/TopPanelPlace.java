@@ -7,21 +7,19 @@ import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Created by franz on 06.05.2017.
  */
 public class TopPanelPlace extends Panel {
 
-    Button backButton;
-    Label name;
-    Button addToTimeline;
-    Button addToFavorite;
+    private Button backButton;
+    private Label name;
+    private Button addToTimeline;
+    private Button addToFavorite;
 
-    FullPlace place;
-    NavigatorController navigatorController;
+    private FullPlace place;
+    private NavigatorController navigatorController;
 
     public TopPanelPlace(FullPlace place, NavigatorController navigatorController) {
 

@@ -4,14 +4,11 @@ package de.bestplaces.view.dashboard.view;
  * Created by franz on 28.11.2016.
  */
 
-import de.bestplaces.MyUI;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.User;
 
 
-import de.bestplaces.view.dashboard.components.EditUserData;
-import de.bestplaces.view.dashboard.event.DashboardEvent.UserLoggedOutEvent;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinSession;
@@ -23,8 +20,6 @@ import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
-import com.vaadin.ui.DragAndDropWrapper;
-import com.vaadin.ui.DragAndDropWrapper.DragStartMode;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
@@ -33,7 +28,6 @@ import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 
-import static de.bestplaces.view.dashboard.components.EditUserData.EDITUSERDATA;
 
 /**
  * A responsive menu component providing user information and the controls for
@@ -47,12 +41,9 @@ public final class DashboardMenu extends CustomComponent {
     public static final String NOTIFICATIONS_BADGE_ID = "dashboard-menu-notifications-badge";
     private static final String STYLE_VISIBLE = "valo-menu-visible";
     private Label notificationsBadge;
-    private Label reportsBadge;
     private MenuItem settingsItem;
-    private NavigatorController navigatorController;
 
     public DashboardMenu(NavigatorController navigatorController) {
-        this.navigatorController = navigatorController;
         setPrimaryStyleName("valo-menu");
         setId(ID);
         setSizeUndefined();

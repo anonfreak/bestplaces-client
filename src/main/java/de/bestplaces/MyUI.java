@@ -2,22 +2,13 @@ package de.bestplaces;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.mashape.unirest.http.ObjectMapper;
-import com.mashape.unirest.http.Unirest;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
-import de.bestplaces.view.dashboard.components.EditUserData;
-import de.bestplaces.view.dashboard.components.Search;
-import de.bestplaces.view.dashboard.components.Timeline;
-import de.bestplaces.view.others.Welcome;
 
-import java.io.IOException;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 

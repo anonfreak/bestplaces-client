@@ -2,7 +2,6 @@ package de.bestplaces.view.dashboard.components;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;

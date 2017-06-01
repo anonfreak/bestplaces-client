@@ -2,6 +2,7 @@ package de.bestplaces.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -16,7 +17,6 @@ public class VisitController {
 
 
     private static String token = "";
-    private static String username;
 
     public VisitController()
     {
@@ -25,24 +25,16 @@ public class VisitController {
 
     public boolean addVisitToTimeline(Visit testVisit) throws UnirestException {
 
-        HttpResponse<String> response;
-
-        response = Unirest.post("http://mathtap.de:1194/user/")
+        HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
                 .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(testVisit)
-                .asString();
+                .asJson();
 
-        if(response.getStatus() == 201){
-            return true;
-        } else {
+        return response.getStatus() == 201;
 
-            return false;
-        }
     }
-
-
 
     public static String getToken(){
         if(token == ""){
@@ -72,25 +64,5 @@ public class VisitController {
                 }
             }
         });
-    }
-
-    public void updateVisit()
-    {
-
-    }
-
-    public void removeVisitFromTimeline()
-    {
-
-    }
-
-    public void markVisitAsFavorite()
-    {
-
-    }
-
-    public void removeVisitAsFavorite()
-    {
-
     }
 }

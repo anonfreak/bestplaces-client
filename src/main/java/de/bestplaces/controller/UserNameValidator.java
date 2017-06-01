@@ -6,19 +6,13 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.data.Validator;
 import com.vaadin.ui.Notification;
-import de.bestplaces.model.User;
 
 /**
  * Created by franz on 23.04.2017.
  */
 public class UserNameValidator implements Validator {
 
-    boolean isValid = true;
-
-    public UserNameValidator()
-    {
-
-    }
+    private boolean isValid = true;
 
     @Override
     public void validate(Object o) throws InvalidValueException {

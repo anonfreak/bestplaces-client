@@ -2,21 +2,13 @@ package de.bestplaces.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.vaadin.navigator.View;
-import de.bestplaces.model.Address;
 import de.bestplaces.model.Place;
 import de.bestplaces.model.SearchResults;
-import de.bestplaces.model.User;
-import gherkin.lexer.Pl;
-import org.json.JSONArray;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

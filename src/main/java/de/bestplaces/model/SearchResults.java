@@ -1,7 +1,6 @@
 package de.bestplaces.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import cucumber.api.java.eo.Se;
 
 import java.util.ArrayList;
 import java.util.List;
