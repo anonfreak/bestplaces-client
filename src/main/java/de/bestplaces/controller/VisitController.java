@@ -9,6 +9,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import de.bestplaces.model.Visit;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by franz on 29.11.2016.
@@ -43,6 +44,10 @@ public class VisitController {
         return token;
     }
 
+    public List<Visit> getVisits() {
+        return null;
+    }
+
     private void initJackson(){
         Unirest.setObjectMapper(new ObjectMapper() {
             private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
@@ -65,4 +70,5 @@ public class VisitController {
             }
         });
     }
+
 }

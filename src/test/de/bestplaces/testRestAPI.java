@@ -6,6 +6,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import de.bestplaces.controller.UserDataController;
 import de.bestplaces.model.Place;
 import de.bestplaces.model.User;
 import de.bestplaces.model.Visit;
@@ -123,5 +124,12 @@ public class testRestAPI {
                 .body(testVisit)
                 .asJson();
         assertEquals(201, response.getStatus());
+    }
+
+    @Test
+    public void getTokenGoogle() throws UnirestException {
+        System.out.println(Unirest.get("http://mathtap.de:1194/google-token/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .asString().getBody());
     }
 }

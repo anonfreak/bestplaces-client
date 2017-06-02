@@ -89,7 +89,7 @@ public class NavigatorController {
     private void addViewsToNavigator(){
         // Create and register the views
         navigator.addView("welcome", new Welcome(this));
-        navigator.addView(Pages.TIMELINE.toString(), new Timeline());
+        navigator.addView(Pages.TIMELINE.toString(), new Timeline(this));
         searchView = new Search(this);
         navigator.addView(Pages.SEARCH.toString(), searchView);
         navigator.addView(Pages.EDITUSERDATA.toString(), new EditUserData(this));

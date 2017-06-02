@@ -15,14 +15,14 @@ public class Address {
     @JsonProperty(value = "town")
     private String town;
     @JsonProperty(value = "zipCode")
-    private int zipCode;
+    private String zipCode;
 
     public Address()
     {
 
     }
 
-    public Address(String street, int houseNumber, String town, int zipCode) {
+    public Address(String street, int houseNumber, String town, String zipCode) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.town = town;
@@ -53,11 +53,11 @@ public class Address {
         this.town = town;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 }
