@@ -7,6 +7,7 @@ import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.VisitController;
 import de.bestplaces.model.FullPlace;
+import de.bestplaces.model.Pages;
 import de.bestplaces.model.Visit;
 import de.bestplaces.view.others.CustomizedWindow;
 
@@ -68,6 +69,7 @@ public class DatePicker extends CustomizedWindow {
                     boolean saved = visitController.addVisitToTimeline(visit);
                     if(saved)
                     {
+                        navigatorController.switchToView(Pages.TIMELINE);
                         close();
                     } else
                     {

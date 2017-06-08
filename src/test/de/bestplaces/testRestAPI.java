@@ -121,7 +121,7 @@ public class testRestAPI {
 
         Date date = new Date();
         date.setTime(1495742164);
-        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "Franzi", date, 10, "Sehr lecker");
+        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 10, "Sehr lecker");
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
                 .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
@@ -135,7 +135,7 @@ public class testRestAPI {
     @Test
     public void getVisitsofUser() throws UnirestException, IOException {
 
-        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=Franzi")
+        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=test")
                 .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")

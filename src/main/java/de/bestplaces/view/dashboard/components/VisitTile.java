@@ -15,7 +15,8 @@ public class VisitTile extends Panel{
 
     private Visit visit;
     private FullPlace fullPlace;
-    private HorizontalSplitPanel visitInfo;
+    private VerticalSplitPanel visitInfo;
+    private VerticalSplitPanel placeNameAndStars;
     private HorizontalLayout starLayout;
     private ImagePanel imagePanel;
 
@@ -27,30 +28,49 @@ public class VisitTile extends Panel{
         this.visit = visit;
         this.fullPlace = fullPlace;
 
-        HorizontalLayout layout = new HorizontalLayout();
+        HorizontalSplitPanel layout = new HorizontalSplitPanel();
+        layout.setWidth("597px");
+        layout.setHeight("150px");
+        layout.setSplitPosition(70);
 
-        layout.addComponent(getVisitInfo());
-        layout.addComponent(getStarLayout());
-        layout.addComponent(getImagePanel());
+        layout.setFirstComponent(getVisitInfo());
+        layout.setSecondComponent(getImagePanel());
 
         setContent(layout);
     }
 
-    public HorizontalSplitPanel getVisitInfo()
+    public VerticalSplitPanel getVisitInfo()
     {
         if(visitInfo == null)
         {
-            visitInfo = new HorizontalSplitPanel();
-            visitInfo.setFirstComponent(getPlaceName());
-            visitInfo.setSecondComponent(getDuration());
+            visitInfo = new VerticalSplitPanel();
+            visitInfo.addComponent(getPlaceNameAndStars());
+            visitInfo.addComponent(getDuration());
+            visitInfo.setSplitPosition(66);
+            visitInfo.setLocked(true);
+            visitInfo.setSizeFull();
         }
         return visitInfo;
+    }
+
+    public VerticalSplitPanel getPlaceNameAndStars() {
+        if(placeNameAndStars == null)
+        {
+            placeNameAndStars = new VerticalSplitPanel();
+            placeNameAndStars.addComponent(getPlaceName());
+            placeNameAndStars.addComponent(getStarLayout());
+            placeNameAndStars.setSizeFull();
+            placeNameAndStars.setSplitPosition(50);
+            placeNameAndStars.setLocked(true);
+        }
+        return placeNameAndStars;
     }
 
     public Label getPlaceName() {
         if(placeName == null)
         {
             placeName = new Label(fullPlace.getName());
+            placeName.setSizeFull();
         }
         return placeName;
     }
@@ -58,7 +78,16 @@ public class VisitTile extends Panel{
     public Label getDuration() {
         if(duration == null)
         {
-            duration = new Label("Starttime: " + visit.getVisitTime().getTime());
+            String time = visit.getVisitTime().getHours() + ":";
+            if(visit.getVisitTime().getMinutes() < 10)
+            {
+                time += "0" + visit.getVisitTime().getMinutes();
+            } else
+            {
+                time += visit.getVisitTime().getMinutes();
+            }
+            duration = new Label("Starttime: " + time);
+            duration.setSizeFull();
         }
         return duration;
     }

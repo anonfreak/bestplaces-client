@@ -26,14 +26,14 @@ public class TestVisitController {
 
         Date date = new Date();
         date.setTime(1495742164);
-        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "Franzi", date, 10, "Sehr lecker");
+        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 10, "Sehr lecker");
 
         assertEquals(true, visitController.addVisitToTimeline(testVisit));
     }
 
     @Test
     public void testGetVisits() throws UnirestException {
-        assertNotNull(visitController.getVisits("Franzi"));
+        assertNotNull(visitController.getVisits("test"));
     }
 
 }

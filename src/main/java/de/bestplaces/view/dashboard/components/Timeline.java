@@ -21,9 +21,7 @@ import java.util.List;
 public class Timeline extends VerticalLayout implements View{
     public static final String TIMELINE = "Timeline";
     private NavigatorController navigatorController;
-    private VisitController visitController;
-    private PlaceController placeController;
-
+    private TimelinePanel timelinePanel;
     private Label timeline;
 
     public Timeline(NavigatorController navigatorController){
@@ -33,6 +31,7 @@ public class Timeline extends VerticalLayout implements View{
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
 
+        removeAllComponents();
         try {
             init();
         } catch (UnirestException e) {
@@ -41,37 +40,19 @@ public class Timeline extends VerticalLayout implements View{
     }
 
     public void init() throws UnirestException {
-        visitController = navigatorController.getVisitController();
-        placeController = navigatorController.getPlaceController();
 
         addComponent(getLabel());
+        addComponent(getTimelinePanel());
+    }
 
-        List<Visit> visitList = visitController.getVisits(navigatorController.getUserDataController().getUsername());
 
-        // hier muss abgefragt werden, ob es das Datum schon gab, dann wird kein neues Label hinzugefügt
-        // villt Logik einbauen, dass Heute, Gestern, Vorgestern und dann Datum angezeigt wird
-        for(Visit visit : visitList )
+    public TimelinePanel getTimelinePanel() throws UnirestException {
+        if(timelinePanel == null)
         {
-            FullPlace fullPlace = placeController.getFullPlaceInformationToPlaceWithId(visit.getPlaceId(),
-                    visit.getUserString());
-            Date date = visit.getVisitTime();
-            addTimeLabel(date);
-            addVisit(visit, fullPlace);
+            timelinePanel = new TimelinePanel(navigatorController);
+            timelinePanel.setHeight("740px");
         }
-
-        setMargin(true);
-    }
-
-    public void addVisit(Visit visit, FullPlace fullPlace)
-    {
-        addComponent(new VisitTile(visit, fullPlace));
-    }
-
-    public void addTimeLabel(Date visitDate)
-    {
-        Label date = new Label();
-        date.setValue(visitDate.toString());
-        addComponent(date);
+        return timelinePanel;
     }
 
     private Label getLabel() {
