@@ -46,7 +46,7 @@ public class Timeline extends VerticalLayout implements View{
 
         addComponent(getLabel());
 
-        List<Visit> visitList = visitController.getVisits();
+        List<Visit> visitList = visitController.getVisits(navigatorController.getUserDataController().getUsername());
 
         // hier muss abgefragt werden, ob es das Datum schon gab, dann wird kein neues Label hinzugefügt
         // villt Logik einbauen, dass Heute, Gestern, Vorgestern und dann Datum angezeigt wird

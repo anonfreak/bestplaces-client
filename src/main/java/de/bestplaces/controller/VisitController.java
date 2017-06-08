@@ -7,6 +7,7 @@ import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import de.bestplaces.model.Visit;
+import de.bestplaces.model.VisitResults;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,15 +38,23 @@ public class VisitController {
 
     }
 
+    public List<Visit> getVisits(String username) throws UnirestException {
+        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=" + username)
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(VisitResults.class);
+
+        VisitResults results = response.getBody();
+        List<Visit> visitList = results.getResults();
+        return visitList;
+    }
+
     public static String getToken(){
         if(token == ""){
             token = UserDataController.getToken();
         }
         return token;
-    }
-
-    public List<Visit> getVisits() {
-        return null;
     }
 
     private void initJackson(){

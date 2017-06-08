@@ -31,4 +31,9 @@ public class TestVisitController {
         assertEquals(true, visitController.addVisitToTimeline(testVisit));
     }
 
+    @Test
+    public void testGetVisits() throws UnirestException {
+        assertNotNull(visitController.getVisits("Franzi"));
+    }
+
 }

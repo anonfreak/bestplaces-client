@@ -58,7 +58,7 @@ public class VisitTile extends Panel{
     public Label getDuration() {
         if(duration == null)
         {
-            duration = new Label("Sorry, not available at the moment");
+            duration = new Label("Starttime: " + visit.getVisitTime().getTime());
         }
         return duration;
     }
