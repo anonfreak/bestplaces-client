@@ -1,6 +1,7 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.event.MouseEvents;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
@@ -58,7 +59,15 @@ public class TimelinePanel extends Panel {
 
     public void addVisit(Visit visit, FullPlace fullPlace)
     {
-        layout.addComponent(new VisitTile(visit, fullPlace));
+        VisitTile visitTile = new VisitTile(visit, fullPlace);
+        visitTile.addClickListener(new MouseEvents.ClickListener() {
+            @Override
+            public void click(MouseEvents.ClickEvent clickEvent) {
+                navigatorController.setVisit(visit, fullPlace);
+                navigatorController.switchToView("VisitView");
+            }
+        });
+        layout.addComponent(visitTile);
     }
 
     public void addTimeLabel(String visitDate)
