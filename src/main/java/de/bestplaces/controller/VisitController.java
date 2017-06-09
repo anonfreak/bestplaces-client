@@ -50,6 +50,11 @@ public class VisitController {
         return visitList;
     }
 
+    public boolean updateVisit()
+    {
+        return true;
+    }
+
     public static String getToken(){
         if(token == ""){
             token = UserDataController.getToken();

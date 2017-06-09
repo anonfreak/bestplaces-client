@@ -60,7 +60,7 @@ public class VisitView extends VerticalSplitPanel implements View {
 
     private Panel getTopPanel() {
         if (topPanel == null) {
-            topPanel = new TopPanelVisit(place, navigatorController);
+            topPanel = new TopPanelVisit(place, navigatorController, visit);
         }
         return topPanel;
     }

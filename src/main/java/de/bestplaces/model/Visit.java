@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -75,6 +76,14 @@ public class Visit {
 
     public Date getVisitTime() {
         return visitTime;
+    }
+
+    public String getFormattedVisitTime()
+    {
+        Date today = getVisitTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm");
+        String time = formatter.format(today);
+        return time;
     }
 
     public void setVisitTime(Date visitTime) {

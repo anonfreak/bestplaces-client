@@ -9,6 +9,8 @@ import com.vaadin.ui.Panel;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
+import de.bestplaces.model.Visit;
+import gherkin.lexer.Vi;
 
 /**
  * Created by franzi on 09.06.2017.
@@ -23,11 +25,13 @@ public class TopPanelVisit extends Panel {
 
     private FullPlace place;
     private NavigatorController navigatorController;
+    private Visit visit;
 
-    public TopPanelVisit(FullPlace place, NavigatorController navigatorController) {
+    public TopPanelVisit(FullPlace place, NavigatorController navigatorController, Visit visit) {
 
         this.place = place;
         this.navigatorController = navigatorController;
+        this.visit = visit;
         HorizontalLayout layout = new HorizontalLayout();
         layout.setMargin(false);
         layout.setSizeFull();
@@ -102,6 +106,12 @@ public class TopPanelVisit extends Panel {
             editVisit = new Button(icon);
             editVisit.setDescription("Edit");
             editVisit.setSizeFull();
+            editVisit.addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    navigatorController.openWindow(new EditvisitWindow(visit, navigatorController));
+                }
+            });
         }
         return editVisit;
     }
