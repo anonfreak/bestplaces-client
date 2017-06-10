@@ -105,4 +105,12 @@ public class Visit {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 }

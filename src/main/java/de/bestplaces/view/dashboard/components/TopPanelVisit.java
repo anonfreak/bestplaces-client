@@ -109,7 +109,7 @@ public class TopPanelVisit extends Panel {
             editVisit.addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
-                    navigatorController.openWindow(new EditvisitWindow(visit, navigatorController));
+                    navigatorController.openWindow(new EditvisitWindow(visit, navigatorController, place));
                 }
             });
         }

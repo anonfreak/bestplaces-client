@@ -25,6 +25,8 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class testRestAPI {
 
+    Visit testVisit;
+
     @Before
     public void setMappers(){
         Unirest.setObjectMapper(new ObjectMapper() {
@@ -121,7 +123,7 @@ public class testRestAPI {
 
         Date date = new Date();
         date.setTime(1495742164);
-        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 10, "Sehr lecker");
+        testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 10, "Sehr lecker");
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
                 .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
@@ -151,5 +153,19 @@ public class testRestAPI {
         System.out.println(Unirest.get("http://mathtap.de:1194/google-token/")
                 .header("Authorization", "Token " + UserDataController.getToken())
                 .asString().getBody());
+    }
+
+    @Test
+    public void updateVisit() throws UnirestException {
+
+        Visit visit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", new Date(), 15, "Sehr lecker");
+
+        HttpResponse<JsonNode> response = Unirest.patch("http://mathtap.de:1194/visit/65/")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(visit)
+                .asJson();
+        assertEquals(200, response.getStatus());
     }
 }

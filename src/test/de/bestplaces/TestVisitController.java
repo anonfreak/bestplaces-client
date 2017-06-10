@@ -15,25 +15,31 @@ import static org.junit.Assert.*;
 public class TestVisitController {
 
     private VisitController visitController;
+    private Visit testVisit;
 
     @Before
     public void setUp() {
         visitController = new VisitController();
+        Date date = new Date();
+        date.setTime(1495742164);
+        testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 13, "Sehr lecker");
     }
 
     @Test
     public void testAddVisitToTimeline() throws UnirestException {
-
-        Date date = new Date();
-        date.setTime(1495742164);
-        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 10, "Sehr lecker");
-
         assertEquals(true, visitController.addVisitToTimeline(testVisit));
     }
 
     @Test
     public void testGetVisits() throws UnirestException {
         assertNotNull(visitController.getVisits("test"));
+    }
+
+    @Ignore
+    @Test
+    public void editVisit() throws UnirestException {
+        testVisit.setMoney(15);
+        assertEquals(true, visitController.updateVisit(testVisit));
     }
 
 }

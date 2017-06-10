@@ -10,6 +10,7 @@ import de.bestplaces.model.Visit;
 import de.bestplaces.model.VisitResults;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,9 +51,14 @@ public class VisitController {
         return visitList;
     }
 
-    public boolean updateVisit()
-    {
-        return true;
+    public boolean updateVisit(Visit visit) throws UnirestException {
+        HttpResponse<JsonNode> response = Unirest.patch("http://mathtap.de:1194/visit/"+ visit.getVisitId() + "/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(visit)
+                .asJson();
+        return response.getStatus() == 200;
     }
 
     public static String getToken(){

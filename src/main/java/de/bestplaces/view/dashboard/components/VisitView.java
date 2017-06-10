@@ -47,6 +47,7 @@ public class VisitView extends VerticalSplitPanel implements View {
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
 
+        removeAllComponents();
         init();
     }
 
