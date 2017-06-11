@@ -35,7 +35,7 @@ public class TimelinePanel extends Panel {
         placeController = navigatorController.getPlaceController();
 
 
-        List<Visit> visitList = visitController.getVisits(navigatorController.getUserDataController().getUsername());
+        List<Visit> visitList = visitController.getVisits();
 
         for(Visit visit : visitList )
         {

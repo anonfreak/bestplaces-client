@@ -18,9 +18,6 @@ import java.util.List;
  */
 public class VisitController {
 
-
-    private static String token = "";
-
     public VisitController()
     {
         this.initJackson();
@@ -29,7 +26,7 @@ public class VisitController {
     public boolean addVisitToTimeline(Visit testVisit) throws UnirestException {
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
-                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(testVisit)
@@ -39,8 +36,8 @@ public class VisitController {
 
     }
 
-    public List<Visit> getVisits(String username) throws UnirestException {
-        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=" + username)
+    public List<Visit> getVisits() throws UnirestException {
+        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=" + UserDataController.getUsername())
                 .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
@@ -51,21 +48,14 @@ public class VisitController {
         return visitList;
     }
 
-    public boolean updateVisit(Visit visit) throws UnirestException {
-        HttpResponse<JsonNode> response = Unirest.patch("http://mathtap.de:1194/visit/"+ visit.getVisitId() + "/")
+    public Visit updateVisit(Visit visit) throws UnirestException {
+        HttpResponse<Visit> response = Unirest.patch("http://mathtap.de:1194/visit/"+ visit.getVisitId() + "/")
                 .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(visit)
-                .asJson();
-        return response.getStatus() == 200;
-    }
-
-    public static String getToken(){
-        if(token == ""){
-            token = UserDataController.getToken();
-        }
-        return token;
+                .asObject(Visit.class);
+        return response.getBody();
     }
 
     private void initJackson(){

@@ -58,8 +58,8 @@ public class EditvisitWindow extends CustomizedWindow {
                 Visit visit = getFields();
                 VisitController visitController = navigatorController.getVisitController();
                 try {
-                    boolean succesfull = visitController.updateVisit(visit);
-                    if (succesfull)
+                    Visit succesfull = visitController.updateVisit(visit);
+                    if (!succesfull.getPlaceId().equals(""))
                     {
                         navigatorController.setVisit(visit, fullPlace);
                         navigatorController.switchToView("VisitView");
