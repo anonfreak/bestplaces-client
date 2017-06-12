@@ -1,6 +1,8 @@
 package de.bestplaces.view.dashboard.components;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.vaadin.data.validator.DoubleValidator;
+import com.vaadin.data.validator.IntegerValidator;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
 import de.bestplaces.controller.VisitController;
@@ -45,9 +47,14 @@ public class EditvisitWindow extends CustomizedWindow {
         spendMoneyField = new TextField("Spend Money");
         spendMoneyField.setValue(String.valueOf(visit.getMoney()));
         spendMoneyField.focus();
-        spendTimeField = new TextField("Spend Time");
-        //TODO: Sobal duration dabei ist, das hier ändern!!!!
-        spendTimeField.setValue(visit.getFormattedVisitTime());
+        spendMoneyField.addValidator(new DoubleValidator("Input must be like 4.50"));
+        spendMoneyField.setValidationVisible(true);
+
+        spendTimeField = new TextField("Spend Time (in min)");
+        spendTimeField.setValue(String.valueOf(visit.getDuration()));
+        spendTimeField.addValidator(new IntegerValidator("Input must be like 50"));
+        spendTimeField.setValidationVisible(true);
+
         notesField = new TextArea("Notes");
         notesField.setValue(visit.getNotes());
 

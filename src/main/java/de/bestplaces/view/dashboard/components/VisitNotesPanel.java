@@ -27,11 +27,11 @@ public class VisitNotesPanel extends Panel {
         if(visitNotes == null)
         {
             visitNotes = new RichTextArea();
-            String notes = "No Notes available!";
-            if (visit.getNotes() != null)
-            {
-                notes = visit.getNotes();
-            }
+            //String notes = "No Notes available!";
+            //if (visit.getNotes() != null)
+
+                String notes = visit.getNotes();
+
             visitNotes.setValue("<p>" + notes + "</p>");
 
             visitNotes.setReadOnly(true);

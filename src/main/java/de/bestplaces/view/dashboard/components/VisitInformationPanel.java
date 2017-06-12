@@ -39,8 +39,9 @@ public class VisitInformationPanel extends Panel {
 
     private String getDuration()
     {
-        String duration = "Not implemented yet!";
-        return duration;
+        //TODO: rauslöschen, wenn implementiert
+        visit.setDuration(90);
+        return String.valueOf(visit.getDuration());
     }
 
     private String getSpendMoney(){

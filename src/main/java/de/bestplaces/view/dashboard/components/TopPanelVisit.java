@@ -131,6 +131,7 @@ public class TopPanelVisit extends Panel {
                         boolean success = visitController.deleteVisit(visit);
                         if (success)
                         {
+                            navigatorController.setVisitViewBack();
                             navigatorController.switchToView(Pages.TIMELINE);
                         } else
                         {

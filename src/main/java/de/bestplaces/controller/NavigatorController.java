@@ -128,6 +128,7 @@ public class NavigatorController {
 
     public void setVisit(Visit visit, FullPlace place)
     {
+        setVisitViewBack();
         navigator.addView("VisitView", getVisitView());
         visitView.setVisit(visit, place);
     }
