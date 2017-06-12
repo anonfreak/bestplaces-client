@@ -47,4 +47,12 @@ public class TestVisitController extends AbstractRestTest {
         assertEquals(120.0, visitController.updateVisit(testVisit).getMoney(), 1);
     }
 
+    @Test
+    public void deleteVisit() throws UnirestException {
+        List<Visit> visits = visitController.getVisits();
+        Visit testVisit = visits.get(0);
+        assertEquals(true, visitController.deleteVisit(testVisit));
+
+    }
+
 }

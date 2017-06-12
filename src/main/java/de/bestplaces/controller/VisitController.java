@@ -58,6 +58,15 @@ public class VisitController {
         return response.getBody();
     }
 
+    public boolean deleteVisit(Visit visit) throws UnirestException {
+        HttpResponse<String> response = Unirest.delete("http://mathtap.de:1194/visit/"+ visit.getVisitId()+"/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .asString();
+
+        return response.getStatus() == 204;
+    }
+
     private void initJackson(){
         Unirest.setObjectMapper(new ObjectMapper() {
             private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper

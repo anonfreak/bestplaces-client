@@ -1,15 +1,15 @@
 package de.bestplaces.view.dashboard.components;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Panel;
+import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
+import de.bestplaces.controller.VisitController;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
 import de.bestplaces.model.Visit;
+import gherkin.lexer.Pa;
 import gherkin.lexer.Vi;
 
 /**
@@ -123,6 +123,24 @@ public class TopPanelVisit extends Panel {
             removeVisit = new Button(icon);
             removeVisit.setDescription("Remove Visit");
             removeVisit.setSizeFull();
+            removeVisit.addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    VisitController visitController = navigatorController.getVisitController();
+                    try {
+                        boolean success = visitController.deleteVisit(visit);
+                        if (success)
+                        {
+                            navigatorController.switchToView(Pages.TIMELINE);
+                        } else
+                        {
+                            Notification.show("Sorry, this doesn't work!");
+                        }
+                    } catch (UnirestException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
         return removeVisit;
     }

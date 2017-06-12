@@ -155,6 +155,7 @@ public class testRestAPI {
                 .asString().getBody());
     }
 
+    @Ignore
     @Test
     public void updateVisit() throws UnirestException {
 
@@ -167,5 +168,40 @@ public class testRestAPI {
                 .body(visit)
                 .asJson();
         assertEquals(200, response.getStatus());
+    }
+
+    @Ignore
+    @Test
+    public void deleteVisit() throws UnirestException {
+        //Visit erstellen und ID davon benutzen
+
+        Visit visit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", new Date(), 14, "Sehr lecker");
+
+        HttpResponse<JsonNode> response1 = Unirest.post("http://mathtap.de:1194/visit/")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(visit)
+                .asJson();
+
+        HttpResponse<VisitResults> response2 = Unirest.get("http://mathtap.de:1194/visit?username=test")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(VisitResults.class);
+
+        VisitResults results = response2.getBody();
+        List<Visit> visitList = results.getResults();
+
+        int size = visitList.size();
+        Visit createdVisit = visitList.get(size-1);
+
+        HttpResponse<String> response = Unirest.delete("http://mathtap.de:1194/visit/"+ createdVisit.getVisitId() +"/")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .asString();
+
+        assertEquals(204, response.getStatus());
+
     }
 }
