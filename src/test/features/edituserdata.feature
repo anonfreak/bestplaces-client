@@ -5,11 +5,11 @@ Feature: Edit User Data of BestPlaces Account
 
   Scenario: Change Something
     Given I am signed up
-    And loged in
-    When I press "Edit User Data" Button
+    And I am logged in
+    When I press the "Edit User Data"-Button
     And I see "Edit User view"
-    And I change my hometown from "Kalrsruhe" to "Durlach"
-    And I press "Save" Button
+    And I type "Durlach" in the "Hometown"-field
+    And I press the "Save"-Button
     Then I should see a "succes notification"
     And my changes should been saved
     And I should get navigated to the "Timeline"

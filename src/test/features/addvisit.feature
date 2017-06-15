@@ -14,4 +14,5 @@ Feature: Add Visit in Place View
     And I type "10:00" in the "Time"-field
     And I press the "Add"-Button
     And I press the "Timeline"-Button
-    Then I should see "Pizza Max" in the TImeline
+    Then I navigate to the "Timeline"
+    And I can see "Pizza Max"

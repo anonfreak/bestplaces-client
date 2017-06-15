@@ -6,9 +6,11 @@ package cucumber;
 
         import org.apache.commons.lang3.StringUtils;
         import org.apache.commons.lang3.text.WordUtils;
+        import org.eclipse.jetty.util.Jetty;
         import org.openqa.selenium.By;
         import org.openqa.selenium.Capabilities;
         import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
         import org.openqa.selenium.remote.RemoteWebDriver;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -20,8 +22,8 @@ public class SeleniumTest {
     private String baseUrl, browserName, browserVersion;
 
     public void setUp() throws Exception {
-
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\kolbm\\chromedriver.exe");
+        driver = new ChromeDriver();
         baseUrl = "http://localhost:8080/";
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
@@ -53,6 +55,10 @@ public class SeleniumTest {
         onPage("register");
     }
 
+
+    public boolean check(String element){
+        return driver.findElement(By.id(element)).isEnabled();
+    }
 
     public void checkpage(String arg1) {
         driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);

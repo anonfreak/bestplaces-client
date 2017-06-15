@@ -51,7 +51,7 @@ public class Login extends CustomizedWindow {
            passwordField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
 
            Button login = new Button("Login");
-           login.setId("loginWindowsButton");
+           login.setId("loginWindowButton");
            login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
            login.addClickListener(new Button.ClickListener() {
                public void buttonClick(Button.ClickEvent event) {

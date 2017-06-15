@@ -50,6 +50,22 @@ public class SignUpCucumber {
         helper.fillField(button, content);
     }
 
+    @When("^I select \"(.*?)\"")
+    public void select(String arg1){
+
+    }
+
+    @Then("^I navigate to (?:the )\"(.*?)\"")
+    public void navigate(String page){
+        helper.navigateTo(page);
+    }
+
+    @When("^I see \"(.*?)\"")
+    @Then("^I can see \"(.*?)\"")
+    public void checkElement(String element){
+        helper.check(element);
+    }
+
     @After
     public void destroy(){
         helper.tearDown();
