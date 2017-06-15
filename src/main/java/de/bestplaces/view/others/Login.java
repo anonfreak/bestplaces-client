@@ -22,6 +22,7 @@ public class Login extends CustomizedWindow {
     public Login()
        {
            super("Login to BestPlaces");
+           this.setId("loginWindow");
            center();
            setResizable(false);
            init();
@@ -38,6 +39,7 @@ public class Login extends CustomizedWindow {
            userNameField.setRequiredError("Username is required");
            userNameField.setImmediate(true);
            userNameField.setValidationVisible(true);
+           userNameField.setId("userNameField");
            userNameField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
 
            passwordField = new PasswordField("Password");
@@ -45,9 +47,11 @@ public class Login extends CustomizedWindow {
            passwordField.setRequiredError("Password is required");
            passwordField.setImmediate(true);
            passwordField.setValidationVisible(true);
+           passwordField.setId("passwordField");
            passwordField.addValidator(new StringLengthValidator("Must have 4 characters", 4, 100, false));
 
            Button login = new Button("Login");
+           login.setId("loginWindowsButton");
            login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
            login.addClickListener(new Button.ClickListener() {
                public void buttonClick(Button.ClickEvent event) {

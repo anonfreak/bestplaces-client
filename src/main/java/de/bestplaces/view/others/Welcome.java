@@ -45,8 +45,10 @@ public class Welcome extends VerticalLayout implements View {
         buttonPanel.setLocked(true);
 
         Button registerButton = new Button("Register Now");
+        registerButton.setId("registerButton");
         registerButton.addClickListener(clickEvent -> navigatorController.openWindow(new RegistrationWindow()));
         Button loginButton = new Button("Log In");
+        loginButton.setId("loginButton");
         loginButton.addClickListener(clickEvent -> navigatorController.openWindow(new Login()));
 
         buttonPanel.setSplitPosition(12, Sizeable.UNITS_PERCENTAGE);

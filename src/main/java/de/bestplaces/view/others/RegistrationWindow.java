@@ -34,7 +34,7 @@ public class RegistrationWindow extends CustomizedWindow {
         super("Registration on BestPlaces"); // Set window caption
         center();
         setSizeUndefined();
-
+        this.setId("registrationWindow");
         setResizable(false);
         init();
     }
@@ -66,6 +66,7 @@ public class RegistrationWindow extends CustomizedWindow {
             firstNameField = new TextField("First name");
             firstNameField.setRequired(true);
             firstNameField.focus();
+            firstNameField.setId("firstNameField");
 
             validateRequiredField(firstNameField, "Give first Name");
         }
@@ -88,6 +89,7 @@ public class RegistrationWindow extends CustomizedWindow {
     {
         lastNameField = new TextField("Last name");
         lastNameField.setRequired(true);
+        lastNameField.setId("lastNameField");
         validateRequiredField(lastNameField, "Give last Name");
     }
         return lastNameField;
@@ -101,6 +103,7 @@ public class RegistrationWindow extends CustomizedWindow {
         if (hometownField == null)
         {
             hometownField = new TextField("Hometown");
+            hometownField.setId("hometownField");
         }
         return hometownField;
     }
@@ -114,7 +117,7 @@ public class RegistrationWindow extends CustomizedWindow {
         {
             userNameField = new TextField("Username");
             userNameField.setRequired(true);
-
+            userNameField.setId("userNameField");
             validateRequiredField(userNameField, "Give a user name");
         }
 
@@ -160,7 +163,7 @@ public class RegistrationWindow extends CustomizedWindow {
         {
             passwordField = new PasswordField("Password");
             passwordField.setRequired(true);
-
+            passwordField.setId("passwordField");
             validateRequiredPasswordField(passwordField, "Give a password");
         }
         return passwordField;
@@ -182,6 +185,7 @@ public class RegistrationWindow extends CustomizedWindow {
         {
             confirmPasswordField = new PasswordField("Confirm Password");
             confirmPasswordField.setRequired(true);
+            confirmPasswordField.setId("confirmPasswordField");
 
             validateRequiredPasswordField(confirmPasswordField, "Confirm Password");
 
@@ -212,6 +216,7 @@ public class RegistrationWindow extends CustomizedWindow {
         {
             registerButton = new Button("Register");
             registerButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
+            registerButton.setId("registerWindowButton");
             registerButton.addClickListener(new Button.ClickListener() {
                 public void buttonClick(Button.ClickEvent event) {
 
@@ -241,6 +246,7 @@ public class RegistrationWindow extends CustomizedWindow {
         if (emailField == null)
         {
             emailField = new TextField("Email");
+            emailField.setId("emailField");
             emailField.addValidator(new EmailValidator("This is not a valid email address"));
         }
         return emailField;

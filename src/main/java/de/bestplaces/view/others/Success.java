@@ -23,6 +23,7 @@ public class Success extends CustomizedWindow {
 
         Label succesLabel = new Label("You are successfully registered.");
         Button loginButton = new Button("Login now");
+        loginButton.setId("login");
         loginButton.addClickListener(new Button.ClickListener() {
             public void buttonClick(Button.ClickEvent event) {
                 navigatorController.openWindow(new Login());
