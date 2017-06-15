@@ -1,39 +1,58 @@
 package de.bestplaces.view.dashboard.components;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
 import de.bestplaces.controller.NavigatorController;
+import de.bestplaces.controller.PlaceController;
+import de.bestplaces.controller.UserDataController;
+import de.bestplaces.controller.VisitController;
+import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Place;
+import de.bestplaces.model.Visit;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by franz on 24.11.2016.
  */
 public class Timeline extends VerticalLayout implements View{
     public static final String TIMELINE = "Timeline";
-
+    private NavigatorController navigatorController;
+    private TimelinePanel timelinePanel;
     private Label timeline;
-    private Tile placeOne;
-    private Tile placeTwo;
 
-    public Timeline(){
-
+    public Timeline(NavigatorController navigatorController){
+        this.navigatorController = navigatorController;
     }
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
-        init();
+
+        removeAllComponents();
+        try {
+            init();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void init()
-    {
+    public void init() throws UnirestException {
+
         addComponent(getLabel());
+        addComponent(getTimelinePanel());
+    }
 
-        //fake places
-        addComponent(getPlace());
-        addComponent(getPlaceTwo());
 
-        setMargin(true);
+    public TimelinePanel getTimelinePanel() throws UnirestException {
+        if(timelinePanel == null)
+        {
+            timelinePanel = new TimelinePanel(navigatorController);
+            timelinePanel.setHeight("740px");
+        }
+        return timelinePanel;
     }
 
     private Label getLabel() {
@@ -44,32 +63,4 @@ public class Timeline extends VerticalLayout implements View{
         }
         return timeline;
     }
-
-    private Tile getPlace()
-    {
-        Place place = new Place("eindeutig", "Pizza", null, "Fritz-Erler-Straße 1, 76133 Karlsruhe, Germany",
-                true, 4,null, null);
-
-        if(placeOne == null)
-        {
-            placeOne = new Tile(place);
-        }
-
-        return placeOne;
-    }
-
-    private Tile getPlaceTwo()
-    {
-        Place place2 = new Place("eindeutig", "Eismarie", null, "Karlsstraße 15, 76137 Karlsruhe, Germany",
-                true, 4,null, null);
-
-        if(placeTwo == null)
-        {
-            placeTwo = new Tile(place2);
-        }
-
-        return placeTwo;
-    }
-
-
 }

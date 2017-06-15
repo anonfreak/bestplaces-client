@@ -16,7 +16,7 @@ import java.io.IOException;
 public class UserDataController {
 
     private static String token = "";
-    private static String username;
+    private static String username= "";
 
     public UserDataController()
     {
@@ -41,8 +41,8 @@ public class UserDataController {
 
     }
 
-    public boolean login(String username, String password) throws UnirestException {
-        this.username = username;
+    public static boolean login(String username, String password) throws UnirestException {
+        UserDataController.username = username;
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/api-token-auth/").
                 header("Accept", "application/json").
@@ -101,7 +101,7 @@ public class UserDataController {
         return token;
     }
 
-    public String getUsername()
+    public static String getUsername()
     {
         return username;
     }

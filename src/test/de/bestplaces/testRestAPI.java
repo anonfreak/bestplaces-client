@@ -6,15 +6,17 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import de.bestplaces.model.Place;
-import de.bestplaces.model.User;
-import de.bestplaces.model.Visit;
+import de.bestplaces.controller.UserDataController;
+import de.bestplaces.model.*;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.io.DataInput;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -22,6 +24,8 @@ import static junit.framework.TestCase.assertEquals;
  * Created by franz on 02.12.2016.
  */
 public class testRestAPI {
+
+    Visit testVisit;
 
     @Before
     public void setMappers(){
@@ -96,25 +100,30 @@ public class testRestAPI {
         assertEquals(200, response.getStatus());
     }
 
-    @Ignore
     @Test
     public void search() throws UnirestException {
-        HttpResponse<Place[]> response = Unirest.get("http://mathtap.de:1194/place/search?q=" + "Pizza" + "&location=" + "Karlsruhe")
-            .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
-            .header("Accept", "application/json")
-            .header("Content-Type", "application/json")
-            .asObject(Place[].class);
+
+        HttpResponse<SearchResults> response = Unirest.get("http://mathtap.de:1194/place/search")
+                .queryString("q", "Pizza")
+                .queryString("location", "Karlsruhe")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(SearchResults.class);
+
+        SearchResults results = response.getBody();
+
+        List<Place> placesList = results.getResults();
 
         assertEquals(200, response.getStatus());
     }
-
 
     @Test
     public void addVisitToTimelineTest() throws UnirestException {
 
         Date date = new Date();
         date.setTime(1495742164);
-        Visit testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "Franzi", date, 10, "Sehr lecker");
+        testVisit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", date, 10, "Sehr lecker");
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
                 .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
@@ -123,5 +132,76 @@ public class testRestAPI {
                 .body(testVisit)
                 .asJson();
         assertEquals(201, response.getStatus());
+    }
+
+    @Test
+    public void getVisitsofUser() throws UnirestException, IOException {
+
+        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=test")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(VisitResults.class);
+
+        VisitResults results = response.getBody();
+        List<Visit> visitList = results.getResults();
+        assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    public void getTokenGoogle() throws UnirestException {
+        System.out.println(Unirest.get("http://mathtap.de:1194/google-token/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .asString().getBody());
+    }
+
+    @Ignore
+    @Test
+    public void updateVisit() throws UnirestException {
+
+        Visit visit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", new Date(), 15, "Sehr lecker");
+
+        HttpResponse<JsonNode> response = Unirest.patch("http://mathtap.de:1194/visit/65/")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(visit)
+                .asJson();
+        assertEquals(200, response.getStatus());
+    }
+
+    @Ignore
+    @Test
+    public void deleteVisit() throws UnirestException {
+        //Visit erstellen und ID davon benutzen
+
+        Visit visit = new Visit("ChIJd_6tlTcGl0cRVpRkbna3w68", "test", new Date(), 14, "Sehr lecker");
+
+        HttpResponse<JsonNode> response1 = Unirest.post("http://mathtap.de:1194/visit/")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(visit)
+                .asJson();
+
+        HttpResponse<VisitResults> response2 = Unirest.get("http://mathtap.de:1194/visit?username=test")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(VisitResults.class);
+
+        VisitResults results = response2.getBody();
+        List<Visit> visitList = results.getResults();
+
+        int size = visitList.size();
+        Visit createdVisit = visitList.get(size-1);
+
+        HttpResponse<String> response = Unirest.delete("http://mathtap.de:1194/visit/"+ createdVisit.getVisitId() +"/")
+                .header("Authorization", "Token ff1827e43d61b8b6a0440511c777cb0ffb27d5c9")
+                .header("Accept", "application/json")
+                .asString();
+
+        assertEquals(204, response.getStatus());
+
     }
 }

@@ -7,16 +7,16 @@ import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import de.bestplaces.model.Visit;
+import de.bestplaces.model.VisitResults;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by franz on 29.11.2016.
  */
 public class VisitController {
-
-
-    private static String token = "";
 
     public VisitController()
     {
@@ -26,7 +26,7 @@ public class VisitController {
     public boolean addVisitToTimeline(Visit testVisit) throws UnirestException {
 
         HttpResponse<JsonNode> response = Unirest.post("http://mathtap.de:1194/visit/")
-                .header("Authorization", "Token 80f8d09d703f70f7a30c5ecba4428f6376c16d6d")
+                .header("Authorization", "Token " + UserDataController.getToken())
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(testVisit)
@@ -36,11 +36,35 @@ public class VisitController {
 
     }
 
-    public static String getToken(){
-        if(token == ""){
-            token = UserDataController.getToken();
-        }
-        return token;
+    public List<Visit> getVisits() throws UnirestException {
+        HttpResponse<VisitResults> response = Unirest.get("http://mathtap.de:1194/visit?username=" + UserDataController.getUsername())
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .asObject(VisitResults.class);
+
+        VisitResults results = response.getBody();
+        List<Visit> visitList = results.getResults();
+        return visitList;
+    }
+
+    public Visit updateVisit(Visit visit) throws UnirestException {
+        HttpResponse<Visit> response = Unirest.patch("http://mathtap.de:1194/visit/"+ visit.getVisitId() + "/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(visit)
+                .asObject(Visit.class);
+        return response.getBody();
+    }
+
+    public boolean deleteVisit(Visit visit) throws UnirestException {
+        HttpResponse<String> response = Unirest.delete("http://mathtap.de:1194/visit/"+ visit.getVisitId()+"/")
+                .header("Authorization", "Token " + UserDataController.getToken())
+                .header("Accept", "application/json")
+                .asString();
+
+        return response.getStatus() == 204;
     }
 
     private void initJackson(){
@@ -65,4 +89,5 @@ public class VisitController {
             }
         });
     }
+
 }

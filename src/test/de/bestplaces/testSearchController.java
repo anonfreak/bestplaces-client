@@ -23,10 +23,9 @@ public class testSearchController {
         assertNotNull(searchController.search("Pizza", "Karlsruhe"));
     }
 
-    @Ignore
     @Test
     public void loadMorePlaces() throws UnirestException {
-       // assertEquals(searchController.searchMore());
+        assertNotNull(searchController.searchMore("Pizza"));
     }
 
 }

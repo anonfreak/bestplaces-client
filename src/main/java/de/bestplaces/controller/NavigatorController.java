@@ -6,10 +6,8 @@ import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.UI;
 import de.bestplaces.model.FullPlace;
 import de.bestplaces.model.Pages;
-import de.bestplaces.view.dashboard.components.EditUserData;
-import de.bestplaces.view.dashboard.components.PlaceView;
-import de.bestplaces.view.dashboard.components.Search;
-import de.bestplaces.view.dashboard.components.Timeline;
+import de.bestplaces.model.Visit;
+import de.bestplaces.view.dashboard.components.*;
 import de.bestplaces.view.others.*;
 
 
@@ -26,6 +24,7 @@ public class NavigatorController {
 
     private PlaceView placeView;
     private Search searchView;
+    private VisitView visitView;
 
 
     public NavigatorController(UI ui){
@@ -89,12 +88,13 @@ public class NavigatorController {
     private void addViewsToNavigator(){
         // Create and register the views
         navigator.addView("welcome", new Welcome(this));
-        navigator.addView(Pages.TIMELINE.toString(), new Timeline());
+        navigator.addView(Pages.TIMELINE.toString(), new Timeline(this));
         searchView = new Search(this);
         navigator.addView(Pages.SEARCH.toString(), searchView);
         navigator.addView(Pages.EDITUSERDATA.toString(), new EditUserData(this));
 
         navigator.addView("PlaceView", getPlaceView());
+        navigator.addView("VisitView", getVisitView());
     }
 
     public void setPlace(FullPlace place)
@@ -119,5 +119,26 @@ public class NavigatorController {
 
     public void setPlaceViewBack(){
         placeView = null;
+    }
+
+    public void setVisitViewBack()
+    {
+        visitView = null;
+    }
+
+    public void setVisit(Visit visit, FullPlace place)
+    {
+        setVisitViewBack();
+        navigator.addView("VisitView", getVisitView());
+        visitView.setVisit(visit, place);
+    }
+
+    public VisitView getVisitView()
+    {
+        if (visitView == null)
+        {
+            visitView = new VisitView(this);
+        }
+        return visitView;
     }
 }

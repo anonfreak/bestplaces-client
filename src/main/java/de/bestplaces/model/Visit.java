@@ -1,8 +1,10 @@
 package de.bestplaces.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -22,6 +24,9 @@ public class Visit {
     private double money;
     @JsonProperty(value = "notes")
     private String notes;
+    @JsonIgnore
+    @JsonProperty(value = "duration")
+    private int duration;
 
     public Visit()
     {
@@ -73,6 +78,14 @@ public class Visit {
         return visitTime;
     }
 
+    public String getFormattedVisitTime()
+    {
+        Date today = getVisitTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm");
+        String time = formatter.format(today);
+        return time;
+    }
+
     public void setVisitTime(Date visitTime) {
         this.visitTime = visitTime;
     }
@@ -91,5 +104,13 @@ public class Visit {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }
