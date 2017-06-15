@@ -5,13 +5,13 @@ Feature: Add Visit in Place View
 
   Scenario: Add Visit
     Given I am signed up
-    And logged in
+    And I am logged in
     When I press the "Search"-Button
     And I type "Pizza" in the "Search Bar"
     And I select "Pizza Max"
     And I press the "Calendar"-Button
     And I type "10/04/2017" in the "Date"-field
     And I type "10:00" in the "Time"-field
-    And I click on the "Add"-Button
-    And I press the "Timeline"-Button in the Dashboard
+    And I press the "Add"-Button
+    And I press the "Timeline"-Button
     Then I should see "Pizza Max" in the TImeline

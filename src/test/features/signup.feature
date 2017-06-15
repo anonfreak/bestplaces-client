@@ -5,7 +5,7 @@ Feature: Sign up to BestPlaces
   so that I have an account
 
   Scenario: Registration
-    Given I am on the "Welcome Page" of BestPlaces
+    Given I am on the "Welcome" Page
     When I press the button "Register now"
     And I see the registration form
     And I enter "Maximilian" in the input field "first name"
@@ -17,7 +17,7 @@ Feature: Sign up to BestPlaces
     And I click on the button "Register"
     Then I should see the "Success Message"
   Scenario: Registration with wrong confirm password
-    Given I am on the "Welcome Page" of BestPlaces
+    Given I am on the "Welcome" Page
     When I press the button "Register now"
     And I see the registration form
     And I enter "Maximilian" in the input field "first name"
@@ -29,7 +29,7 @@ Feature: Sign up to BestPlaces
     Then I should see an error message "password not equal"
     And I should enter the password again
   Scenario: Registration with username already exists
-    Given I am on the "Welcome Page" of BestPlaces
+    Given I am on the "Welcome" Page
     When I press the button "Register now"
     And I see the registration form
     And I enter "Maximilian" in the input field "first name"
