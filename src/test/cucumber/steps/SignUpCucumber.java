@@ -32,7 +32,6 @@ public class SignUpCucumber {
 
     @Given("^I am signed up$")
     public void signUp() {
-
     }
 
     @Given("^I am logged in$")
@@ -55,13 +54,12 @@ public class SignUpCucumber {
 
     }
 
-    @Then("^I navigate to (?:the )\"(.*?)\"")
+    @Then("^I navigate to (?:the )\"(.*?)\".*")
     public void navigate(String page){
         helper.navigateTo(page);
     }
 
-    @When("^I see \"(.*?)\"")
-    @Then("^I can see \"(.*?)\"")
+    @Then("^I (?:can )?see (?:the )?\"(.*?)\".*")
     public void checkElement(String element){
         helper.check(element);
     }

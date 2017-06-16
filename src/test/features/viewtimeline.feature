@@ -6,12 +6,14 @@ Feature: View the Timeline on BestPlaces
 
   Scenario: View Timeline
     Given I am signed up
-    And Loged in
-    When I press in the Dashboard the "Timeline" Button
-    Then I should see the "Timeline"
+    And I am logged in
+    When I press the "Timeline"-Button
+    Then I see "Timeline"
 
   Scenario: View older Visits
-    Given I am in the "Timeline"
+    Given I am signed up
+    And I am logged in
+    And I navigate to the "Timeline"
     And I can see my ten last "Visits"
     When I scroll
     Then I should see ten more "Visits"

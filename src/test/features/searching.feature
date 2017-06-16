@@ -1,15 +1,16 @@
-#noinspection CucumberUndefinedStep
 Feature: Searching
 
   As a user
   I want to search for places by providing name and location
 
   Scenario: near current location
-    Given I pressed the "Search Bar"
-    And The current location is "Karlsruhe"
-    When I enter "Pizza" in search bar
-    And I press "Search"
-    Then I should see "Search "results" for "Pizza" in "Karlsruhe"
+    Given I am signed up
+    And I am logged in
+    And I navigate to the "Timeline" Page
+    When I type "Pizza" in "search bar"
+    And I press
+    And I press the "Search"-Button
+    Then I should see "Pizza Max"
   Scenario: specifiy location
     Given I pressed the "Search Bar"
     When I press on the "Navigator symbol"

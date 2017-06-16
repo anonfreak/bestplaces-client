@@ -1,4 +1,3 @@
-#noinspection CucumberUndefinedStep
 Feature: Manage Favorites
 
   As a user
