@@ -9,11 +9,3 @@ Feature: View the Timeline on BestPlaces
     And I am logged in
     When I press the "Timeline"-Button
     Then I see "Timeline"
-
-  Scenario: View older Visits
-    Given I am signed up
-    And I am logged in
-    And I navigate to the "Timeline"
-    And I can see my ten last "Visits"
-    When I scroll
-    Then I should see ten more "Visits"

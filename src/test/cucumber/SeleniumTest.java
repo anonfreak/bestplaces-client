@@ -81,6 +81,7 @@ public class SeleniumTest {
     }
 
     public void login(){
+        goToPage("Welcome");
         clickButton("login");
         fillField("userName", "test");
         fillField("password", "test");
