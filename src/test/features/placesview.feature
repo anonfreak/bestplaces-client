@@ -5,17 +5,17 @@ Feature: Places View for Searching
 
   Scenario: Data is available
     Given I am signed up
-    And logged in
+    And I am logged in
     When I press the "Search"-Button
     And I type "Pizza" in the "Search Bar"
-    And I select the first result
+    And I select the "first" result
     Then I see information about the first result
 
   Scenario: Go back
     Given I am signed up
-    And logged in
+    And I am logged in
     When I press the "Search"-Button
     And I type "Pizza" in the "Search Bar"
-    And I select the first result
+    And I select the "first" result
     And I press the "Back"-Button
     Then I should see the search results for "pizza" again

@@ -83,7 +83,7 @@ public class SeleniumTest {
     public void login(){
         clickButton("login");
         fillField("userName", "test");
-        fillField("password", "Test");
+        fillField("password", "test");
         clickButton("loginWindow");
     }
 
