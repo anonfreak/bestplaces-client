@@ -105,6 +105,7 @@ public class TopPanelVisit extends Panel {
             FontAwesome icon = FontAwesome.EDIT;
             editVisit = new Button(icon);
             editVisit.setDescription("Edit");
+            editVisit.setId("editButton");
             editVisit.setSizeFull();
             editVisit.addClickListener(new Button.ClickListener() {
                 @Override
@@ -123,6 +124,7 @@ public class TopPanelVisit extends Panel {
             removeVisit = new Button(icon);
             removeVisit.setDescription("Remove Visit");
             removeVisit.setSizeFull();
+            removeVisit.setId("deleteButton");
             removeVisit.addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {

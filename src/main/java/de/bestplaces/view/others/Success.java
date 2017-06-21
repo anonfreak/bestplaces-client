@@ -10,6 +10,7 @@ public class Success extends CustomizedWindow {
     public Success()
     {
         super("Success");
+        this.setId("succesWindow");
         center();
         setResizable(false);
         init();

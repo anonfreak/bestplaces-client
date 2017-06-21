@@ -7,12 +7,12 @@ Feature: Add Visit in Place View
     Given I am signed up
     And I am logged in
     When I press the "Search"-Button
-    And I type "Pizza" in the "Search Bar"
+    And I type "Pizza" in "Search"-field
+    And I type "Berlin" in "Location"-field
     And I select "Pizza Max"
     And I press the "Calendar"-Button
     And I type "10/04/2017" in the "Date"-field
     And I type "10:00" in the "Time"-field
-    And I press the "Add"-Button
-    And I press the "Timeline"-Button
+    And I press the "Choose"-Button
     Then I navigate to the "Timeline"
     And I can see "Pizza Max"

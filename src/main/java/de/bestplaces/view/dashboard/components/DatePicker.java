@@ -54,6 +54,7 @@ public class DatePicker extends CustomizedWindow {
 
         Label dateLabel = new Label();
         Button choose = new Button("Choose");
+        choose.setId("chooseButton");
         choose.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {

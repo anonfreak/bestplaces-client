@@ -30,6 +30,7 @@ public class SearchBarPanel extends Panel {
 
         Button backButton = new Button("Back", FontAwesome.ARROW_LEFT);
         backButton.setDescription("Go back to Timeline");
+        backButton.setId("backButton");
         backButton.addClickListener(clickEvent -> {
             navigatorController.switchToView(Pages.TIMELINE);
             searchView.removeResultPanel();
@@ -42,12 +43,14 @@ public class SearchBarPanel extends Panel {
         search.setInputPrompt("Search for a place..");
         search.addValidator(new StringLengthValidator("Must not be empty",0,100,false));
         search.setSizeFull();
+        search.setId("searchField");
         layoutSearchBar.addComponent(search);
 
         location = new TextField();
         location.setInputPrompt("In which town do you want to search?");
         location.addValidator(new StringLengthValidator("Must not be empty",0,100,false));
         location.setSizeFull();
+        location.setId("locationField");
         layoutSearchBar.addComponent(location);
 
         Button searchButton = new Button("Search", FontAwesome.SEARCH);
@@ -64,6 +67,7 @@ public class SearchBarPanel extends Panel {
             }
         });
         searchButton.setSizeFull();
+        searchButton.setId("searchButton");
         layoutSearchBar.addComponent(searchButton);
 
         layoutSearchBar.setExpandRatio(backButton, 0.1f);

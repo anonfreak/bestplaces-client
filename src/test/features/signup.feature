@@ -15,7 +15,7 @@ Feature: Sign up to BestPlaces
     And I type "1234" in the "password"-field
     And I type "1234" in the "cornfirm password"-field
     And I press the "Register Window"-Button
-    Then I can see the "Success"-Message
+    Then I can see the "Success"-Window
   Scenario: Registration with wrong confirm password
     Given I can see the "Welcome" Page
     When I press the "Register now"-Button

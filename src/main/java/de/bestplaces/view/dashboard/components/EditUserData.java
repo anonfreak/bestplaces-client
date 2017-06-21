@@ -113,6 +113,7 @@ public class EditUserData extends FormLayout implements View {
         if (hometownField == null)
         {
             hometownField = new TextField("Hometown");
+            hometownField.setId("hometownField");
         }
         return hometownField;
     }
@@ -190,6 +191,7 @@ public class EditUserData extends FormLayout implements View {
         {
 
             saveChances = new Button("Save Changes");
+            saveChances.setId("saveButton");
             saveChances.addClickListener(new Button.ClickListener() {
                 public void buttonClick(Button.ClickEvent event) {
 

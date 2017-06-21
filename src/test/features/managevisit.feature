@@ -4,29 +4,23 @@ Feature: Manage Visits
   I want to manage my visits
   so that I can list and edit the places I have been
 
-  Scenario: List favorites
-    Given I am in the "Timeline"
-    And see the last 10 visits
-    When I press the Button "Map"
-    Then I should see the "Visit Map"
   Scenario: Delete favorite
-    Given I am in the "Timeline"
-    When I select a Visit
+    Given I see "Timeline"
+    When I select "Visit"
     And I see the "Visit View"
-    And I press the button "Delete"
-    Then I should be in the "Timeline" again
+    And I press the "Delete"-Button
+    Then I can see the "Timeline"
     And I shouldn't see the Visit in the "Timeline" anymore
   Scenario: View Place
-    Given I am in the "Timeline"
-    When I click a Visit
-    Then I should see information page this visit
+    Given I see "Timeline"
+    When I select "Visit"
+    Then I can see the "Visit view"
   Scenario: Edit Visit
-    Given I am in the "Visit View"
-    And I click the "Edit" Button
-    And I see the "Edit View"
-    And I change the amount of spend money
-    And I press the button "Save"
-    Then I should see a "succes notification"
-    And my changes should been saved
-    And I should get navigated to the "Timeline"
+    Given I see "Visit View"
+    And I press the "Edit"-Button
+    And I see the "Edit Visit"-Window
+    And I type "10" in the "Money"-field
+    And I press the "Save"-Button
+    Then I can see the "Visit View"
+    And the information about money is updated
 

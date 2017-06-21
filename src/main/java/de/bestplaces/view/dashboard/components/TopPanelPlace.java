@@ -80,6 +80,7 @@ public class TopPanelPlace extends Panel {
         if(addToTimeline == null)
         {
             addToTimeline = new Button(FontAwesome.CALENDAR);
+            addToTimeline.setId("calendarButton");
             addToTimeline.addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {

@@ -34,6 +34,7 @@ public class EditvisitWindow extends CustomizedWindow {
         this.visit=visit;
         this.navigatorController=navigatorController;
         this.fullPlace = fullPlace;
+        this.setId("editVisitWindow");
         center();
         setResizable(false);
         init();
@@ -49,6 +50,7 @@ public class EditvisitWindow extends CustomizedWindow {
         spendMoneyField.focus();
         spendMoneyField.addValidator(new DoubleValidator("Input must be like 4.50"));
         spendMoneyField.setValidationVisible(true);
+        spendMoneyField.setId("moneyField");
 
         spendTimeField = new TextField("Spend Time (in min)");
         spendTimeField.setValue(String.valueOf(visit.getDuration()));
@@ -59,6 +61,7 @@ public class EditvisitWindow extends CustomizedWindow {
         notesField.setValue(visit.getNotes());
 
         saveChanges = new Button("Save Changes");
+        saveChanges.setId("saveButton");
         saveChanges.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
