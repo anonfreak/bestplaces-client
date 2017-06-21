@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/features",
         glue = "cucumber.steps",
-        format = "pretty")
+        format = "pretty",
+tags = "~@ignore")
 public class CucumberRun {
 
 }

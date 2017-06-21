@@ -1,3 +1,4 @@
+@ignore
 Feature: Sign up to BestPlaces
 
   As a user

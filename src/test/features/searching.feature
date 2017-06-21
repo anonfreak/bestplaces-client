@@ -1,3 +1,4 @@
+
 Feature: Searching
 
   As a user
@@ -10,7 +11,7 @@ Feature: Searching
     When I type "Pizza" in "Search"-field
     And I type "Berlin" in "Location"-field
     And I press the "Search"-Button
-    Then I should see "Search results" for "Pizza" in "Berlin"
+    Then I can see "Search results" for "Pizza" in "Berlin"
 
 
 

@@ -4,21 +4,26 @@ package cucumber;
 
         import java.util.concurrent.TimeUnit;
 
+        import com.google.common.base.Function;
         import org.apache.commons.lang3.StringUtils;
         import org.apache.commons.lang3.text.WordUtils;
         import org.eclipse.jetty.util.Jetty;
         import org.openqa.selenium.By;
         import org.openqa.selenium.Capabilities;
         import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.WebElement;
         import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
         import org.openqa.selenium.remote.RemoteWebDriver;
+        import org.openqa.selenium.support.ui.ExpectedConditions;
+        import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 
 public class SeleniumTest {
 
     private WebDriver driver;
+    private WebDriverWait waiter;
     private String baseUrl, browserName, browserVersion;
 
     public void setUp() throws Exception {
@@ -26,16 +31,22 @@ public class SeleniumTest {
         driver = new ChromeDriver();
         baseUrl = "http://localhost:8080/";
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
         browserName = caps.getBrowserName();
         browserVersion = caps.getVersion();
         System.out.println("Running on " + browserName + " on version " + browserVersion);
+        waiter = new WebDriverWait(driver, 10);
     }
 
     public void navigateTo(String page){
-        driver.navigate().to("http://localhost:8080/#!" + page);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.navigate().to("http://localhost:8080//#!" + page.replaceAll(" ", ""));
     }
 
     public void tearDown() {
@@ -57,7 +68,7 @@ public class SeleniumTest {
 
 
     public boolean check(String element){
-        return driver.findElement(By.id(element)).isEnabled();
+        return driver.findElements(By.id(toCamelCase(element))).size()>0;
     }
 
     public void checkpage(String arg1) {
@@ -77,7 +88,9 @@ public class SeleniumTest {
     }
 
     public void fillField(String fieldName, String content){
-        driver.findElement(By.id(toCamelCase(fieldName)+"Field")).sendKeys(content);
+        WebElement el = driver.findElement(By.id(toCamelCase(fieldName)+"Field"));
+        el.clear();
+        el.sendKeys(content);
     }
 
     public void login(){
@@ -100,5 +113,10 @@ public class SeleniumTest {
 
     public void home(){
         driver.navigate().to(baseUrl);
+    }
+
+    public boolean checkTextInField(String content, String elementId) {
+        WebElement element = driver.findElement(By.id(toCamelCase(elementId)+"Field"));
+        return element.getText()==content;
     }
 }

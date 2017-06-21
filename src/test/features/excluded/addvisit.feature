@@ -1,3 +1,4 @@
+@ignore
 Feature: Add Visit in Place View
 
   As a user
@@ -6,7 +7,7 @@ Feature: Add Visit in Place View
   Scenario: Add Visit
     Given I am signed up
     And I am logged in
-    When I press the "Search"-Button
+    When I navigate to the "Search"
     And I type "Pizza" in "Search"-field
     And I type "Berlin" in "Location"-field
     And I select "Pizza Max"

@@ -1,3 +1,4 @@
+@ignore
 Feature: Manage Favorites
 
   As a user

@@ -1,3 +1,4 @@
+@ignore
 Feature: Places View for Searching
 
   As a user

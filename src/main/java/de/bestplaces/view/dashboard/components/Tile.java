@@ -17,6 +17,7 @@ public class Tile extends Panel {
     {
         VerticalLayout layout = new VerticalLayout();
 
+
         layout.addComponent(getPlaceName(place));
 
         ImagePanel images = new ImagePanel(place.getPictures(), true);

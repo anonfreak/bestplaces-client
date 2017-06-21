@@ -21,6 +21,8 @@ public class ResultPanel extends Panel{
     {
 
         this.navigatorController = navigatorController;
+
+        this.setId("searchResults");
         int numberOfPlaces = placesList.size();
         int rows = (numberOfPlaces/2);
         if(rows < 1)
@@ -33,6 +35,7 @@ public class ResultPanel extends Panel{
         for (Place place : placesList) {
             Tile tile = new Tile(place);
             tile.setSizeFull();
+            tile.setId("place"+place.getName().replaceAll(" ", ""));
             tile.addClickListener(new MouseEvents.ClickListener() {
                 @Override
                 public void click(MouseEvents.ClickEvent clickEvent) {

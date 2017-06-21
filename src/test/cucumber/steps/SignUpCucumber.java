@@ -64,6 +64,16 @@ public class SignUpCucumber {
         helper.check(element);
     }
 
+    @Then("I should see \"(.*?)\" in \"(.*?)\".*")
+    public void checkTextInField(String content, String element){
+        helper.checkTextInField(content, element);
+    }
+
+    @Then("I am at the \"(.*?)\"")
+    public void checkLocation(String location){
+        helper.checkpage(location);
+    }
+
     @After
     public void destroy(){
         helper.tearDown();

@@ -1,3 +1,4 @@
+@ignore
 Feature: View the Timeline on BestPlaces
 
   As a user
@@ -7,5 +8,5 @@ Feature: View the Timeline on BestPlaces
   Scenario: View Timeline
     Given I am signed up
     And I am logged in
-    When I press the "Timeline"-Button
-    Then I see "Timeline"
+    When I navigate to the "Timeline"
+    Then I am at the "Timeline"

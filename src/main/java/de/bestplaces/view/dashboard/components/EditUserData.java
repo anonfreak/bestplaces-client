@@ -138,6 +138,7 @@ public class EditUserData extends FormLayout implements View {
         if(passwordField == null)
         {
             passwordField = new PasswordField("old Password");
+            passwordField.setId("passwordField");
             passwordField.setRequired(true);
             validateRequiredPasswordField(passwordField, "Password is required");
 
