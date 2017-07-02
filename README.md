@@ -6,4 +6,4 @@
 This is the Client Application of our Project BestPlaces. It is coded in Java as using Vaadin as our Web-UI Framework.
 
 ## Installation
-To run the client Application by yourself, you will have to setup a Tomcat 8 server, running on Java-8. Afterwards, just navigate to the subfolder *webapps* in your tomcat installation folder and place our .war-File there. Then you should be able to access our Application by opening a browser and navigate to the local installation-URL.
+To run the client Application by yourself, you will have to setup a Tomcat 8 server, running on Java-8 and download our .war-File from the releases. Afterwards, just navigate to the subfolder *webapps* in your tomcat installation folder and place our .war-File there. Then you should be able to access our Application by opening a browser and navigate to the local installation-URL.
